@@ -36,4 +36,20 @@ public class CYRequest {
         }
     }
     
+    public func decode(_ data: Data, completionHandler: @escaping (Error?) -> Void) {
+        queue.async {
+            let decoder = JSONDecoder()
+            print(String(data: data, encoding: .utf8)!)
+            if false {
+                
+            }
+            else if let invalidResponse = try? decoder.decode(CYInvalidResponse.self, from: data) {
+                completionHandler(CYError.invalidResponse(description: invalidResponse.error))
+            }
+            else {
+                completionHandler(CYError.invalidResponse(description: "unexpected result"))
+            }
+        }
+    }
+    
 }
