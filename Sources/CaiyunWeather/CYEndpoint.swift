@@ -9,16 +9,16 @@ import Foundation
 
 public struct CYEndpoint: Codable, Equatable {
     let token: String
-    var coordinate: CYCoordinate = .defaultCoordinate
+    public var coordinate: CYCoordinate = .defaultCoordinate
     
-    var language: String = "zh_CN"
-    var measurementSystem: MeasurementSystem = .metric
+    public var language: String = "zh_CN"
+    public var measurementSystem: MeasurementSystem = .metric
     
-    var file: String = "weather.json"
-    var version: String = "v2.5"
+    public var file: String = "weather.json"
+    public var version: String = "v2.5"
     
-    var components: URLComponents { return getComponents() }
-    var url: URL! { return components.url }
+    public var components: URLComponents { return getComponents() }
+    public var url: URL! { return components.url }
 }
 
 extension CYEndpoint {
@@ -37,7 +37,7 @@ extension CYEndpoint {
         return components
     }
     
-    enum MeasurementSystem: String, Codable {
+    public enum MeasurementSystem: String, Codable {
         case metric
         case imperial
     }

@@ -18,18 +18,18 @@ public struct CYCoordinate: Codable, Equatable {
     // /// 高度
     // let elevation: Double
     
-    static let defaultCoordinate = CYCoordinate(longitude: .zero, latitude: .zero)
+    public static let defaultCoordinate = CYCoordinate(longitude: .zero, latitude: .zero)
 }
 
 // MARK: - Work with Core Location
 
 extension CYCoordinate {
-    init(_ coordinate: CLLocationCoordinate2D) {
+    public init(_ coordinate: CLLocationCoordinate2D) {
         self.init(longitude: coordinate.longitude, latitude: coordinate.latitude)
     }
     
     /// To `CLLocationCoordinate2D` objects.
-    var clLocationCoordinate2D: CLLocationCoordinate2D { return CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
+    public var clLocationCoordinate2D: CLLocationCoordinate2D { return CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
 }
 
 // MARK: - Work with CYResponse Codable
