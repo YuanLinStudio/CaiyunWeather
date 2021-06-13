@@ -17,6 +17,8 @@ struct CYCoordinate: Codable, Equatable {
     let latitude: CYCoordinateDegrees
     // /// 高度
     // let elevation: Double
+    
+    static let defaultCoordinate = CYCoordinate(longitude: .zero, latitude: .zero)
 }
 
 // MARK: - Work with Core Location

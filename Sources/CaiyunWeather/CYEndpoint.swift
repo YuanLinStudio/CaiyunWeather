@@ -9,7 +9,7 @@ import Foundation
 
 struct CYEndpoint: Codable, Equatable {
     let token: String
-    var coordinate: CYCoordinate
+    var coordinate: CYCoordinate = .defaultCoordinate
     
     var language: String = "zh_CN"
     var measurementSystem: MeasurementSystem = .metric

@@ -44,4 +44,15 @@
             
             XCTAssertEqual(endpoint, assertObject)
         }
+        
+        func testRequestValidResponded() {
+            let token = "test-token"
+            let request = CYRequest(token: token)
+            request.endpoint.coordinate = CYCoordinate(longitude: 10, latitude: 20)
+            XCTAssertEqual(request.endpoint.token, token)
+            request.request { data, error in
+                XCTAssertNotNil(data)
+                XCTAssertNil(error)
+            }
+        }
     }
