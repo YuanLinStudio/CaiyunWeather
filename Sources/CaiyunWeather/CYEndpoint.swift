@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CYEndpoint: Codable, Equatable {
+public struct CYEndpoint: Codable, Equatable {
     let token: String
     var coordinate: CYCoordinate = .defaultCoordinate
     

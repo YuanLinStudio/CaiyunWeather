@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 /// Use `CYCoordinate` to deal with CY API requests.
-struct CYCoordinate: Codable, Equatable {
+public struct CYCoordinate: Codable, Equatable {
     typealias CYCoordinateDegrees = Double
     /// 经度
     let longitude: CYCoordinateDegrees

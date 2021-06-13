@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CYRequest {
+public class CYRequest {
     
     /// The `CYEndpoint` object to which the request is sent to.
     var endpoint: CYEndpoint
