@@ -23,7 +23,10 @@ let package = Package(
         .target(
             name: "CaiyunWeather",
             dependencies: [],
-            resources: [.process("Memos.md")]
+            resources: [
+                .process("Memos.md"),
+                .process("Resources/Weather.json")
+            ]
         ),
         .testTarget(
             name: "CaiyunWeatherTests",

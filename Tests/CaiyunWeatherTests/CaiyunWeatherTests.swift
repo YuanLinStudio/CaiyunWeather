@@ -115,4 +115,36 @@
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
         }
+        
+        func testLocalized() {
+            let phenomenon: CYContent.Phenomenon = .cloudy
+            XCTAssertEqual(phenomenon.localized(), "Cloudy")
+        }
+        
+        func testLocalSourceResponse() {
+            let expectation = self.expectation(description: "response")
+            var testResponse: CYResponse?
+            var testError: Error?
+            var testAlarmCode: CYAlarm.AlarmContent.AlarmCode?
+            
+            let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            
+            let token = "invalid-token"
+            let request = CYRequest(token: token)
+            
+            request.decode(data) { response, error in
+                testResponse = response
+                testError = error
+                testAlarmCode = response!.result.alarm.content[0].code
+                expectation.fulfill()
+            }
+            
+            let assertAlarmCode = CYAlarm.AlarmContent.AlarmCode(type: .gale, level: .blue)
+            
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssertNil(testError)
+            XCTAssertNotNil(testResponse)
+            XCTAssertEqual(testAlarmCode, assertAlarmCode)
+        }
     }

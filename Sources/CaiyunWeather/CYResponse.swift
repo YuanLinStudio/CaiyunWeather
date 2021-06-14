@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CYResponse: Codable {
+public struct CYResponse: Codable, Equatable {
     /// 响应状态
     public let responseStatus: String
     /// API 版本

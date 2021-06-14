@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct CYResult: Codable {
+public struct CYResult: Codable, Equatable {
     /// 天气预警
-    //public let alarm: CYAlarm
+    public let alarm: CYAlarm
     /// 实况天气信息
     public let realtime: CYRealtime
     /// 逐分钟天气预报
@@ -23,7 +23,7 @@ public struct CYResult: Codable {
     let keypoint: String
     
     private enum CodingKeys: String, CodingKey {
-        //case alarm = "alert"
+        case alarm = "alert"
         case realtime
         //case minutely
         //case hourly

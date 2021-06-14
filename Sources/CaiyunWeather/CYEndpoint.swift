@@ -54,12 +54,12 @@ extension CYEndpoint {
         return components
     }
     
-    public enum MeasurementSystem: String, Codable {
+    public enum MeasurementSystem: String, Codable, Equatable {
         case metric
         case imperial
     }
     
-    public enum RequestLanguage: String, Codable {
+    public enum RequestLanguage: String, Codable, Equatable {
         case chineseSimplified = "zh_CN"
         case chineseTraditional = "zh_TW"
         case englishUS = "en_US"

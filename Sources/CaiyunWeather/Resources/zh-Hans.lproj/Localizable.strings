@@ -21,3 +21,29 @@
 "DUST" = "浮尘";
 "SAND" = "沙尘";
 "WIND" = "大风";
+
+// MARK: - Alarm Type
+
+"typhoon" = "台风";
+"rainstorm" = "暴雨";
+"snowstorm" = "暴雪";
+"cold-wave" = "寒潮";
+"gale" = "大风";
+"sandstorm" = "沙尘暴";
+"heat-wave" = "高温";
+"drought" = "干旱";
+"lightning" = "雷电";
+"hail" = "冰雹";
+"frost" = "霜冻";
+"heavy-fog" = "大雾";
+"haze" = "霾";
+"road-icing" = "道路结冰";
+"wild-fire" = "森林火险";
+"thunder-gust" = "雷雨大风";
+
+// MARK: - Alarm Level
+
+"blue" = "蓝色";
+"yellow" = "黄色";
+"orange" = "橙色";
+"red" = "红色";

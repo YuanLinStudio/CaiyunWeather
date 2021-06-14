@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CYInvalidResponse: Codable {
+struct CYInvalidResponse: Codable, Equatable {
     /// 状态
     let status: String
     /// 错误信息

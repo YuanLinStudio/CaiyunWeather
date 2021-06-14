@@ -21,3 +21,29 @@
 "DUST" = "Dust";
 "SAND" = "Sand";
 "WIND" = "Wind";
+
+// MARK: - Alarm Type
+
+"typhoon" = "Typhoon";
+"rainstorm" = "Rainstorm";
+"snowstorm" = "Snowstorm";
+"cold-wave" = "Cold Wave";
+"gale" = "Gale";
+"sandstorm" = "Sandstorm";
+"heat-wave" = "Heat Wave";
+"drought" = "Drought";
+"lightning" = "Lightning";
+"hail" = "Hail";
+"frost" = "Frost";
+"heavy-fog" = "Heavy Fog";
+"haze" = "Haze";
+"road-icing" = "Road Icing";
+"wild-fire" = "Wild Fire";
+"thunder-gust" = "Thunder Gust";
+
+// MARK: - Alarm Level
+
+"blue" = "Blue";
+"yellow" = "Yellow";
+"orange" = "Orange";
+"red" = "Red";

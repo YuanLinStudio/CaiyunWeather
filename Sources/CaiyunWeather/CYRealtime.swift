@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CYRealtime: Codable {
+public struct CYRealtime: Codable, Equatable {
     /// 响应状态
     public let responseStatus: String
     /// 温度

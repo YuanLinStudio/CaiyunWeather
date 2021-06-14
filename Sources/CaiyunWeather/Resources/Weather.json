@@ -1,0 +1,3310 @@
+{
+  "status": "ok",
+  "api_version": "v2.5",
+  "api_status": "active",
+  "lang": "en_US",
+  "unit": "imperial",
+  "tzshift": 28800,
+  "timezone": "Asia\/Shanghai",
+  "server_time": 1618398184,
+  "location": [
+    35.4904,
+    112.8641
+  ],
+  "result": {
+    "alert": {
+      "status": "ok",
+      "content": [
+        {
+          "province": "Shanxi Province",
+          "status": "Warning",
+          "code": "0501",
+          "description": "The Jincheng Meteorological 2021 issued a blue gale warning signal at 17:05 on April 14. Affected by the cold air, the city is expected to have the next 24 hours 4 ~ 5 class, a short period of 6 ~ 7 above gale weather. The relevant units and personnel are requested to prepare for windbreaks. Defense Guide: 1. The government and related departments shall do a good job in preventing gale according to their duties. 2. Close doors and windows, reinforce fences, scaffolding, billboards and other wind-sensitive structures, and properly handle outdoor items that are susceptible to high winds and cover construction materials. 3. Pedestrians should ride their bikes as little as possible and don\u2019t stay under billboards, temporary structures, etc. when the wind blows. 4. Relevant departments and units should pay attention to forest and grassland fire prevention.",
+          "alertId": "14050041600000_20210414171234",
+          "city": "Jincheng",
+          "adcode": "140500",
+          "pubtimestamp": 1618391756.0,
+          "latlon": [
+            35.490701,
+            112.851831
+          ],
+          "county": "None",
+          "source": "National Early Warning Information Release Center",
+          "request_status": "ok",
+          "location": "Jincheng, Shanxi",
+          "title": "Blue alert for Gale [ Level IV\/general ] issued by Jincheng Meteorological Bureau",
+          "_id": "6076b31576ad9174b0f9c95c",
+          "regionId": "unknown"
+        },
+        {
+          "province": "Shanxi Province",
+          "status": "Warning",
+          "code": "1101",
+          "description": "The 2021 of the Jincheng Meteorological Observatory issued a blue frost warning signal at 17:33 on April 14. Due to the impact of cold air, the minimum ground temperature in some villages and towns in Lingchuan County, Gaoping and Qinshui County mountains is expected to fall below 0 \u00b0C in the next 48 hours, which will adversely affect agriculture. Please take measures in advance. Defense Guide: 1. The government and the competent departments of Agriculture and forestry shall, in accordance with their duties, prepare for frost prevention. 2. Some protective measures should be taken for crop, vegetable, flower, fruit and forestry breeding. 3. Rural grass-roots organizations and farmers should pay attention to the local frost warning information in order to take measures to strengthen protection.",
+          "alertId": "14050041600000_20210414174208",
+          "city": "Jincheng",
+          "adcode": "140500",
+          "pubtimestamp": 1618393511.0,
+          "latlon": [
+            35.490701,
+            112.851831
+          ],
+          "county": "None",
+          "source": "National Early Warning Information Release Center",
+          "request_status": "ok",
+          "location": "Jincheng, Shanxi",
+          "title": "Jincheng Meteorological Bureau issued Blue Frost Alert [ Level IV\/General ]",
+          "_id": "6076ba5376ad9117b665fbe1",
+          "regionId": "unknown"
+        }
+      ]
+    },
+    "realtime": {
+      "status": "ok",
+      "temperature": 57.2,
+      "humidity": 0.21,
+      "cloudrate": 0.3,
+      "skycon": "PARTLY_CLOUDY_NIGHT",
+      "visibility": 18.64,
+      "dswrf": 436.1,
+      "wind": {
+        "speed": 6.03,
+        "direction": 157.0
+      },
+      "pressure": 92050.79,
+      "apparent_temperature": 51.44,
+      "precipitation": {
+        "local": {
+          "status": "ok",
+          "datasource": "radar",
+          "intensity": 0.0
+        },
+        "nearest": {
+          "status": "ok",
+          "distance": 57.32,
+          "intensity": 0.1875
+        }
+      },
+      "air_quality": {
+        "pm25": 28.0,
+        "pm10": 83.0,
+        "o3": 110.0,
+        "so2": 6.0,
+        "no2": 17.0,
+        "co": 0.7,
+        "aqi": {
+          "chn": 67.0,
+          "usa": 84.0
+        },
+        "description": {
+          "chn": "satisfactory",
+          "usa": "satisfactory"
+        }
+      },
+      "life_index": {
+        "ultraviolet": {
+          "index": 0.0,
+          "desc": "None"
+        },
+        "comfort": {
+          "index": 6,
+          "desc": "Cool"
+        }
+      }
+    },
+    "minutely": {
+      "status": "ok",
+      "datasource": "radar",
+      "precipitation_2h": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "precipitation": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "probability": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "Cloudy here but it's raining NW 57 mi away"
+    },
+    "hourly": {
+      "status": "ok",
+      "description": "cloudy over the next 24 hours",
+      "precipitation": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 0.0
+        }
+      ],
+      "temperature": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 57.2
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 54.71
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 52.22
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 49.01
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 46.7
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 44.6
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 41.54
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 41.0
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 41.36
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 41.72
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 44.6
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 47.84
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 51.08
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 54.68
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 58.28
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 61.88
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 65.84
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 68.72
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 69.44
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 69.8
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 69.62
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 69.08
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 67.5
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 65.75
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 63.83
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 60.87
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 56.67
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 52.63
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 49.2
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 46.22
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 45.15
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 44.04
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 43.07
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 42.15
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 41.49
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 41.0
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 45.8
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 48.05
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 50.43
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 52.73
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 55.04
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 57.56
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 60.26
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 62.8
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 68.0
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 67.76
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 67.15
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 65.97
+        }
+      ],
+      "wind": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "speed": 6.03,
+          "direction": 157.0
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "speed": 6.73,
+          "direction": 166.16
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "speed": 6.89,
+          "direction": 157.6
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "speed": 7.28,
+          "direction": 148.9
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "speed": 3.73,
+          "direction": 169.69
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "speed": 4.26,
+          "direction": 175.66
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "speed": 2.74,
+          "direction": 181.65
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "speed": 1.97,
+          "direction": 159.84
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "speed": 1.11,
+          "direction": 219.78
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "speed": 1.84,
+          "direction": 203.91
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "speed": 1.27,
+          "direction": 180.28
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "speed": 0.43,
+          "direction": 242.33
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "speed": 0.54,
+          "direction": 297.27
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "speed": 3.16,
+          "direction": 283.18
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "speed": 4.59,
+          "direction": 267.9
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "speed": 10.15,
+          "direction": 276.48
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "speed": 12.44,
+          "direction": 293.61
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "speed": 19.24,
+          "direction": 299.97
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "speed": 20.91,
+          "direction": 296.35
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "speed": 20.24,
+          "direction": 292.01
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "speed": 20.7,
+          "direction": 299.9
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "speed": 24.85,
+          "direction": 316.79
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "speed": 20.46,
+          "direction": 305.85
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "speed": 17.69,
+          "direction": 311.69
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "speed": 17.3,
+          "direction": 315.67
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "speed": 16.75,
+          "direction": 319.08
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "speed": 16.37,
+          "direction": 329.01
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "speed": 15.16,
+          "direction": 328.04
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "speed": 13.09,
+          "direction": 319.77
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "speed": 11.87,
+          "direction": 315.0
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "speed": 14.86,
+          "direction": 320.78
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "speed": 13.74,
+          "direction": 326.32
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "speed": 9.09,
+          "direction": 342.98
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "speed": 6.41,
+          "direction": 334.15
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "speed": 4.01,
+          "direction": 335.88
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "speed": 2.77,
+          "direction": 335.99
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "speed": 3.44,
+          "direction": 339.31
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "speed": 6.29,
+          "direction": 307.52
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "speed": 8.96,
+          "direction": 285.28
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "speed": 11.11,
+          "direction": 278.24
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "speed": 14.7,
+          "direction": 282.28
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "speed": 18.64,
+          "direction": 295.25
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "speed": 21.46,
+          "direction": 300.08
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "speed": 19.82,
+          "direction": 296.7
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "speed": 23.44,
+          "direction": 309.23
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "speed": 24.15,
+          "direction": 313.71
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "speed": 21.83,
+          "direction": 307.82
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "speed": 19.02,
+          "direction": 312.39
+        }
+      ],
+      "humidity": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 0.21
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 0.24
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 0.25
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 0.35
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 0.44
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 0.5
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 0.57
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 0.62
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 0.65
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 0.67
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 0.7
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 0.71
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 0.67
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 0.57
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 0.48
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 0.39
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 0.3
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 0.23
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 0.23
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 0.13
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 0.11
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 0.11
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 0.12
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 0.13
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 0.13
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 0.13
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 0.14
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 0.15
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 0.16
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 0.16
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 0.14
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 0.15
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 0.17
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 0.17
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 0.19
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 0.18
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 0.21
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 0.17
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 0.15
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 0.12
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 0.09
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 0.09
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 0.11
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 0.1
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 0.1
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 0.12
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 0.13
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 0.13
+        }
+      ],
+      "cloudrate": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 0.3
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 0.3
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 0.49
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 0.43
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 0.82
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 0.88
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 0.72
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 0.15
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 0.85
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 0.21
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 0.28
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 0.18
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 0.05
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 0.18
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 0.22
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 0.99
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 0.97
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 0.93
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 0.9
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 0.06
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 0.99
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 0.99
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 1.0
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 0.99
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 0.06
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 0.0
+        }
+      ],
+      "skycon": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": "FOG"
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": "FOG"
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": "CLEAR_DAY"
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": "FOG"
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": "CLEAR_DAY"
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": "FOG"
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": "CLEAR_DAY"
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": "WIND"
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": "CLEAR_DAY"
+        }
+      ],
+      "pressure": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 92050.786304
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 92051.3504
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 92095.1904
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 92051.3504
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 92095.1904
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 92051.3504
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 92015.1904
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 91891.3504
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 91855.1904
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 91891.3504
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 91855.1904
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 91855.1904
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 91855.1904
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 91855.1904
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 91890.786304
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 91935.1904
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 91890.786304
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 91853.9424
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 91853.378304
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 91773.9424
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 91694.626304
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 91817.218304
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 91933.378304
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 91935.1904
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 92015.1904
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 92174.506496
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 92175.1904
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 92255.1904
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 92335.1904
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 92333.9424
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 92298.346496
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 92218.346496
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 92175.1904
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 92176.4384
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 92175.754496
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 92211.3504
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 92255.1904
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 92255.1904
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 92256.4384
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 92335.1904
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 92256.4384
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 92254.506496
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 92173.9424
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 92095.1904
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 92093.9424
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 92093.9424
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 92173.9424
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 92253.9424
+        }
+      ],
+      "visibility": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 16.95
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 13.32
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 10.97
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 9.32
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 8.47
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 6.9
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 6.9
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 6.43
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 6.01
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 6.01
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 6.21
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 6.66
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 6.9
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 7.46
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 8.1
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 8.47
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 9.32
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 10.36
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 11.65
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 14.34
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 16.95
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 16.95
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 14.34
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 12.43
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 11.65
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 11.65
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 12.43
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 13.32
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 15.53
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 18.64
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 18.64
+        }
+      ],
+      "dswrf": [
+        {
+          "datetime": "2021-04-14T19:00+08:00",
+          "value": 436.0715904
+        },
+        {
+          "datetime": "2021-04-14T20:00+08:00",
+          "value": 363.1504928
+        },
+        {
+          "datetime": "2021-04-14T21:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T22:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-14T23:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T00:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T01:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T02:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T03:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T04:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T05:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T06:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T07:00+08:00",
+          "value": 10.0156
+        },
+        {
+          "datetime": "2021-04-15T08:00+08:00",
+          "value": 50.8486512
+        },
+        {
+          "datetime": "2021-04-15T09:00+08:00",
+          "value": 461.0683072
+        },
+        {
+          "datetime": "2021-04-15T10:00+08:00",
+          "value": 565.1642608
+        },
+        {
+          "datetime": "2021-04-15T11:00+08:00",
+          "value": 575.9347728
+        },
+        {
+          "datetime": "2021-04-15T12:00+08:00",
+          "value": 555.0984096
+        },
+        {
+          "datetime": "2021-04-15T13:00+08:00",
+          "value": 544.1934528
+        },
+        {
+          "datetime": "2021-04-15T14:00+08:00",
+          "value": 572.7569504
+        },
+        {
+          "datetime": "2021-04-15T15:00+08:00",
+          "value": 492.541952
+        },
+        {
+          "datetime": "2021-04-15T16:00+08:00",
+          "value": 473.014624
+        },
+        {
+          "datetime": "2021-04-15T17:00+08:00",
+          "value": 433.9396656
+        },
+        {
+          "datetime": "2021-04-15T18:00+08:00",
+          "value": 371.47172
+        },
+        {
+          "datetime": "2021-04-15T19:00+08:00",
+          "value": 305.909776
+        },
+        {
+          "datetime": "2021-04-15T20:00+08:00",
+          "value": 254.3337296
+        },
+        {
+          "datetime": "2021-04-15T21:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T22:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-15T23:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T00:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T01:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T02:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T03:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T04:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T05:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T06:00+08:00",
+          "value": 0.0
+        },
+        {
+          "datetime": "2021-04-16T07:00+08:00",
+          "value": 11.9844
+        },
+        {
+          "datetime": "2021-04-16T08:00+08:00",
+          "value": 57.3030512
+        },
+        {
+          "datetime": "2021-04-16T09:00+08:00",
+          "value": 419.4436
+        },
+        {
+          "datetime": "2021-04-16T10:00+08:00",
+          "value": 512.878736
+        },
+        {
+          "datetime": "2021-04-16T11:00+08:00",
+          "value": 606.2020752
+        },
+        {
+          "datetime": "2021-04-16T12:00+08:00",
+          "value": 682.1472752
+        },
+        {
+          "datetime": "2021-04-16T13:00+08:00",
+          "value": 737.8949216
+        },
+        {
+          "datetime": "2021-04-16T14:00+08:00",
+          "value": 773.9844656
+        },
+        {
+          "datetime": "2021-04-16T15:00+08:00",
+          "value": 853.4870976
+        },
+        {
+          "datetime": "2021-04-16T16:00+08:00",
+          "value": 775.0506976
+        },
+        {
+          "datetime": "2021-04-16T17:00+08:00",
+          "value": 681.0662976
+        },
+        {
+          "datetime": "2021-04-16T18:00+08:00",
+          "value": 580.0592464
+        }
+      ],
+      "air_quality": {
+        "aqi": [
+          {
+            "datetime": "2021-04-14T19:00+08:00",
+            "value": {
+              "chn": 67,
+              "usa": 67
+            }
+          },
+          {
+            "datetime": "2021-04-14T20:00+08:00",
+            "value": {
+              "chn": 46,
+              "usa": 46
+            }
+          },
+          {
+            "datetime": "2021-04-14T21:00+08:00",
+            "value": {
+              "chn": 47,
+              "usa": 47
+            }
+          },
+          {
+            "datetime": "2021-04-14T22:00+08:00",
+            "value": {
+              "chn": 49,
+              "usa": 49
+            }
+          },
+          {
+            "datetime": "2021-04-14T23:00+08:00",
+            "value": {
+              "chn": 51,
+              "usa": 51
+            }
+          },
+          {
+            "datetime": "2021-04-15T00:00+08:00",
+            "value": {
+              "chn": 54,
+              "usa": 54
+            }
+          },
+          {
+            "datetime": "2021-04-15T01:00+08:00",
+            "value": {
+              "chn": 57,
+              "usa": 57
+            }
+          },
+          {
+            "datetime": "2021-04-15T02:00+08:00",
+            "value": {
+              "chn": 61,
+              "usa": 61
+            }
+          },
+          {
+            "datetime": "2021-04-15T03:00+08:00",
+            "value": {
+              "chn": 65,
+              "usa": 65
+            }
+          },
+          {
+            "datetime": "2021-04-15T04:00+08:00",
+            "value": {
+              "chn": 69,
+              "usa": 69
+            }
+          },
+          {
+            "datetime": "2021-04-15T05:00+08:00",
+            "value": {
+              "chn": 71,
+              "usa": 71
+            }
+          },
+          {
+            "datetime": "2021-04-15T06:00+08:00",
+            "value": {
+              "chn": 74,
+              "usa": 74
+            }
+          },
+          {
+            "datetime": "2021-04-15T07:00+08:00",
+            "value": {
+              "chn": 77,
+              "usa": 77
+            }
+          },
+          {
+            "datetime": "2021-04-15T08:00+08:00",
+            "value": {
+              "chn": 80,
+              "usa": 80
+            }
+          },
+          {
+            "datetime": "2021-04-15T09:00+08:00",
+            "value": {
+              "chn": 82,
+              "usa": 82
+            }
+          },
+          {
+            "datetime": "2021-04-15T10:00+08:00",
+            "value": {
+              "chn": 82,
+              "usa": 82
+            }
+          },
+          {
+            "datetime": "2021-04-15T11:00+08:00",
+            "value": {
+              "chn": 81,
+              "usa": 81
+            }
+          },
+          {
+            "datetime": "2021-04-15T12:00+08:00",
+            "value": {
+              "chn": 79,
+              "usa": 79
+            }
+          },
+          {
+            "datetime": "2021-04-15T13:00+08:00",
+            "value": {
+              "chn": 77,
+              "usa": 77
+            }
+          },
+          {
+            "datetime": "2021-04-15T14:00+08:00",
+            "value": {
+              "chn": 75,
+              "usa": 75
+            }
+          },
+          {
+            "datetime": "2021-04-15T15:00+08:00",
+            "value": {
+              "chn": 72,
+              "usa": 72
+            }
+          },
+          {
+            "datetime": "2021-04-15T16:00+08:00",
+            "value": {
+              "chn": 71,
+              "usa": 71
+            }
+          },
+          {
+            "datetime": "2021-04-15T17:00+08:00",
+            "value": {
+              "chn": 69,
+              "usa": 69
+            }
+          },
+          {
+            "datetime": "2021-04-15T18:00+08:00",
+            "value": {
+              "chn": 66,
+              "usa": 66
+            }
+          },
+          {
+            "datetime": "2021-04-15T19:00+08:00",
+            "value": {
+              "chn": 64,
+              "usa": 64
+            }
+          },
+          {
+            "datetime": "2021-04-15T20:00+08:00",
+            "value": {
+              "chn": 60,
+              "usa": 60
+            }
+          },
+          {
+            "datetime": "2021-04-15T21:00+08:00",
+            "value": {
+              "chn": 57,
+              "usa": 57
+            }
+          },
+          {
+            "datetime": "2021-04-15T22:00+08:00",
+            "value": {
+              "chn": 56,
+              "usa": 56
+            }
+          },
+          {
+            "datetime": "2021-04-15T23:00+08:00",
+            "value": {
+              "chn": 55,
+              "usa": 55
+            }
+          },
+          {
+            "datetime": "2021-04-16T00:00+08:00",
+            "value": {
+              "chn": 54,
+              "usa": 54
+            }
+          },
+          {
+            "datetime": "2021-04-16T01:00+08:00",
+            "value": {
+              "chn": 52,
+              "usa": 52
+            }
+          },
+          {
+            "datetime": "2021-04-16T02:00+08:00",
+            "value": {
+              "chn": 50,
+              "usa": 50
+            }
+          },
+          {
+            "datetime": "2021-04-16T03:00+08:00",
+            "value": {
+              "chn": 49,
+              "usa": 49
+            }
+          },
+          {
+            "datetime": "2021-04-16T04:00+08:00",
+            "value": {
+              "chn": 49,
+              "usa": 49
+            }
+          },
+          {
+            "datetime": "2021-04-16T05:00+08:00",
+            "value": {
+              "chn": 49,
+              "usa": 49
+            }
+          },
+          {
+            "datetime": "2021-04-16T06:00+08:00",
+            "value": {
+              "chn": 51,
+              "usa": 51
+            }
+          },
+          {
+            "datetime": "2021-04-16T07:00+08:00",
+            "value": {
+              "chn": 52,
+              "usa": 52
+            }
+          },
+          {
+            "datetime": "2021-04-16T08:00+08:00",
+            "value": {
+              "chn": 55,
+              "usa": 55
+            }
+          },
+          {
+            "datetime": "2021-04-16T09:00+08:00",
+            "value": {
+              "chn": 57,
+              "usa": 57
+            }
+          },
+          {
+            "datetime": "2021-04-16T10:00+08:00",
+            "value": {
+              "chn": 60,
+              "usa": 60
+            }
+          },
+          {
+            "datetime": "2021-04-16T11:00+08:00",
+            "value": {
+              "chn": 62,
+              "usa": 62
+            }
+          },
+          {
+            "datetime": "2021-04-16T12:00+08:00",
+            "value": {
+              "chn": 64,
+              "usa": 64
+            }
+          },
+          {
+            "datetime": "2021-04-16T13:00+08:00",
+            "value": {
+              "chn": 64,
+              "usa": 64
+            }
+          },
+          {
+            "datetime": "2021-04-16T14:00+08:00",
+            "value": {
+              "chn": 62,
+              "usa": 62
+            }
+          },
+          {
+            "datetime": "2021-04-16T15:00+08:00",
+            "value": {
+              "chn": 61,
+              "usa": 61
+            }
+          },
+          {
+            "datetime": "2021-04-16T16:00+08:00",
+            "value": {
+              "chn": 59,
+              "usa": 59
+            }
+          },
+          {
+            "datetime": "2021-04-16T17:00+08:00",
+            "value": {
+              "chn": 56,
+              "usa": 56
+            }
+          },
+          {
+            "datetime": "2021-04-16T18:00+08:00",
+            "value": {
+              "chn": 52,
+              "usa": 52
+            }
+          }
+        ],
+        "pm25": [
+          {
+            "datetime": "2021-04-14T19:00+08:00",
+            "value": 28
+          },
+          {
+            "datetime": "2021-04-14T20:00+08:00",
+            "value": 32
+          },
+          {
+            "datetime": "2021-04-14T21:00+08:00",
+            "value": 33
+          },
+          {
+            "datetime": "2021-04-14T22:00+08:00",
+            "value": 34
+          },
+          {
+            "datetime": "2021-04-14T23:00+08:00",
+            "value": 36
+          },
+          {
+            "datetime": "2021-04-15T00:00+08:00",
+            "value": 38
+          },
+          {
+            "datetime": "2021-04-15T01:00+08:00",
+            "value": 41
+          },
+          {
+            "datetime": "2021-04-15T02:00+08:00",
+            "value": 44
+          },
+          {
+            "datetime": "2021-04-15T03:00+08:00",
+            "value": 47
+          },
+          {
+            "datetime": "2021-04-15T04:00+08:00",
+            "value": 50
+          },
+          {
+            "datetime": "2021-04-15T05:00+08:00",
+            "value": 52
+          },
+          {
+            "datetime": "2021-04-15T06:00+08:00",
+            "value": 54
+          },
+          {
+            "datetime": "2021-04-15T07:00+08:00",
+            "value": 57
+          },
+          {
+            "datetime": "2021-04-15T08:00+08:00",
+            "value": 59
+          },
+          {
+            "datetime": "2021-04-15T09:00+08:00",
+            "value": 61
+          },
+          {
+            "datetime": "2021-04-15T10:00+08:00",
+            "value": 61
+          },
+          {
+            "datetime": "2021-04-15T11:00+08:00",
+            "value": 60
+          },
+          {
+            "datetime": "2021-04-15T12:00+08:00",
+            "value": 58
+          },
+          {
+            "datetime": "2021-04-15T13:00+08:00",
+            "value": 57
+          },
+          {
+            "datetime": "2021-04-15T14:00+08:00",
+            "value": 55
+          },
+          {
+            "datetime": "2021-04-15T15:00+08:00",
+            "value": 53
+          },
+          {
+            "datetime": "2021-04-15T16:00+08:00",
+            "value": 52
+          },
+          {
+            "datetime": "2021-04-15T17:00+08:00",
+            "value": 50
+          },
+          {
+            "datetime": "2021-04-15T18:00+08:00",
+            "value": 48
+          },
+          {
+            "datetime": "2021-04-15T19:00+08:00",
+            "value": 46
+          },
+          {
+            "datetime": "2021-04-15T20:00+08:00",
+            "value": 43
+          },
+          {
+            "datetime": "2021-04-15T21:00+08:00",
+            "value": 41
+          },
+          {
+            "datetime": "2021-04-15T22:00+08:00",
+            "value": 40
+          },
+          {
+            "datetime": "2021-04-15T23:00+08:00",
+            "value": 39
+          },
+          {
+            "datetime": "2021-04-16T00:00+08:00",
+            "value": 38
+          },
+          {
+            "datetime": "2021-04-16T01:00+08:00",
+            "value": 37
+          },
+          {
+            "datetime": "2021-04-16T02:00+08:00",
+            "value": 35
+          },
+          {
+            "datetime": "2021-04-16T03:00+08:00",
+            "value": 34
+          },
+          {
+            "datetime": "2021-04-16T04:00+08:00",
+            "value": 34
+          },
+          {
+            "datetime": "2021-04-16T05:00+08:00",
+            "value": 34
+          },
+          {
+            "datetime": "2021-04-16T06:00+08:00",
+            "value": 36
+          },
+          {
+            "datetime": "2021-04-16T07:00+08:00",
+            "value": 37
+          },
+          {
+            "datetime": "2021-04-16T08:00+08:00",
+            "value": 39
+          },
+          {
+            "datetime": "2021-04-16T09:00+08:00",
+            "value": 41
+          },
+          {
+            "datetime": "2021-04-16T10:00+08:00",
+            "value": 43
+          },
+          {
+            "datetime": "2021-04-16T11:00+08:00",
+            "value": 45
+          },
+          {
+            "datetime": "2021-04-16T12:00+08:00",
+            "value": 46
+          },
+          {
+            "datetime": "2021-04-16T13:00+08:00",
+            "value": 46
+          },
+          {
+            "datetime": "2021-04-16T14:00+08:00",
+            "value": 45
+          },
+          {
+            "datetime": "2021-04-16T15:00+08:00",
+            "value": 44
+          },
+          {
+            "datetime": "2021-04-16T16:00+08:00",
+            "value": 42
+          },
+          {
+            "datetime": "2021-04-16T17:00+08:00",
+            "value": 40
+          },
+          {
+            "datetime": "2021-04-16T18:00+08:00",
+            "value": 37
+          }
+        ]
+      }
+    },
+    "daily": {
+      "status": "ok",
+      "astro": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "sunrise": {
+            "time": "05:57"
+          },
+          "sunset": {
+            "time": "19:00"
+          }
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "sunrise": {
+            "time": "05:55"
+          },
+          "sunset": {
+            "time": "19:01"
+          }
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "sunrise": {
+            "time": "05:54"
+          },
+          "sunset": {
+            "time": "19:02"
+          }
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "sunrise": {
+            "time": "05:53"
+          },
+          "sunset": {
+            "time": "19:02"
+          }
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "sunrise": {
+            "time": "05:52"
+          },
+          "sunset": {
+            "time": "19:03"
+          }
+        }
+      ],
+      "precipitation": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 0.0,
+          "min": 0.0,
+          "avg": 0.0
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 0.0,
+          "min": 0.0,
+          "avg": 0.0
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 0.0,
+          "min": 0.0,
+          "avg": 0.0
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 0.0,
+          "min": 0.0,
+          "avg": 0.0
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 0.0,
+          "min": 0.0,
+          "avg": 0.0
+        }
+      ],
+      "temperature": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 62.6,
+          "min": 44.6,
+          "avg": 51.97
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 69.8,
+          "min": 41.0,
+          "avg": 56.56
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 68.0,
+          "min": 41.0,
+          "avg": 53.96
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 69.8,
+          "min": 46.4,
+          "avg": 56.79
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 78.8,
+          "min": 46.4,
+          "avg": 61.28
+        }
+      ],
+      "wind": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": {
+            "speed": 13.12,
+            "direction": 330.17
+          },
+          "min": {
+            "speed": 1.92,
+            "direction": 242.53
+          },
+          "avg": {
+            "speed": 6.32,
+            "direction": 232.16
+          }
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": {
+            "speed": 24.85,
+            "direction": 316.79
+          },
+          "min": {
+            "speed": 0.43,
+            "direction": 242.33
+          },
+          "avg": {
+            "speed": 11.14,
+            "direction": 304.29
+          }
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": {
+            "speed": 24.15,
+            "direction": 313.71
+          },
+          "min": {
+            "speed": 2.77,
+            "direction": 335.99
+          },
+          "avg": {
+            "speed": 14.56,
+            "direction": 313.8
+          }
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": {
+            "speed": 15.05,
+            "direction": 334.89
+          },
+          "min": {
+            "speed": 1.91,
+            "direction": 209.98
+          },
+          "avg": {
+            "speed": 6.15,
+            "direction": 327.91
+          }
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": {
+            "speed": 14.59,
+            "direction": 156.8
+          },
+          "min": {
+            "speed": 1.97,
+            "direction": 121.62
+          },
+          "avg": {
+            "speed": 7.41,
+            "direction": 154.42
+          }
+        }
+      ],
+      "humidity": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 0.44,
+          "min": 0.11,
+          "avg": 0.3
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 0.71,
+          "min": 0.11,
+          "avg": 0.36
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 0.21,
+          "min": 0.09,
+          "avg": 0.14
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 0.27,
+          "min": 0.11,
+          "avg": 0.17
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 0.56,
+          "min": 0.27,
+          "avg": 0.34
+        }
+      ],
+      "cloudrate": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 1.0,
+          "min": 0.0,
+          "avg": 0.62
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 1.0,
+          "min": 0.0,
+          "avg": 0.65
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 1.0,
+          "min": 0.0,
+          "avg": 0.43
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 1.0,
+          "min": 0.0,
+          "avg": 0.43
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 1.0,
+          "min": 0.0,
+          "avg": 0.4
+        }
+      ],
+      "pressure": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 92735.19,
+          "min": 92050.79,
+          "avg": 92068.77
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 92335.19,
+          "min": 91694.63,
+          "avg": 91944.12
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 92618.91,
+          "min": 92093.94,
+          "avg": 92275.18
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 93012.6,
+          "min": 92495.19,
+          "avg": 92731.37
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 92691.35,
+          "min": 92014.51,
+          "avg": 92338.14
+        }
+      ],
+      "visibility": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 18.64,
+          "min": 14.99,
+          "avg": 18.64
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 18.64,
+          "min": 6.01,
+          "avg": 10.57
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 18.64,
+          "min": 11.65,
+          "avg": 16.94
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 18.64,
+          "min": 10.36,
+          "avg": 17.79
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 16.95,
+          "min": 5.48,
+          "avg": 9.34
+        }
+      ],
+      "dswrf": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "max": 852.5,
+          "min": 0.0,
+          "avg": 159.8
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "max": 575.9,
+          "min": 0.0,
+          "avg": 236.1
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "max": 853.5,
+          "min": 0.0,
+          "avg": 315.1
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "max": 859.9,
+          "min": 0.0,
+          "avg": 333.9
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "max": 829.5,
+          "min": 0.0,
+          "avg": 325.4
+        }
+      ],
+      "air_quality": {
+        "aqi": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "max": {
+              "chn": 71,
+              "usa": 71
+            },
+            "avg": {
+              "chn": 52.0,
+              "usa": 52.0
+            },
+            "min": {
+              "chn": 39,
+              "usa": 39
+            }
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "max": {
+              "chn": 82,
+              "usa": 82
+            },
+            "avg": {
+              "chn": 68.92,
+              "usa": 68.92
+            },
+            "min": {
+              "chn": 54,
+              "usa": 54
+            }
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "max": {
+              "chn": 64,
+              "usa": 64
+            },
+            "avg": {
+              "chn": 52.83,
+              "usa": 52.83
+            },
+            "min": {
+              "chn": 37,
+              "usa": 37
+            }
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "max": {
+              "chn": 66,
+              "usa": 66
+            },
+            "avg": {
+              "chn": 42.25,
+              "usa": 42.25
+            },
+            "min": {
+              "chn": 27,
+              "usa": 27
+            }
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "max": {
+              "chn": 86,
+              "usa": 86
+            },
+            "avg": {
+              "chn": 72.46,
+              "usa": 72.46
+            },
+            "min": {
+              "chn": 57,
+              "usa": 57
+            }
+          }
+        ],
+        "pm25": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "max": 52,
+            "avg": 32.6,
+            "min": 13
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "max": 61,
+            "avg": 50.25,
+            "min": 38
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "max": 46,
+            "avg": 37.5,
+            "min": 26
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "max": 48,
+            "avg": 29.83,
+            "min": 19
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "max": 64,
+            "avg": 53.04,
+            "min": 41
+          }
+        ]
+      },
+      "skycon": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        }
+      ],
+      "skycon_08h_20h": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "value": "PARTLY_CLOUDY_DAY"
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "value": "CLEAR_DAY"
+        }
+      ],
+      "skycon_20h_32h": [
+        {
+          "date": "2021-04-14T00:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "date": "2021-04-15T00:00+08:00",
+          "value": "PARTLY_CLOUDY_NIGHT"
+        },
+        {
+          "date": "2021-04-16T00:00+08:00",
+          "value": "CLEAR_NIGHT"
+        },
+        {
+          "date": "2021-04-17T00:00+08:00",
+          "value": "CLOUDY"
+        },
+        {
+          "date": "2021-04-18T00:00+08:00",
+          "value": "CLEAR_NIGHT"
+        }
+      ],
+      "life_index": {
+        "ultraviolet": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "index": "4",
+            "desc": "High"
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "index": "1",
+            "desc": "Weak"
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "index": "1",
+            "desc": "Weak"
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "index": "4",
+            "desc": "High"
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "index": "4",
+            "desc": "High"
+          }
+        ],
+        "carWashing": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "index": "2",
+            "desc": "More appropriate"
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "index": "2",
+            "desc": "More appropriate"
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "index": "1",
+            "desc": "Suitable"
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "index": "2",
+            "desc": "More appropriate"
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "index": "2",
+            "desc": "More appropriate"
+          }
+        ],
+        "dressing": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "index": "5",
+            "desc": "Cool"
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "index": "6",
+            "desc": "Cold"
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "index": "6",
+            "desc": "Cold"
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "index": "5",
+            "desc": "Cool"
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "index": "4",
+            "desc": "Warm"
+          }
+        ],
+        "comfort": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "index": "12",
+            "desc": "Clammy cold"
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "index": "11",
+            "desc": "Icy wind cold"
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "index": "11",
+            "desc": "Icy wind cold"
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "index": "12",
+            "desc": "Clammy cold"
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "index": "11",
+            "desc": "Icy wind cold"
+          }
+        ],
+        "coldRisk": [
+          {
+            "date": "2021-04-14T00:00+08:00",
+            "index": "3",
+            "desc": "Prone"
+          },
+          {
+            "date": "2021-04-15T00:00+08:00",
+            "index": "3",
+            "desc": "Prone"
+          },
+          {
+            "date": "2021-04-16T00:00+08:00",
+            "index": "3",
+            "desc": "Prone"
+          },
+          {
+            "date": "2021-04-17T00:00+08:00",
+            "index": "3",
+            "desc": "Prone"
+          },
+          {
+            "date": "2021-04-18T00:00+08:00",
+            "index": "3",
+            "desc": "Prone"
+          }
+        ]
+      }
+    },
+    "primary": 0,
+    "forecast_keypoint": "Cloudy here but it's raining NW 57 mi away"
+  }
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum CYError: Error {
+public enum CYError: Error, Equatable {
     
     case invalidResponse(description: String)
     
