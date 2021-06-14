@@ -17,7 +17,7 @@ public struct CYResponse: Codable {
     public let coordinate: CYCoordinate
     public let serverTime: Date
     public let serverTimeZone: TimeZone
-    //public let result: CYResult
+    public let result: CYResult
     
     private enum CodingKeys: String, CodingKey {
         case responseStatus = "status"
@@ -28,7 +28,7 @@ public struct CYResponse: Codable {
         case coordinate = "location"
         case serverTime = "server_time"
         case serverTimeZoneShift = "tzshift"
-        //case result
+        case result
     }
     
     public init(from decoder: Decoder) throws {
@@ -49,8 +49,7 @@ public struct CYResponse: Codable {
         let serverTimeShiftRaw = try container.decode(Int.self, forKey: .serverTimeZoneShift)
         serverTimeZone = TimeZone(secondsFromGMT: serverTimeShiftRaw)!
         
-        //result = try container.decode(CYResult.self, forKey: .result)
-        
+        result = try container.decode(CYResult.self, forKey: .result)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -70,6 +69,6 @@ public struct CYResponse: Codable {
         let serverTimeShiftRaw = serverTimeZone.secondsFromGMT()
         try container.encode(serverTimeShiftRaw, forKey: .serverTimeZoneShift)
         
-        //try container.encode(result, forKey: .result)
+        try container.encode(result, forKey: .result)
     }
 }
