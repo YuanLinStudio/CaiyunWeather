@@ -8,24 +8,35 @@
 import Foundation
 
 public struct CYRealtime: Codable {
+    /// 响应状态
+    public let responseStatus: String
+    /// 温度
+    public let temperature: Double
+    /// 体感温度
+    public let apparentTemperature: Double
+    /// 气压
+    public let pressure: Double
+    /// 湿度
+    public let humidity: Double
+    /// 云量
+    public let cloudrate: Double
+    /// 能见度
+    public let visibility: Double
+    /// Downward Short-Wave Radiation Flux, 向下短波辐射通量 (W/M2)
+    public let dswrf: Double
     
-    let responseStatus: String
-    let temperature: Double
-    let apparentTemperature: Double
-    let pressure: Double
-    let humidity: Double
-    let cloudrate: Double
-    let phenomenon: String
-    let visibility: Double
-    let dswrf: Double  // Downward Short-Wave Radiation Flux, 向下短波辐射通量 (W/M2)
-    
-    let wind: CYWind
-    let precipitation: Precipitation
-    let airQuality: AirQuality?
-    let lifeIndex: LifeIndex
+    /// 主要天气现象
+    public let phenomenon: CYContent.Phenomenon
+    /// 风向风力
+    public let wind: CYContent.Wind
+    /// 降水量
+    public let precipitation: CYContent.Precipitation
+    /// 空气质量
+    public let airQuality: CYContent.AirQuality?
+    /// 生活指数
+    public let lifeIndex: CYContent.LifeIndex
     
     private enum CodingKeys: String, CodingKey {
-        
         case responseStatus = "status"
         case temperature
         case apparentTemperature = "apparent_temperature"
@@ -39,61 +50,5 @@ public struct CYRealtime: Codable {
         case precipitation
         case airQuality = "air_quality"
         case lifeIndex = "life_index"
-    }
-}
-
-extension CYRealtime {
-    
-    struct Precipitation: Codable {
-        
-        let local: LocalPrecipitation
-        let nearest: NearestPrecipitation?
-        
-        struct LocalPrecipitation: Codable {
-            
-            let responseStatus: String
-            let datasource: String
-            let intensity: Double
-            
-            enum CodingKeys: String, CodingKey {
-                case responseStatus = "status"
-                case datasource
-                case intensity
-            }
-        }
-        
-        struct NearestPrecipitation: Codable {
-            
-            let responseStatus: String
-            let intensity: Double
-            let distance: Double
-            
-            enum CodingKeys: String, CodingKey {
-                case responseStatus = "status"
-                case intensity
-                case distance
-            }
-        }
-    }
-    
-    struct AirQuality: Codable {
-        let pm25: Double
-        let pm10: Double
-        let o3: Double
-        let so2: Double
-        let no2: Double
-        let co: Double
-        let aqi: AQI
-        let description: Description
-        
-        struct AQI: Codable {
-            let chn: Int
-            let usa: Int
-        }
-        
-        struct Description: Codable {
-            let chn: String
-            let usa: String
-        }
     }
 }

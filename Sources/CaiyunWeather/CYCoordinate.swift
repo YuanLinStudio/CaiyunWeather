@@ -18,6 +18,7 @@ public struct CYCoordinate: Codable, Equatable {
     // /// 高度
     // let elevation: Double
     
+    /// 默认坐标位置（经纬度均为 0）
     public static let defaultCoordinate = CYCoordinate(longitude: .zero, latitude: .zero)
 }
 

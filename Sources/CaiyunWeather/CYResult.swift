@@ -8,13 +8,18 @@
 import Foundation
 
 public struct CYResult: Codable {
-    
+    /// 天气预警
     //public let alarm: CYAlarm
+    /// 实况天气信息
     public let realtime: CYRealtime
+    /// 逐分钟天气预报
     //public let minutely: CYMinutely
+    /// 逐小时天气预报
     //public let hourly: CYHourly
+    /// 逐日天气预报
     //public let daily: CYDaily
     // let primary: Int
+    /// 天气要点
     let keypoint: String
     
     private enum CodingKeys: String, CodingKey {

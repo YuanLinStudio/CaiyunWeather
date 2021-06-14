@@ -8,11 +8,11 @@
 import Foundation
 
 struct CYInvalidResponse: Codable {
-    
-    // {"status":"failed", "error":"'token is invalid'", "api_version":"v2.5"}
-    
+    /// 状态
     let status: String
+    /// 错误信息
     let error: String
+    /// API 版本
     let version: String
     
     private enum CodingKeys: String, CodingKey {

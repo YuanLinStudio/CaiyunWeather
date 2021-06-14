@@ -8,15 +8,23 @@
 import Foundation
 
 public struct CYResponse: Codable {
-    
+    /// 响应状态
     public let responseStatus: String
+    /// API 版本
     public let version: String
+    /// API 状态
     public let apiStatus: String
+    /// 请求语言
     public let language: String
+    /// 单位制
     public let unit: String
+    /// 返回点坐标
     public let coordinate: CYCoordinate
+    /// 服务器时间
     public let serverTime: Date
+    /// 服务器时区
     public let serverTimeZone: TimeZone
+    /// 返回结果对象
     public let result: CYResult
     
     private enum CodingKeys: String, CodingKey {

@@ -13,16 +13,20 @@
             let coordinate = CYCoordinate(longitude: 10, latitude: 20)
             
             var endpoint = CYEndpoint(token: "test-token", coordinate: coordinate)
-            endpoint.language = "en_US"
+            endpoint.language = .englishUS
             endpoint.measurementSystem = .imperial
+            endpoint.dailyLength = 14
             
-            let assertResult = "https://api.caiyunapp.com/v2.5/test-token/10.0000,20.0000/weather.json?alert=true&lang=en_US&unit=imperial"
+            let assertResult = "https://api.caiyunapp.com/v2.5/test-token/10.0000,20.0000/weather.json?alert=true&lang=en_US&unit=imperial&dailysteps=14&hourlysteps=48"
             XCTAssertEqual(endpoint.url.absoluteString, assertResult)
         }
         
         func testEndpointCodable() {
             let coordinate = CYCoordinate(longitude: 10, latitude: 20)
             let endpoint = CYEndpoint(token: "test-token", coordinate: coordinate)
+            if let data = try? JSONEncoder().encode(endpoint) {
+                print(String(data: data, encoding: .utf8)!)
+            }
             
             let assertData =
                 """
@@ -37,9 +41,13 @@
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
+                     "isAlarmIncluded": true,
+                     "dailyLength": 5,
+                     "hourlyLength": 48,
                 }
                 """
                 .data(using: .utf8)!
+            
             let assertObject = try! JSONDecoder().decode(CYEndpoint.self, from: assertData)
             
             XCTAssertEqual(endpoint, assertObject)
@@ -60,7 +68,6 @@
                 testError = error
                 expectation.fulfill()
             }
-            
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNotNil(testData)
             XCTAssertNil(testError)
@@ -85,7 +92,6 @@
                     expectation.fulfill()
                 }
             }
-            
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssert(testError! is CYError)
             XCTAssertEqual(testDescription, "'token is invalid'")
@@ -105,7 +111,6 @@
                     expectation.fulfill()
                 }
             }
-            
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)

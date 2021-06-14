@@ -1,0 +1,23 @@
+
+// MARK: - Phenomenon
+
+"CLEAR_DAY" = "Clear";
+"CLEAR_NIGHT" = "Clear";
+"PARTLY_CLOUDY_DAY" = "Partly Cloudy";
+"PARTLY_CLOUDY_NIGHT" = "Partly Cloudy";
+"CLOUDY" = "Cloudy";
+"LIGHT_HAZE" = "Light Haze";
+"MODERATE_HAZE" = "Moderate Haze";
+"HEAVY_HAZE" = "Heavy Haze";
+"LIGHT_RAIN" = "Light Rain";
+"MODERATE_RAIN" = "Moderate Rain";
+"HEAVY_RAIN" = "Heavy Rain";
+"STORM_RAIN" = "Storm Rain";
+"FOG" = "Fog";
+"LIGHT_SNOW" = "Light Snow";
+"MODERATE_SNOW" = "Moderate Snow";
+"HEAVY_SNOW" = "Heavy Snow";
+"STORM_SNOW" = "Storm Snow";
+"DUST" = "Dust";
+"SAND" = "Sand";
+"WIND" = "Wind";
