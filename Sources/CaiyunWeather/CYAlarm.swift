@@ -166,7 +166,7 @@ extension CYAlarm.AlarmContent.AlarmCode {
         /// 雷雨大风
         case thunderGust = "16"
         
-        var description: String { return alarmTypeDescriptions[self]! }
+        public var description: String { return alarmTypeDescriptions[self]! }
     }
     
     public enum AlarmLevel: String, Equatable {
@@ -179,7 +179,7 @@ extension CYAlarm.AlarmContent.AlarmCode {
         /// 红色
         case red = "04"
         
-        var description: String { return alarmLevelDescriptions[self]! }
+        public var description: String { return alarmLevelDescriptions[self]! }
     }
 }
 

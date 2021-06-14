@@ -17,7 +17,10 @@ public struct CYEndpoint: Codable, Equatable {
     /// 请求语言
     public var language: RequestLanguage = .chineseSimplified
     /// 单位制
-    public var measurementSystem: MeasurementSystem = .metric
+    public var measurementSystem: MeasurementSystem {
+        get { return unit }
+        set { unit = newValue }
+    }
     /// 请求文件类型。仅支持 weather.json 文件，不建议修改
     public var file: String = "weather.json"
     /// API 版本
@@ -54,10 +57,7 @@ extension CYEndpoint {
         return components
     }
     
-    public enum MeasurementSystem: String, Codable, Equatable {
-        case metric
-        case imperial
-    }
+    public typealias MeasurementSystem = CYUnit
     
     public enum RequestLanguage: String, Codable, Equatable {
         case chineseSimplified = "zh_CN"

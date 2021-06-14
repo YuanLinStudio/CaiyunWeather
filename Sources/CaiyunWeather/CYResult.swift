@@ -13,9 +13,9 @@ public struct CYResult: Codable, Equatable {
     /// 实况天气信息
     public let realtime: CYRealtime
     /// 逐分钟天气预报
-    //public let minutely: CYMinutely
+    public let minutely: CYMinutely
     /// 逐小时天气预报
-    //public let hourly: CYHourly
+    public let hourly: CYHourly
     /// 逐日天气预报
     //public let daily: CYDaily
     // let primary: Int
@@ -25,8 +25,8 @@ public struct CYResult: Codable, Equatable {
     private enum CodingKeys: String, CodingKey {
         case alarm = "alert"
         case realtime
-        //case minutely
-        //case hourly
+        case minutely
+        case hourly
         //case daily
         // case primary
         case keypoint = "forecast_keypoint"
