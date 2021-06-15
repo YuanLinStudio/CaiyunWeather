@@ -154,7 +154,9 @@ extension CYDaily {
         public typealias AQI = AverageAndExtremumWithDate<CYContent.CountryRelated<Double>>
         public typealias PM25 = AverageAndExtremumWithDate<Double>
         
+        /// AQI
         public let aqi: [AQI]
+        /// PM 2.5
         public let pm25: [PM25]
     }
 }

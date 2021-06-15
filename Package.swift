@@ -7,7 +7,8 @@ let package = Package(
     name: "CaiyunWeather",
     defaultLocalization: "en",
     platforms: [
-      .iOS(.v10)
+        .iOS(.v10),
+        .macOS(.v10_12),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
