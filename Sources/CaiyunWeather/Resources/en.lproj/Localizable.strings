@@ -22,7 +22,7 @@
 "SAND" = "Sand";
 "WIND" = "Wind";
 
-// MARK: - Alarm Type
+// MARK: - Warning Type
 
 "typhoon" = "Typhoon";
 "rainstorm" = "Rainstorm";
@@ -41,7 +41,7 @@
 "wild-fire" = "Wild Fire";
 "thunder-gust" = "Thunder Gust";
 
-// MARK: - Alarm Level
+// MARK: - Warning Level
 
 "blue" = "Blue";
 "yellow" = "Yellow";

@@ -37,7 +37,7 @@
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
-                     "isAlarmIncluded": true,
+                     "shouldIncludeWarnings": true,
                      "dailyLength": 5,
                      "hourlyLength": 48,
                 }
@@ -121,7 +121,7 @@
             let expectation = self.expectation(description: "response")
             var testResponse: CYResponse?
             var testError: Error?
-            var testAlarmType: CYAlarm.AlarmContent.AlarmCode.AlarmType?
+            var testWarningType: CYWarning.WarningContent.WarningCode.WarningType?
             var testWindDirection: String?
             
             let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
@@ -133,17 +133,17 @@
             request.decode(data) { response, error in
                 testResponse = response
                 testError = error
-                testAlarmType = response!.result.alarm.content[0].code.type
+                testWarningType = response!.result.warning.content[0].code.type
                 testWindDirection = response!.result.realtime.wind.direction.description
                 expectation.fulfill()
             }
             
-            let assertAlarmType: CYAlarm.AlarmContent.AlarmCode.AlarmType = .gale
+            let assertWarningType: CYWarning.WarningContent.WarningCode.WarningType = .gale
             
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
-            XCTAssertEqual(testAlarmType, assertAlarmType)
+            XCTAssertEqual(testWarningType, assertWarningType)
             XCTAssertEqual(testWindDirection!, "SSE")
         }
         
