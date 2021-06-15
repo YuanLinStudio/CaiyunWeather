@@ -35,3 +35,36 @@ extension ClosedRange where Bound: AdditiveArithmetic {
         self.init(uncheckedBounds: (lower: center - tolerance, upper: center + tolerance))
     }
 }
+
+// Credit: https://stackoverflow.com/a/35407213/14640876
+
+extension String {
+    func convertToTimeInterval() -> TimeInterval {
+        guard self != "" else { return 0 }
+        
+        var interval: Double = 0
+        
+        let parts = self.components(separatedBy: ":")
+        for (index, part) in parts.reversed().enumerated() {
+            interval += (Double(part) ?? 0) * pow(60, Double(index + 1))
+        }
+        return interval
+    }
+}
+
+// Credit: https://stackoverflow.com/a/28872601/14640876
+
+extension TimeInterval {
+    func convertToString() -> String {
+        
+        let time = Int(self.rounded(.towardZero))
+
+        // let milliseconds = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        // let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+
+        // return String(format: "%0.2d:%0.2d:%0.2d.%0.3d", hours, minutes, seconds, milliseconds)
+        return String(format: "%0.2d:%0.2d", hours, minutes)
+    }
+}

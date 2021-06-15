@@ -91,61 +91,29 @@ extension CYDaily {
             public let sunrise: AstronomyTime
             /// 日落
             public let sunset: AstronomyTime
-            /// 时间（仅供 encoding 使用，外部使用外层的 date 参数）
-            private let date: CYContent.DatetimeServerType
-            
-            private enum CodingKeys: String, CodingKey {
-                case date
-                case sunrise
-                case sunset
-            }
-            
-            public init(from decoder: Decoder) throws {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                
-                let dateRaw = try container.decode(String.self, forKey: .date)
-                date = try container.decode(CYContent.DatetimeServerType.self, forKey: .date)
-                
-                let sunriseContainer = try container.nestedContainer(keyedBy: AstronomyTime.CodingKeys.self, forKey: .sunrise)
-                let sunriseRaw = try sunriseContainer.decode(String.self, forKey: .time)
-                sunrise = AstronomyTime(dateString: dateRaw, timeString: sunriseRaw)
-                
-                let sunsetContainer = try container.nestedContainer(keyedBy: AstronomyTime.CodingKeys.self, forKey: .sunset)
-                let sunsetRaw = try sunsetContainer.decode(String.self, forKey: .time)
-                sunset = AstronomyTime(dateString: dateRaw, timeString: sunsetRaw)
-            }
-            
-            public func encode(to encoder: Encoder) throws {
-                var container = encoder.container(keyedBy: CodingKeys.self)
-                
-                let dateRaw = date.time  // Do Not Encode
-                
-                var sunriseContainer = container.nestedContainer(keyedBy: AstronomyTime.CodingKeys.self, forKey: .sunrise)
-                let sunriseRaw = sunrise.timeString(fromBaseDate: dateRaw)
-                try sunriseContainer.encode(sunriseRaw, forKey: .time)
-                
-                var sunsetContainer = container.nestedContainer(keyedBy: AstronomyTime.CodingKeys.self, forKey: .sunset)
-                let sunsetRaw = sunset.timeString(fromBaseDate: dateRaw)
-                try sunsetContainer.encode(sunsetRaw, forKey: .time)
-            }
             
             public struct AstronomyTime: Codable, Equatable {
-                /// 时间
-                public let time: Date
+                /// 距离本日当地时间 0 点（外层 date 属性的时间）的时间间隔
+                public let timeInterval: TimeInterval
                 
-                public enum CodingKeys: String, CodingKey {
-                    case time
+                private enum CodingKeys: String, CodingKey {
+                    case timeInterval = "time"
                 }
                 
-                public init(dateString: String, timeString: String) {
-                    time = getDatetime(fromBaseDateString: dateString, toTimeString: timeString)
+                public init(from decoder: Decoder) throws {
+                    let container = try decoder.container(keyedBy: CodingKeys.self)
+                    
+                    let timeString = try container.decode(String.self, forKey: .timeInterval)
+                    timeInterval = timeString.convertToTimeInterval()
                 }
                 
-                internal func timeString(fromBaseDate date: Date) -> String {
-                    return getTimeString(fromBaseDate: date, toTime: time)
+                public func encode(to encoder: Encoder) throws {
+                    var container = encoder.container(keyedBy: CodingKeys.self)
+                    
+                    let timeString = timeInterval.convertToString()
+                    try container.encode(timeString, forKey: .timeInterval)
                 }
             }
-            
         }
         // Credit: https://www.zhihu.com/question/335248021/answer/751191817
     }
@@ -238,26 +206,4 @@ extension CYDaily {
             try value.encode(to: encoder)
         }
     }
-}
-
-// MARK: - Date shift functions
-
-fileprivate func getDatetime(fromBaseDateString dateString: String, toTimeString timeString: String) -> Date {
-    
-    guard let timeStartIndex = dateString.index(dateString.startIndex, offsetBy: 11, limitedBy: dateString.endIndex), let timeEndIndex = dateString.index(dateString.startIndex, offsetBy: 16, limitedBy: dateString.endIndex) else { return Date() }
-    
-    let datetimeString: String = dateString.replacingCharacters(in: timeStartIndex ..< timeEndIndex, with: timeString)
-    
-    return DateFormatter.serverType.date(from: datetimeString) ?? Date()
-}
-
-fileprivate func getTimeString(fromBaseDate date: Date, toTime time: Date) -> String {
-    
-    let datetimeString = DateFormatter.serverType.string(from: time)
-    
-    guard let timeStartIndex = datetimeString.index(datetimeString.startIndex, offsetBy: 11, limitedBy: datetimeString.endIndex), let timeEndIndex = datetimeString.index(datetimeString.startIndex, offsetBy: 16, limitedBy: datetimeString.endIndex) else { return "00:00" }
-    
-    let timeStringRaw = datetimeString[timeStartIndex ..< timeEndIndex]
-    
-    return String(timeStringRaw)
 }

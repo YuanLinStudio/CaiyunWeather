@@ -39,7 +39,6 @@ public class CYRequest {
     public func decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void) {
         queue.async {
             let decoder = JSONDecoder()
-            print(String(data: data, encoding: .utf8)!)
             if let response = try? decoder.decode(CYResponse.self, from: data) {
                 completionHandler(response, nil)
             }

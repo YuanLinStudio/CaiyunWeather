@@ -2,12 +2,6 @@
     @testable import CaiyunWeather
     
     final class CaiyunWeatherTests: XCTestCase {
-        func testExample() {
-            // This is an example of a functional test case.
-            // Use XCTAssert and related functions to verify your tests produce the correct
-            // results.
-            XCTAssertEqual(CaiyunWeather().text, "Hello, World!")
-        }
         
         func testEndpointContent() {
             let coordinate = CYCoordinate(longitude: 10, latitude: 20)
@@ -24,9 +18,6 @@
         func testEndpointCodable() {
             let coordinate = CYCoordinate(longitude: 10, latitude: 20)
             let endpoint = CYEndpoint(token: "test-token", coordinate: coordinate)
-            if let data = try? JSONEncoder().encode(endpoint) {
-                print(String(data: data, encoding: .utf8)!)
-            }
             
             let assertData =
                 """
@@ -150,8 +141,10 @@
         func testResponseEquallyCodable() {
             let expectation = self.expectation(description: "response")
             var firstResponse: CYResponse?
-            var testResponse: CYResponse?
-            var testData: Data?
+            var secondResponse: CYResponse?
+            var thirdResponse: CYResponse?
+            var secondData: Data?
+            var thirdData: Data?
             
             let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
             let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -159,21 +152,30 @@
             let token = "invalid-token"
             let request = CYRequest(token: token)
             
-            request.decode(data) { response, error in
-                firstResponse = response
+            request.decode(data) { response1st, _ in
+                firstResponse = response1st
                 
-                testData = try? JSONEncoder().encode(firstResponse!)
+                secondData = try? JSONEncoder().encode(firstResponse!)
                 
-                request.decode(testData!) { response, error in
-                    testResponse = response
-                    expectation.fulfill()
+                request.decode(secondData!) { response2nd, _ in
+                    secondResponse = response2nd
+                    
+                    thirdData = try? JSONEncoder().encode(secondResponse!)
+                    
+                    request.decode(thirdData!) { response3rd, _ in
+                        thirdResponse = response3rd
+                        
+                        expectation.fulfill()
+                    }
                 }
             }
             waitForExpectations(timeout: 5, handler: nil)
-            XCTAssertNotNil(testData)
-            print(firstResponse!)
-            print(testResponse!)
-            //XCTAssertEqual(firstResponse!, testResponse!)
-            XCTAssertNotNil(testResponse)
+            XCTAssertEqual(firstResponse!, secondResponse!)
+            XCTAssertNotNil(secondData)
+            XCTAssertNotNil(thirdData)
+            XCTAssertEqual(secondData, thirdData)
+            XCTAssertNotNil(secondResponse)
+            XCTAssertNotNil(thirdResponse)
+            XCTAssertEqual(secondResponse, thirdResponse)
         }
     }
