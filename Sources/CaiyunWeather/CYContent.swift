@@ -8,13 +8,55 @@
 import Foundation
 
 public struct CYContent: Codable, Equatable {
+    /// 日期时间（1970 年至今的秒数）
+    public struct Datetime1970Based: Codable, Equatable {
+        public let time: Date
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            
+            let timeRaw = try container.decode(Int.self)
+            time = Date(timeIntervalSince1970: TimeInterval(timeRaw))
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            
+            let timeRaw = Int(time.timeIntervalSince1970)
+            try container.encode(timeRaw)
+        }
+    }
+    /// 日期时间（服务器时间形式）
+    public struct DatetimeServerType: Codable, Equatable {
+        public let time: Date
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            
+            let timeRaw = try container.decode(String.self)
+            time = DateFormatter.serverType.date(from: timeRaw) ?? Date()
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            
+            let timeRaw = DateFormatter.serverType.string(from: time)
+            try container.encode(timeRaw)
+        }
+    }
     
     /// 生活指数
     public struct LifeIndex: Codable, Equatable {
         /// 紫外线
-        public let ultraviolet: CYContent.IndexWithDescription
+        public let ultraviolet: CYContent.IndexWithDescription?
         /// 舒适度
-        public let comfort: CYContent.IndexWithDescription
+        public let comfort: CYContent.IndexWithDescription?
+        /// 洗车
+        public let carWashing: CYContent.IndexWithDescription?
+        /// 感冒
+        public let coldRisk: CYContent.IndexWithDescription?
+        /// 穿衣
+        public let dressing: CYContent.IndexWithDescription?
     }
     
     /// 风
@@ -46,65 +88,27 @@ public struct CYContent: Codable, Equatable {
     /// 空气质量
     public struct AirQuality: Codable, Equatable {
         /// PM 2.5
-        public let pm25: Double
+        public let pm25: Double?
         /// PM 10
-        public let pm10: Double
+        public let pm10: Double?
         /// 臭氧
-        public let o3: Double
+        public let o3: Double?
         /// 二氧化硫
-        public let so2: Double
+        public let so2: Double?
         /// 二氧化氮
-        public let no2: Double
+        public let no2: Double?
         /// 一氧化碳
-        public let co: Double
+        public let co: Double?
         /// AQI
-        public let aqi: AQI
+        public let aqi: AQI?
         /// 描述
-        public let description: Description
+        public let description: Description?
     }
     
     /// AQI
     public typealias AQI = CountryRelated<Int>
     /// 描述
     public typealias Description = CountryRelated<String>
-    
-    /// 降水量
-    public struct Precipitation: Codable, Equatable {
-        /// 本地
-        public let local: LocalPrecipitation
-        /// 附近
-        public let nearest: NearestPrecipitation?
-        
-        public struct LocalPrecipitation: Codable, Equatable {
-            /// 响应状态
-            public let responseStatus: String
-            /// 数据源
-            public let datasource: String
-            /// 降水强度
-            public let intensity: Double
-            
-            private enum CodingKeys: String, CodingKey {
-                case responseStatus = "status"
-                case datasource
-                case intensity
-            }
-        }
-        
-        public struct NearestPrecipitation: Codable, Equatable {
-            /// 响应状态
-            public let responseStatus: String
-            /// 降水强度
-            public let intensity: Double
-            /// 距离
-            public let distance: Double
-            
-            private enum CodingKeys: String, CodingKey {
-                case responseStatus = "status"
-                case intensity
-                case distance
-            }
-        }
-    }
     
 }
 
@@ -159,8 +163,7 @@ extension CYContent {
     
 }
 
-
-// MARK: - Generic Types
+// MARK: - Abstract Types
 
 extension CYContent {
     
@@ -183,33 +186,18 @@ extension CYContent {
         }
     }
     
-    public struct ValueWithDatetime<T: Codable & Equatable>: Codable, Equatable {
-        /// 时间
-        public let datetime: Date
-        /// 值
-        public let value: T
+    public struct AverageAndExtremum<T: Codable & Equatable>: Codable, Equatable {
+        /// 平均值
+        public let average: T
+        /// 最大值
+        public let maximum: T
+        /// 最小值
+        public let minimum: T
         
         private enum CodingKeys: String, CodingKey {
-            case datetime
-            case value
-        }
-        
-        public init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            let datetimeRaw = try container.decode(String.self, forKey: .datetime)
-            datetime = DateFormatter.serverType.date(from: datetimeRaw) ?? Date()
-            
-            value = try container.decode(T.self, forKey: .value)
-        }
-        
-        public func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            
-            let datetimeRaw = DateFormatter.serverType.string(from: datetime)
-            try container.encode(datetimeRaw, forKey: .datetime)
-            
-            try container.encode(value, forKey: .value)
+            case average = "avg"
+            case maximum = "max"
+            case minimum = "min"
         }
     }
 }

@@ -17,7 +17,8 @@ public struct CYResult: Codable, Equatable {
     /// 逐小时天气预报
     public let hourly: CYHourly
     /// 逐日天气预报
-    //public let daily: CYDaily
+    public let daily: CYDaily
+    ///
     // let primary: Int
     /// 天气要点
     let keypoint: String
@@ -27,7 +28,7 @@ public struct CYResult: Codable, Equatable {
         case realtime
         case minutely
         case hourly
-        //case daily
+        case daily
         // case primary
         case keypoint = "forecast_keypoint"
     }

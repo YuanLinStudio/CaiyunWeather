@@ -125,7 +125,7 @@
             let expectation = self.expectation(description: "response")
             var testResponse: CYResponse?
             var testError: Error?
-            var testAlarmCode: CYAlarm.AlarmContent.AlarmCode?
+            var testAlarmType: CYAlarm.AlarmContent.AlarmCode.AlarmType?
             var testWindDirection: String?
             
             let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
@@ -137,17 +137,17 @@
             request.decode(data) { response, error in
                 testResponse = response
                 testError = error
-                testAlarmCode = response!.result.alarm.content[0].code
+                testAlarmType = response!.result.alarm.content[0].code.type
                 testWindDirection = response!.result.realtime.wind.direction.description
                 expectation.fulfill()
             }
             
-            let assertAlarmCode = CYAlarm.AlarmContent.AlarmCode(type: .gale, level: .blue)
+            let assertAlarmType: CYAlarm.AlarmContent.AlarmCode.AlarmType = .gale
             
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
-            XCTAssertEqual(testAlarmCode, assertAlarmCode)
+            XCTAssertEqual(testAlarmType, assertAlarmType)
             XCTAssertEqual(testWindDirection!, "SE")
         }
     }

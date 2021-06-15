@@ -38,6 +38,8 @@ public struct CYHourly: Codable, Equatable {
     }
 }
 
+// MARK: - Redefined Types
+
 extension CYHourly {
     public struct AirQuality: Codable, Equatable {
         let aqi: [AQI]
@@ -46,7 +48,7 @@ extension CYHourly {
     
     public struct Wind: Codable, Equatable {
         /// 时间
-        public let datetime: Date
+        public let datetime: CYContent.DatetimeServerType
         /// 值
         public let value: CYContent.Wind
         
@@ -59,8 +61,7 @@ extension CYHourly {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
-            let datetimeRaw = try container.decode(String.self, forKey: .datetime)
-            datetime = DateFormatter.serverType.date(from: datetimeRaw) ?? Date()
+            datetime = try container.decode(CYContent.DatetimeServerType.self, forKey: .datetime)
             
             let speed = try container.decode(CYContent.Wind.WindContent.self, forKey: .speed)
             let direction = try container.decode(CYContent.Wind.WindContent.self, forKey: .direction)
@@ -70,8 +71,7 @@ extension CYHourly {
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             
-            let datetimeRaw = DateFormatter.serverType.string(from: datetime)
-            try container.encode(datetimeRaw, forKey: .datetime)
+            try container.encode(datetime, forKey: .datetime)
             
             try container.encode(value.speed, forKey: .speed)
             try container.encode(value.direction, forKey: .direction)
@@ -79,10 +79,12 @@ extension CYHourly {
     }
 }
 
+// MARK: - Type Alias
+
 extension CYHourly {
-    public typealias HourlyContentDouble = CYContent.ValueWithDatetime<Double>
+    public typealias HourlyContentDouble = ValueWithDatetime<Double>
     
-    public typealias Phenomenon = CYContent.ValueWithDatetime<CYContent.Phenomenon>
+    public typealias Phenomenon = ValueWithDatetime<CYContent.Phenomenon>
     public typealias Temperature = HourlyContentDouble
     public typealias Precipitation = HourlyContentDouble
     public typealias Cloudrate = HourlyContentDouble
@@ -90,6 +92,23 @@ extension CYHourly {
     public typealias Pressure = HourlyContentDouble
     public typealias Visibility = HourlyContentDouble
     public typealias DSWRF = HourlyContentDouble
-    public typealias AQI = CYContent.ValueWithDatetime<CYContent.AQI>
+    public typealias AQI = ValueWithDatetime<CYContent.AQI>
     public typealias PM25 = HourlyContentDouble
+}
+
+// MARK: - Abstract Types
+
+extension CYHourly {
+    
+    public struct ValueWithDatetime<T: Codable & Equatable>: Codable, Equatable {
+        /// 时间
+        public let datetime: CYContent.DatetimeServerType
+        /// 值
+        public let value: T
+        
+        private enum CodingKeys: String, CodingKey {
+            case datetime
+            case value
+        }
+    }
 }

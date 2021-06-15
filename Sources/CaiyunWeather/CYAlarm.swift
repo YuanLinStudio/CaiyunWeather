@@ -23,7 +23,7 @@ extension CYAlarm {
     
     public struct AlarmContent: Codable, Equatable {
         /// 发布时间
-        public let publishTime: Date
+        public let publishTime: CYContent.Datetime1970Based
         /// 预警 ID
         public let id: String
         /// 预警信息的状态
@@ -61,72 +61,35 @@ extension CYAlarm {
             case title
             case description
         }
-        
-        public init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            let publishTimeRaw = try container.decode(Int.self, forKey: .publishTime)
-            publishTime = Date(timeIntervalSince1970: TimeInterval(publishTimeRaw))
-            
-            let codeRaw = try container.decode(String.self, forKey: .code)
-            code = AlarmCode(codeRaw)
-            
-            id = try container.decode(String.self, forKey: .id)
-            status = try container.decode(String.self, forKey: .status)
-            adcode = try container.decode(String.self, forKey: .adcode)
-            location = try container.decode(String.self, forKey: .location)
-            province = try container.decode(String.self, forKey: .province)
-            city = try container.decode(String.self, forKey: .city)
-            county = try container.decode(String.self, forKey: .county)
-            source = try container.decode(String.self, forKey: .source)
-            title = try container.decode(String.self, forKey: .title)
-            description = try container.decode(String.self, forKey: .description)
-        }
-        
-        public func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            
-            let publishTimeRaw = Int(publishTime.timeIntervalSince1970)
-            try container.encode(publishTimeRaw, forKey: .publishTime)
-            
-            let codeRaw = code.encoded()
-            try container.encode(codeRaw, forKey: .code)
-            
-            try container.encode(id, forKey: .id)
-            try container.encode(status, forKey: .status)
-            try container.encode(adcode, forKey: .adcode)
-            try container.encode(location, forKey: .location)
-            try container.encode(province, forKey: .province)
-            try container.encode(city, forKey: .city)
-            try container.encode(county, forKey: .county)
-            try container.encode(source, forKey: .source)
-            try container.encode(title, forKey: .title)
-            try container.encode(description, forKey: .description)
-        }
     }
 }
 
 extension CYAlarm.AlarmContent {
     
-    public struct AlarmCode: Equatable {
+    public struct AlarmCode: Equatable, Codable {
         /// 预警类型
         public let type: AlarmType
         /// 预警级别
         public let level: AlarmLevel
-    }
-}
-
-extension CYAlarm.AlarmContent.AlarmCode {
-    
-    init(_ code: String) {
-        let typeCode = String(code.prefix(2))
-        let levelCode = String(code.suffix(2))
-        self.type = AlarmType(rawValue: typeCode)!
-        self.level = AlarmLevel(rawValue: levelCode)!
-    }
-    
-    func encoded() -> String {
-        return "\(type.rawValue)\(level.rawValue)"
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            
+            let code = try container.decode(String.self)
+            
+            let typeCode = String(code.prefix(2))
+            self.type = AlarmType(rawValue: typeCode)!
+            
+            let levelCode = String(code.suffix(2))
+            self.level = AlarmLevel(rawValue: levelCode)!
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            
+            let code: String = "\(type.rawValue)\(level.rawValue)"
+            try container.encode(code)
+        }
     }
 }
 

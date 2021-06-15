@@ -21,7 +21,7 @@ public struct CYResponse: Codable, Equatable {
     /// 返回点坐标
     public let coordinate: CYCoordinate
     /// 服务器时间
-    public let serverTime: Date
+    public let serverTime: CYContent.Datetime1970Based
     /// 服务器时区
     public let serverTimeZone: TimeZone
     /// 返回结果对象
@@ -47,12 +47,10 @@ public struct CYResponse: Codable, Equatable {
         apiStatus = try container.decode(String.self, forKey: .apiStatus)
         language = try container.decode(String.self, forKey: .language)
         unit = try container.decode(String.self, forKey: .unit)
+        serverTime = try container.decode(CYContent.Datetime1970Based.self, forKey: .serverTime)
         
         let locationRaw = try container.decode([Double].self, forKey: .coordinate)
         coordinate = .init(fromArray: locationRaw)
-        
-        let serverTimeRaw = try container.decode(Int.self, forKey: .serverTime)
-        serverTime = Date(timeIntervalSince1970: TimeInterval(serverTimeRaw))
         
         let serverTimeShiftRaw = try container.decode(Int.self, forKey: .serverTimeZoneShift)
         serverTimeZone = TimeZone(secondsFromGMT: serverTimeShiftRaw)!
@@ -68,11 +66,9 @@ public struct CYResponse: Codable, Equatable {
         try container.encode(apiStatus, forKey: .apiStatus)
         try container.encode(language, forKey: .language)
         try container.encode(unit, forKey: .unit)
+        try container.encode(serverTime, forKey: .serverTime)
         
         try container.encode(coordinate.array, forKey: .coordinate)
-        
-        let serverTimeRaw = Int(serverTime.timeIntervalSince1970)
-        try container.encode(serverTimeRaw, forKey: .serverTime)
         
         let serverTimeShiftRaw = serverTimeZone.secondsFromGMT()
         try container.encode(serverTimeShiftRaw, forKey: .serverTimeZoneShift)

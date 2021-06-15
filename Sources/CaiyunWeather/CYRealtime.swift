@@ -30,7 +30,7 @@ public struct CYRealtime: Codable, Equatable {
     /// 风向风力
     public let wind: CYContent.Wind
     /// 降水量
-    public let precipitation: CYContent.Precipitation
+    public let precipitation: Precipitation
     /// 空气质量
     public let airQuality: CYContent.AirQuality?
     /// 生活指数
@@ -50,5 +50,35 @@ public struct CYRealtime: Codable, Equatable {
         case precipitation
         case airQuality = "air_quality"
         case lifeIndex = "life_index"
+    }
+}
+
+// MARK: - Redefined Types
+
+extension CYRealtime {
+    /// 降水量
+    public struct Precipitation: Codable, Equatable {
+        /// 本地
+        public let local: Precipitation
+        /// 附近
+        public let nearest: Precipitation?
+        
+        public struct Precipitation: Codable, Equatable {
+            /// 响应状态
+            public let responseStatus: String
+            /// 数据源
+            public let datasource: String?
+            /// 降水强度
+            public let intensity: Double
+            /// 距离
+            public let distance: Double?
+            
+            private enum CodingKeys: String, CodingKey {
+                case responseStatus = "status"
+                case datasource
+                case intensity
+                case distance
+            }
+        }
     }
 }
