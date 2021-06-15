@@ -85,7 +85,7 @@ extension CYHourly {
     public typealias Pressure = HourlyContentDouble
     public typealias Visibility = HourlyContentDouble
     public typealias DSWRF = HourlyContentDouble
-    public typealias AQI = ValueWithDatetime<CYContent.AQI>
+    public typealias AQI = ValueWithDatetime<CYContent.AirQuality.AQI>
     public typealias PM25 = HourlyContentDouble
 }
 

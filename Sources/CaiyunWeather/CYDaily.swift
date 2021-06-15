@@ -37,7 +37,7 @@ public struct CYDaily: Codable, Equatable {
     /// 空气质量
     public let airQuality: AirQuality
     /// 生活指数
-    //public let lifeIndex: LifeIndex
+    public let lifeIndex: LifeIndex
     
     private enum CodingKeys: String, CodingKey {
         case responseStatus = "status"
@@ -54,7 +54,7 @@ public struct CYDaily: Codable, Equatable {
         case dswrf
         case visibility
         case airQuality = "air_quality"
-        //case lifeIndex = "life_index"
+        case lifeIndex = "life_index"
     }
 }
 
@@ -152,7 +152,7 @@ extension CYDaily {
     
     public struct AirQuality: Codable, Equatable {
         public typealias AQI = AverageAndExtremumWithDate<CYContent.CountryRelated<Double>>
-        public typealias PM25 = DailyContentDouble
+        public typealias PM25 = AverageAndExtremumWithDate<Double>
         
         public let aqi: [AQI]
         public let pm25: [PM25]
@@ -173,6 +173,7 @@ extension CYDaily {
     public typealias Humidity = DailyContentDouble
     public typealias DSWRF = DailyContentDouble
     public typealias Visibility = DailyContentDouble
+    public typealias LifeIndex = CYContent.LifeIndex<[IndexWithDescriptionWithDate<String>]>
 }
 
 // MARK: - Abstract Types
@@ -201,6 +202,31 @@ extension CYDaily {
             
             date = try container.decode(CYContent.DatetimeServerType.self, forKey: .date)
             value = try CYContent.AverageAndExtremum<T>(from: decoder)
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            
+            try container.encode(date, forKey: .date)
+            try value.encode(to: encoder)
+        }
+    }
+    
+    public struct IndexWithDescriptionWithDate<T: Codable & Equatable>: Codable, Equatable {
+        /// 时间
+        public let date: CYContent.DatetimeServerType
+        /// 值
+        public let value: CYContent.IndexWithDescription<T>
+        
+        private enum CodingKeys: String, CodingKey {
+            case date
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            date = try container.decode(CYContent.DatetimeServerType.self, forKey: .date)
+            value = try CYContent.IndexWithDescription<T>(from: decoder)
         }
         
         public func encode(to encoder: Encoder) throws {

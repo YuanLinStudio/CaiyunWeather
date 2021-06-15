@@ -34,7 +34,7 @@ public struct CYRealtime: Codable, Equatable {
     /// 空气质量
     public let airQuality: CYContent.AirQuality?
     /// 生活指数
-    public let lifeIndex: CYContent.LifeIndex
+    public let lifeIndex: CYContent.LifeIndex<CYContent.IndexWithDescription<Int>>
     
     private enum CodingKeys: String, CodingKey {
         case responseStatus = "status"

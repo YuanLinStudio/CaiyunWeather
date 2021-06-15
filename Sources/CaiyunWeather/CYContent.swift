@@ -46,17 +46,17 @@ public struct CYContent: Codable, Equatable {
     }
     
     /// 生活指数
-    public struct LifeIndex: Codable, Equatable {
+    public struct LifeIndex<T: Codable & Equatable>: Codable, Equatable {
         /// 紫外线
-        public let ultraviolet: CYContent.IndexWithDescription?
+        public let ultraviolet: T?
         /// 舒适度
-        public let comfort: CYContent.IndexWithDescription?
+        public let comfort: T?
         /// 洗车
-        public let carWashing: CYContent.IndexWithDescription?
+        public let carWashing: T?
         /// 感冒
-        public let coldRisk: CYContent.IndexWithDescription?
+        public let coldRisk: T?
         /// 穿衣
-        public let dressing: CYContent.IndexWithDescription?
+        public let dressing: T?
     }
     
     /// 风
@@ -87,6 +87,9 @@ public struct CYContent: Codable, Equatable {
     
     /// 空气质量
     public struct AirQuality: Codable, Equatable {
+        public typealias AQI = CountryRelated<Double>
+        public typealias Description = CountryRelated<String>
+        
         /// PM 2.5
         public let pm25: Double?
         /// PM 10
@@ -104,12 +107,6 @@ public struct CYContent: Codable, Equatable {
         /// 描述
         public let description: Description?
     }
-    
-    /// AQI
-    public typealias AQI = CountryRelated<Int>
-    /// 描述
-    public typealias Description = CountryRelated<String>
-    
 }
 
 // MARK: - Type of Constant Codes
@@ -174,9 +171,9 @@ extension CYContent {
         public let usa: T
     }
     
-    public struct IndexWithDescription: Codable, Equatable {
+    public struct IndexWithDescription<T: Codable & Equatable>: Codable, Equatable {
         /// 指数
-        public let index: Int
+        public let index: T
         /// 描述
         public let description: String
         
