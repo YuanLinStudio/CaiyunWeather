@@ -51,13 +51,21 @@
 // MARK: - Wind Direction
 
 "north" = "N";
+"north-northeast" = "NNE";
 "northeast" = "NE";
+"east-northeast" = "ENE";
 "east" = "E";
+"east-southeast" = "ESE";
 "southeast" = "SE";
+"south-southeast" = "SSE";
 "south" = "S";
+"south-southwest" = "SSW";
 "southwest" = "SW";
+"west-southwest" = "WSW";
 "west" = "W";
+"west-northwest" = "WNW";
 "northwest" = "NW";
+"north-northwest" = "NNW";
 "N/A" = "N/A";
 
 // MARK: - Wind Speed
@@ -75,3 +83,8 @@
 "level-10" = "Level 10";
 "level-11" = "Level 11";
 "level-12" = "Level 12";
+"level-13" = "Level 13";
+"level-14" = "Level 14";
+"level-15" = "Level 15";
+"level-16" = "Level 16";
+"level-17" = "Level 17";

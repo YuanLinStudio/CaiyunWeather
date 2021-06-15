@@ -21,3 +21,17 @@ extension DateFormatter {
         return formatter
     }()
 }
+
+// Credit: https://stackoverflow.com/a/59292570/14640876
+
+extension Range where Bound: AdditiveArithmetic & ExpressibleByIntegerLiteral {
+    init(center: Bound, tolerance: Bound) {
+        self.init(uncheckedBounds: (lower: center - tolerance, upper: center + tolerance))
+    }
+}
+
+extension ClosedRange where Bound: AdditiveArithmetic {
+    init(center: Bound, tolerance: Bound) {
+        self.init(uncheckedBounds: (lower: center - tolerance, upper: center + tolerance))
+    }
+}

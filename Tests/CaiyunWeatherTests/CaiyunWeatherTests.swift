@@ -33,11 +33,7 @@
                 {
                     "language": "zh_CN",
                     "measurementSystem": "metric",
-                    "coordinate":
-                    {
-                        "longitude": 10,
-                        "latitude": 20,
-                    },
+                    "coordinate": [10, 20],
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
@@ -148,6 +144,36 @@
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
             XCTAssertEqual(testAlarmType, assertAlarmType)
-            XCTAssertEqual(testWindDirection!, "SE")
+            XCTAssertEqual(testWindDirection!, "SSE")
+        }
+        
+        func testResponseEquallyCodable() {
+            let expectation = self.expectation(description: "response")
+            var firstResponse: CYResponse?
+            var testResponse: CYResponse?
+            var testData: Data?
+            
+            let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            
+            let token = "invalid-token"
+            let request = CYRequest(token: token)
+            
+            request.decode(data) { response, error in
+                firstResponse = response
+                
+                testData = try? JSONEncoder().encode(firstResponse!)
+                
+                request.decode(testData!) { response, error in
+                    testResponse = response
+                    expectation.fulfill()
+                }
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssertNotNil(testData)
+            print(firstResponse!)
+            print(testResponse!)
+            //XCTAssertEqual(firstResponse!, testResponse!)
+            XCTAssertNotNil(testResponse)
         }
     }

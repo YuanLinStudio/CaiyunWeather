@@ -51,13 +51,21 @@
 // MARK: - Wind Direction
 
 "north" = "北风";
+"north-northeast" = "东北风偏北";
 "northeast" = "东北风";
+"east-northeast" = "东北风偏东";
 "east" = "东风";
+"east-southeast" = "东南风偏东";
 "southeast" = "东南风";
+"south-southeast" = "东南风偏南";
 "south" = "南风";
+"south-southwest" = "西南风偏南";
 "southwest" = "西南风";
+"west-southwest" = "西南风偏西";
 "west" = "西风";
+"west-northwest" = "西北风偏西";
 "northwest" = "西北风";
+"north-northwest" = "西北风偏北";
 "N/A" = "N/A";
 
 // MARK: - Wind Speed
@@ -75,3 +83,8 @@
 "level-10" = "10 级";
 "level-11" = "11 级";
 "level-12" = "12 级";
+"level-13" = "13 级";
+"level-14" = "14 级";
+"level-15" = "15 级";
+"level-16" = "16 级";
+"level-17" = "17 级";

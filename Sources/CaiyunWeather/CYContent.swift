@@ -15,14 +15,14 @@ public struct CYContent: Codable, Equatable {
         public init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
             
-            let timeRaw = try container.decode(Int.self)
+            let timeRaw = try container.decode(Double.self)
             time = Date(timeIntervalSince1970: TimeInterval(timeRaw))
         }
         
         public func encode(to encoder: Encoder) throws {
             var container = encoder.singleValueContainer()
             
-            let timeRaw = Int(time.timeIntervalSince1970)
+            let timeRaw = time.timeIntervalSince1970
             try container.encode(timeRaw)
         }
     }
@@ -207,15 +207,24 @@ extension CYContent {
 fileprivate func getDirectionDescription(_ direction: Double) -> String {
     var description: String
     
-    switch direction {
-    case 0 ..< 22.5, 337.5 ..< 360: description = "north"
-    case 22.5 ..< 67.5: description = "northeast"
-    case 67.5 ..< 112.5: description = "east"
-    case 112.5 ..< 157.5: description = "southeast"
-    case 157.5 ..< 202.5: description = "south"
-    case 202.5 ..< 247.5: description = "southwest"
-    case 247.5 ..< 292.5: description = "west"
-    case 292.5 ..< 337.5: description = "northwest"
+    let convertedValue = Measurement(value: direction, unit: unit.system.windDirection).converted(to: .degrees).value
+    switch convertedValue {
+    case 0 ..< 11.25, 348.75 ..< 360: description = "north"
+    case Range(center: 22.5, tolerance: 11.25): description = "north-northeast"
+    case Range(center: 45, tolerance: 11.25): description = "northeast"
+    case Range(center: 67.5, tolerance: 11.25): description = "east-northeast"
+    case Range(center: 90, tolerance: 11.25): description = "east"
+    case Range(center: 112.5, tolerance: 11.25): description = "east-southeast"
+    case Range(center: 135, tolerance: 11.25): description = "southeast"
+    case Range(center: 157.5, tolerance: 11.25): description = "south-southeast"
+    case Range(center: 180, tolerance: 11.25): description = "south"
+    case Range(center: 202.5, tolerance: 11.25): description = "south-southwest"
+    case Range(center: 225, tolerance: 11.25): description = "southwest"
+    case Range(center: 247.5, tolerance: 11.25): description = "west-southwest"
+    case Range(center: 270, tolerance: 11.25): description = "west"
+    case Range(center: 295.5, tolerance: 11.25): description = "west-northwest"
+    case Range(center: 315, tolerance: 11.25): description = "northwest"
+    case Range(center: 337.5, tolerance: 11.25): description = "north-northwest"
     default: description = "N/A"
     }
     return description.localized()
@@ -223,7 +232,9 @@ fileprivate func getDirectionDescription(_ direction: Double) -> String {
 
 fileprivate func getSpeedDescription(_ speed: Double) -> String {
     var description: String
-    switch speed.rounded() {
+    
+    let convertedValue = Measurement(value: speed, unit: unit.system.windSpeed).converted(to: .kilometersPerHour).value
+    switch convertedValue.rounded() {
     case 0 ..< 1: description = "level-0"
     case 1 ..< 6: description = "level-1"
     case 6 ..< 12: description = "level-2"
@@ -237,6 +248,11 @@ fileprivate func getSpeedDescription(_ speed: Double) -> String {
     case 89 ..< 103: description = "level-10"
     case 103 ..< 117: description = "level-11"
     case 117 ..< 134: description = "level-12"
+    case 134 ..< 150: description = "level-13"
+    case 150 ..< 167: description = "level-14"
+    case 167 ..< 184: description = "level-15"
+    case 184 ..< 202: description = "level-16"
+    case 202 ..< .infinity: description = "level-17"
     default: description = "N/A"
     }
     return description.localized()

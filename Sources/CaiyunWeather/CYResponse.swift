@@ -23,7 +23,7 @@ public struct CYResponse: Codable, Equatable {
     /// 服务器时间
     public let serverTime: CYContent.Datetime1970Based
     /// 服务器时区
-    public let serverTimeZone: TimeZone
+    public let serverTimeZone: CYTimeZone
     /// 返回结果对象
     public let result: CYResult
     
@@ -35,44 +35,31 @@ public struct CYResponse: Codable, Equatable {
         case unit
         case coordinate = "location"
         case serverTime = "server_time"
-        case serverTimeZoneShift = "tzshift"
+        case serverTimeZone = "tzshift"
         case result
     }
+}
+
+// MARK: - Redefined Types
+
+extension CYResponse {
     
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+    public struct CYTimeZone: Codable, Equatable {
+        /// 值
+        public let value: TimeZone
         
-        responseStatus = try container.decode(String.self, forKey: .responseStatus)
-        version = try container.decode(String.self, forKey: .version)
-        apiStatus = try container.decode(String.self, forKey: .apiStatus)
-        language = try container.decode(String.self, forKey: .language)
-        unit = try container.decode(String.self, forKey: .unit)
-        serverTime = try container.decode(CYContent.Datetime1970Based.self, forKey: .serverTime)
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            
+            let serverTimeShiftRaw = try container.decode(Int.self)
+            value = TimeZone(secondsFromGMT: serverTimeShiftRaw)!
+        }
         
-        let locationRaw = try container.decode([Double].self, forKey: .coordinate)
-        coordinate = .init(fromArray: locationRaw)
-        
-        let serverTimeShiftRaw = try container.decode(Int.self, forKey: .serverTimeZoneShift)
-        serverTimeZone = TimeZone(secondsFromGMT: serverTimeShiftRaw)!
-        
-        result = try container.decode(CYResult.self, forKey: .result)
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(responseStatus, forKey: .responseStatus)
-        try container.encode(version, forKey: .version)
-        try container.encode(apiStatus, forKey: .apiStatus)
-        try container.encode(language, forKey: .language)
-        try container.encode(unit, forKey: .unit)
-        try container.encode(serverTime, forKey: .serverTime)
-        
-        try container.encode(coordinate.array, forKey: .coordinate)
-        
-        let serverTimeShiftRaw = serverTimeZone.secondsFromGMT()
-        try container.encode(serverTimeShiftRaw, forKey: .serverTimeZoneShift)
-        
-        try container.encode(result, forKey: .result)
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            
+            let serverTimeShiftRaw = value.secondsFromGMT()
+            try container.encode(serverTimeShiftRaw)
+        }
     }
 }

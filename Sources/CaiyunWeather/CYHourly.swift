@@ -54,27 +54,20 @@ extension CYHourly {
         
         private enum CodingKeys: String, CodingKey {
             case datetime
-            case speed
-            case direction
         }
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             datetime = try container.decode(CYContent.DatetimeServerType.self, forKey: .datetime)
-            
-            let speed = try container.decode(CYContent.Wind.WindContent.self, forKey: .speed)
-            let direction = try container.decode(CYContent.Wind.WindContent.self, forKey: .direction)
-            value = CYContent.Wind(speed: speed, direction: direction)
+            value = try CYContent.Wind(from: decoder)
         }
         
         public func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             
             try container.encode(datetime, forKey: .datetime)
-            
-            try container.encode(value.speed, forKey: .speed)
-            try container.encode(value.direction, forKey: .direction)
+            try value.encode(to: encoder)
         }
     }
 }

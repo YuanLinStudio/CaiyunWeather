@@ -39,9 +39,16 @@ extension CYCoordinate {
     /// String used in API request.
     var urlString: String { return String(format: "%.4f,%.4f", longitude, latitude) }
     
-    init(fromArray array: [Double]) {
-        self.init(longitude: array[0], latitude: array[1])
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        
+        let coordinateRaw = try container.decode([Double].self)
+        self.init(longitude: coordinateRaw[0], latitude: coordinateRaw[1])
     }
     
-    var array: [Double] { return [longitude, latitude] }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        
+        try container.encode([longitude, latitude])
+    }
 }

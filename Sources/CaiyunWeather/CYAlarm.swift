@@ -64,6 +64,8 @@ extension CYAlarm {
     }
 }
 
+// MARK: - Redefined Types
+
 extension CYAlarm.AlarmContent {
     
     public struct AlarmCode: Equatable, Codable {
@@ -92,6 +94,8 @@ extension CYAlarm.AlarmContent {
         }
     }
 }
+
+// MARK: - Lookups
 
 extension CYAlarm.AlarmContent.AlarmCode {
     
