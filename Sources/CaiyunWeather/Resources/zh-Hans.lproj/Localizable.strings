@@ -47,3 +47,31 @@
 "yellow" = "黄色";
 "orange" = "橙色";
 "red" = "红色";
+
+// MARK: - Wind Direction
+
+"north" = "北风";
+"northeast" = "东北风";
+"east" = "东风";
+"southeast" = "东南风";
+"south" = "南风";
+"southwest" = "西南风";
+"west" = "西风";
+"northwest" = "西北风";
+"N/A" = "N/A";
+
+// MARK: - Wind Speed
+
+"level-0" = "0 级";
+"level-1" = "1 级";
+"level-2" = "2 级";
+"level-3" = "3 级";
+"level-4" = "4 级";
+"level-5" = "5 级";
+"level-6" = "6 级";
+"level-7" = "7 级";
+"level-8" = "8 级";
+"level-9" = "9 级";
+"level-10" = "10 级";
+"level-11" = "11 级";
+"level-12" = "12 级";

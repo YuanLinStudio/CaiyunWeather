@@ -126,6 +126,7 @@
             var testResponse: CYResponse?
             var testError: Error?
             var testAlarmCode: CYAlarm.AlarmContent.AlarmCode?
+            var testWindDirection: String?
             
             let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
             let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -137,6 +138,7 @@
                 testResponse = response
                 testError = error
                 testAlarmCode = response!.result.alarm.content[0].code
+                testWindDirection = response!.result.realtime.wind.direction.description
                 expectation.fulfill()
             }
             
@@ -146,5 +148,6 @@
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
             XCTAssertEqual(testAlarmCode, assertAlarmCode)
+            XCTAssertEqual(testWindDirection!, "SE")
         }
     }

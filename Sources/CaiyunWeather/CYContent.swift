@@ -20,9 +20,27 @@ public struct CYContent: Codable, Equatable {
     /// 风
     public struct Wind: Codable, Equatable {
         /// 风速
-        public let speed: Double
+        public let speed: WindContent
         /// 风向
-        public let direction: Double
+        public let direction: WindContent
+        
+        public struct WindContent: Codable, Equatable {
+            /// 值
+            public let value: Double
+            /// 描述
+            public let description: String
+            
+            public init(from decoder: Decoder) throws {
+                let container = try decoder.singleValueContainer()
+                value = try container.decode(Double.self)
+                description = getDirectionDescription(value)
+            }
+            
+            public func encode(to encoder: Encoder) throws {
+                var container = encoder.singleValueContainer()
+                try container.encode(value)
+            }
+        }
     }
     
     /// 空气质量
@@ -194,4 +212,44 @@ extension CYContent {
             try container.encode(value, forKey: .value)
         }
     }
+}
+
+// MARK: - Wind description of direction and speed
+
+fileprivate func getDirectionDescription(_ direction: Double) -> String {
+    var description: String
+    
+    switch direction {
+    case 0 ..< 22.5, 337.5 ..< 360: description = "north"
+    case 22.5 ..< 67.5: description = "northeast"
+    case 67.5 ..< 112.5: description = "east"
+    case 112.5 ..< 157.5: description = "southeast"
+    case 157.5 ..< 202.5: description = "south"
+    case 202.5 ..< 247.5: description = "southwest"
+    case 247.5 ..< 292.5: description = "west"
+    case 292.5 ..< 337.5: description = "northwest"
+    default: description = "N/A"
+    }
+    return description.localized()
+}
+
+fileprivate func getSpeedDescription(_ speed: Double) -> String {
+    var description: String
+    switch speed.rounded() {
+    case 0 ..< 1: description = "level-0"
+    case 1 ..< 6: description = "level-1"
+    case 6 ..< 12: description = "level-2"
+    case 12 ..< 20: description = "level-3"
+    case 20 ..< 29: description = "level-4"
+    case 29 ..< 39: description = "level-5"
+    case 39 ..< 50: description = "level-6"
+    case 50 ..< 62: description = "level-7"
+    case 62 ..< 75: description = "level-8"
+    case 75 ..< 89: description = "level-9"
+    case 89 ..< 103: description = "level-10"
+    case 103 ..< 117: description = "level-11"
+    case 117 ..< 134: description = "level-12"
+    default: description = "N/A"
+    }
+    return description.localized()
 }

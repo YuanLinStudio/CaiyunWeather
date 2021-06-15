@@ -62,8 +62,8 @@ extension CYHourly {
             let datetimeRaw = try container.decode(String.self, forKey: .datetime)
             datetime = DateFormatter.serverType.date(from: datetimeRaw) ?? Date()
             
-            let speed = try container.decode(Double.self, forKey: .speed)
-            let direction = try container.decode(Double.self, forKey: .direction)
+            let speed = try container.decode(CYContent.Wind.WindContent.self, forKey: .speed)
+            let direction = try container.decode(CYContent.Wind.WindContent.self, forKey: .direction)
             value = CYContent.Wind(speed: speed, direction: direction)
         }
         
