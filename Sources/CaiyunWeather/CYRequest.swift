@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 public class CYRequest {
     
@@ -28,18 +29,25 @@ public class CYRequest {
     /// - it is not expired (use `CYRequest.expiration` to define the period of validation)
     ///
     /// Elsewise, a new data will be requested from remote API.
-    open func perform(completionHandler: @escaping (CYResponse?, Error?) -> Void) {
+    open func perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
         request(from: .local) { [self] response, error in
             if let response = response, error == nil {
                 if validate(response) {
-                    completionHandler(response, nil)
+                    completionHandler(response, .local, nil)
+                    NSLog("Local content verified.", 0)
                 }
                 else {
-                    request(from: .remote, completionHandler: completionHandler)
+                    NSLog("Local content expired. Trying to request new content...", -1)
+                    request(from: .remote) { request, error in
+                        completionHandler(request, .remote, error)
+                    }
                 }
             }
             else {
-                request(from: .remote, completionHandler: completionHandler)
+                NSLog("Local content meets error. Trying to request new content...", -1)
+                request(from: .remote) { request, error in
+                    completionHandler(request, .remote, error)
+                }
             }
         }
     }
@@ -101,6 +109,7 @@ extension CYRequest {
             
             URLSession.shared.dataTask(with: endpoint.url) { (data, _, error) in
                 completionHandler(data, error)
+                NSLog("Performed a remote data fatching. URL: %@", endpoint.url.absoluteString)
                 
                 if let data = data {
                     // save a copy to local
@@ -134,9 +143,11 @@ extension CYRequest {
             do {
                 let data = try Data(contentsOf: url, options: .mappedIfSafe)
                 completionHandler(data, nil)
+                NSLog("Reading example data. URL: %@", url.absoluteString)
             }
             catch let error {
                 completionHandler(nil, error)
+                NSLog("Error exists when reading example data. Error: %@", error.localizedDescription)
             }
         }
     }
@@ -151,12 +162,28 @@ extension CYRequest {
     
     /// Save some content to local, URL of `<CYRequest.localContentUrl>/<CYCoordinate.urlString>`.
     func saveDataToLocal(_ data: Data) throws {
-        try data.write(to: localFileUrl, options: .atomic)
+        do {
+            try data.write(to: localFileUrl, options: .atomic)
+            NSLog("Successfully saved data to local. URL: %@", localFileUrl.absoluteString)
+        }
+        catch let error {
+            NSLog("Error exists when saving data to local. Error: %@", error.localizedDescription)
+            throw error
+        }
+        
     }
     
     /// Read some content from local, URL of `<CYRequest.localContentUrl>/<CYCoordinate.urlString>`.
     func readDataFromLocal() throws -> Data {
-        return try Data(contentsOf: localFileUrl)
+        do {
+            let data = try Data(contentsOf: localFileUrl)
+            NSLog("Successfully read data from local.", 0)
+            return data
+        }
+        catch let error {
+            NSLog("Error exists when reading data from local. Error: %@", error.localizedDescription)
+            throw error
+        }
     }
     
     /// get URL as `<CYRequest.localContentUrl>/<CYCoordinate.urlString>`.
@@ -178,12 +205,15 @@ extension CYRequest {
             let decoder = JSONDecoder()
             if let response = try? decoder.decode(CYResponse.self, from: data) {
                 completionHandler(response, nil)
+                NSLog("Successfully decode content.", 0)
             }
             else if let invalidResponse = try? decoder.decode(CYInvalidResponse.self, from: data) {
                 completionHandler(nil, .invalidResponse(description: invalidResponse.error))
+                NSLog("API return invalid result. API error content: %@", invalidResponse.error)
             }
             else {
                 completionHandler(nil, .invalidResponse(description: "unexpected result"))
+                NSLog("API return unexpected result", -1)
             }
         }
     }
