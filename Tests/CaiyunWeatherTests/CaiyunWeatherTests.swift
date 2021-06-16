@@ -28,9 +28,9 @@
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
-                     "shouldIncludeWarnings": true,
-                     "dailyLength": 5,
-                     "hourlyLength": 48,
+                    "shouldIncludeWarnings": true,
+                    "dailyLength": 5,
+                    "hourlyLength": 48,
                 }
                 """
                 .data(using: .utf8)!
@@ -46,11 +46,12 @@
             var testError: Error?
             
             let token = "test-token"
-            let request = CYRequest(token: token)
+            let request = CYRequest()
+            request.endpoint.token = token
             request.endpoint.coordinate = CYCoordinate(longitude: 10, latitude: 20)
             XCTAssertEqual(request.endpoint.token, token)
             
-            request.request { data, error in
+            request.fetchDataFromRemote { data, error in
                 testData = data
                 testError = error
                 expectation.fulfill()
@@ -60,14 +61,31 @@
             XCTAssertNil(testError)
         }
         
+        func testNoToken() {
+            let expectation = self.expectation(description: "response")
+            var testError: CYError?
+            
+            let request = CYRequest()
+            request.fetchDataFromRemote { _, error in
+                if let cyError = error as? CYError {
+                    testError = cyError
+                }
+                expectation.fulfill()
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssert(testError! == CYError.tokenIsNil)
+        }
+        
         func testInvalidResonse() {
             let expectation = self.expectation(description: "response")
             var testError: Error?
             var testDescription: String = ""
             
             let token = "invalid-token"
-            let request = CYRequest(token: token)
-            request.request { data, error in
+            let request = CYRequest()
+            request.endpoint.token = token
+            
+            request.fetchDataFromRemote { data, error in
                 request.decode(data!) { _, error in
                     testError = error
                     switch error {
@@ -90,8 +108,9 @@
             var testError: Error?
             
             let token = "sMAot0gj8FX3sipR"
-            let request = CYRequest(token: token)
-            request.request { data, error in
+            let request = CYRequest()
+            request.endpoint.token = token
+            request.fetchDataFromRemote { data, error in
                 request.decode(data!) { response, error in
                     testResponse = response
                     testError = error
@@ -115,20 +134,17 @@
             var testWarningType: CYWarning.WarningContent.WarningCode.WarningType?
             var testWindDirection: String?
             
-            let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
-            let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let request = CYRequest()
             
-            let token = "invalid-token"
-            let request = CYRequest(token: token)
-            
-            request.decode(data) { response, error in
-                testResponse = response
-                testError = error
-                testWarningType = response!.result.warning.content[0].code.type
-                testWindDirection = response!.result.realtime.wind.direction.description
-                expectation.fulfill()
+            request.fetchExampleData { data, error in
+                request.decode(data!) { response, error in
+                    testResponse = response
+                    testError = error
+                    testWarningType = response!.result.warning.content[0].code.type
+                    testWindDirection = response!.result.realtime.wind.direction.description
+                    expectation.fulfill()
+                }
             }
-            
             let assertWarningType: CYWarning.WarningContent.WarningCode.WarningType = .gale
             
             waitForExpectations(timeout: 5, handler: nil)
@@ -149,8 +165,7 @@
             let path = Bundle.module.path(forResource: "Weather", ofType: "json")!
             let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             
-            let token = "invalid-token"
-            let request = CYRequest(token: token)
+            let request = CYRequest()
             
             request.decode(data) { response1st, _ in
                 firstResponse = response1st
@@ -178,4 +193,48 @@
             XCTAssertNotNil(thirdResponse)
             XCTAssertEqual(secondResponse, thirdResponse)
         }
+        
+        func testSaveRead() {
+            let assertData =
+                """
+                {
+                    "language": "zh_CN",
+                    "measurementSystem": "metric",
+                    "coordinate": [10, 20],
+                    "file": "weather.json",
+                    "token": "test-token",
+                    "version": "v2.5",
+                    "shouldIncludeWarnings": true,
+                    "dailyLength": 5,
+                    "hourlyLength": 48,
+                }
+                """
+                .data(using: .utf8)!
+            
+            let request = CYRequest()
+            try! request.saveDataToLocal(assertData)
+            try! request.saveDataToLocal(assertData)
+            
+            let testData = try! request.readDataFromLocal()
+            
+            XCTAssertNotNil(testData)
+            XCTAssertEqual(testData, assertData)
+        }
+        
+        func testValidate() {
+            let expectation = self.expectation(description: "response")
+            var testValid: Bool = true
+            
+            let request = CYRequest()
+            request.fetchExampleData { data, _ in
+                request.decode(data!) { response, _ in
+                    testValid = request.validate(response!)
+                    expectation.fulfill()
+                }
+            }
+            
+            waitForExpectations(timeout: 5, handler: nil)
+            XCTAssertFalse(testValid)
+        }
+        
     }

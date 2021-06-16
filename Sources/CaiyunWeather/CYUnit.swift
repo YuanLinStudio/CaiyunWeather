@@ -25,7 +25,7 @@ public enum CYUnit: String, Codable, Equatable {
 // MARK: - Unit system for requested unit sets
 
 extension CYUnit {
-    internal struct UnitSystem: Equatable {
+    struct UnitSystem: Equatable {
         let realtimePrecipitation: UnitSpeed
         let minutelyPrecipitation: UnitSpeed
         let hourlyPrecipitation: UnitSpeed

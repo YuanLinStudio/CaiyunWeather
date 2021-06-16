@@ -8,7 +8,7 @@
 import Foundation
 
 public enum CYError: Error, Equatable {
-    
+    case tokenIsNil
+    case fileDontExist
     case invalidResponse(description: String)
-    
 }
