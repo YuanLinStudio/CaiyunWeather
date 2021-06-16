@@ -10,7 +10,7 @@ import CoreLocation
 
 /// Use `CYCoordinate` to deal with CY API requests.
 public struct CYCoordinate: Codable, Equatable {
-    typealias CYCoordinateDegrees = Double
+    public typealias CYCoordinateDegrees = Double
     /// 经度
     let longitude: CYCoordinateDegrees
     /// 纬度
@@ -20,6 +20,15 @@ public struct CYCoordinate: Codable, Equatable {
     
     /// 默认坐标位置（经纬度均为 0）
     public static let defaultCoordinate = CYCoordinate(longitude: .zero, latitude: .zero)
+    
+    public init(longitude: CYCoordinateDegrees, latitude: CYCoordinateDegrees) {
+        self.longitude = longitude
+        self.latitude = latitude
+    }
+    
+    public init(latitude: CYCoordinateDegrees, longitude: CYCoordinateDegrees) {
+        self.init(longitude: longitude, latitude: latitude)
+    }
 }
 
 // MARK: - Work with Core Location
