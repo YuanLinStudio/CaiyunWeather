@@ -21,6 +21,8 @@ public class CYRequest {
     /// The queue on which the request is performed
     public var queue: DispatchQueue = DispatchQueue.global(qos: .background)
     
+    public init() { }
+    
     /// Perform an action to request data.
     ///
     /// If the data from local cache will be used if:
