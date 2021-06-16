@@ -271,8 +271,12 @@
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNil(firstError)
             XCTAssertNil(secondError)
+            
+            XCTAssertNotNil(firstSource)
+            XCTAssertNotNil(secondSource)
             // XCTAssertEqual(firstSource, .remote)
             XCTAssertEqual(secondSource, .local)
+            
             XCTAssertNotNil(firstResponse)
             XCTAssertNotNil(secondResponse)
             XCTAssertEqual(firstResponse, secondResponse)
