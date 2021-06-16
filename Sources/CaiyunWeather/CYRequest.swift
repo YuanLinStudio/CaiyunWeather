@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OSLog
 
 public class CYRequest {
     
@@ -134,7 +133,7 @@ extension CYRequest {
     }
     
     /// Explicitly fetch data from example file.
-    func fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void) {
+    public func fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void) {
         queue.async {
             guard let url = Bundle.module.url(forResource: "Weather", withExtension: "json") else {
                 completionHandler(nil, CYError.fileDontExist)
@@ -218,7 +217,7 @@ extension CYRequest {
         }
     }
     
-    func validate(_ response: CYResponse) -> Bool {
+    public func validate(_ response: CYResponse) -> Bool {
         let responseTime = response.serverTime.time
         let intervalTillNow = -responseTime.timeIntervalSinceNow
         return intervalTillNow <= expiration
