@@ -1,4 +1,6 @@
 
+"N/A" = "N/A";
+
 // MARK: - Phenomenon
 
 "CLEAR_DAY" = "Clear";
@@ -66,7 +68,6 @@
 "west-northwest" = "WNW";
 "northwest" = "NW";
 "north-northwest" = "NNW";
-"N/A" = "N/A";
 
 // MARK: - Wind Speed
 

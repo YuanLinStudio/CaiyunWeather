@@ -1,4 +1,6 @@
 
+"N/A" = "N/A";
+
 // MARK: - Phenomenon
 
 "CLEAR_DAY" = "晴";
@@ -66,7 +68,6 @@
 "west-northwest" = "西北风偏西";
 "northwest" = "西北风";
 "north-northwest" = "西北风偏北";
-"N/A" = "N/A";
 
 // MARK: - Wind Speed
 
