@@ -23,7 +23,7 @@ public class CYRequest {
     
     public init() { }
     
-    /// Perform an action to request data.
+    /// Perform an action to request weather content.
     ///
     /// If the data from local cache will be used if:
     /// - it is for same Coordinate; and
@@ -31,23 +31,23 @@ public class CYRequest {
     ///
     /// Elsewise, a new data will be requested from remote API.
     open func perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
-        request(from: .local) { [self] response, error in
+        perform(from: .local) { [self] response, source, error in
             if let response = response, error == nil {
                 if validate(response) {
-                    completionHandler(response, .local, nil)
+                    completionHandler(response, source, nil)
                     NSLog("Local content verified.", 0)
                 }
                 else {
                     NSLog("Local content expired. Trying to request new content...", -1)
-                    request(from: .remote) { request, error in
-                        completionHandler(request, .remote, error)
+                    perform(from: .remote) { request, source, error in
+                        completionHandler(request, source, error)
                     }
                 }
             }
             else {
                 NSLog("Local content meets error. Trying to request new content...", -1)
-                request(from: .remote) { request, error in
-                    completionHandler(request, .remote, error)
+                perform(from: .remote) { request, source, error in
+                    completionHandler(request, source, error)
                 }
             }
         }
@@ -63,8 +63,8 @@ public class CYRequest {
 
 extension CYRequest {
     
-    /// request for `CYResponse`.
-    public func request(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, Error?) -> Void) {
+    /// Perform an action to request weather content. Explicitly defines from which dataSource that you wants to request weather content.
+    public func perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
         let actuator: (@escaping (Data?, Error?) -> Void) -> Void = {
             switch dataSource {
             case .remote:
@@ -77,10 +77,12 @@ extension CYRequest {
         queue.async { [self] in
             actuator { data, error in
                 guard let data = data else {
-                    completionHandler(nil, error)
+                    completionHandler(nil, dataSource, error)
                     return
                 }
-                decode(data, completionHandler: completionHandler)
+                decode(data) { response, error in
+                    completionHandler(response, dataSource, error)
+                }
             }
         }
     }
