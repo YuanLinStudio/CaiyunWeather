@@ -34,8 +34,7 @@ let package = Package(
         ),
         .testTarget(
             name: "CaiyunWeatherTests",
-            dependencies: ["CaiyunWeather"],
-            exclude: ["CaiyunWeatherTokenRelatedTests.swift"]
+            dependencies: ["CaiyunWeather"]
         ),
     ]
 )
