@@ -41,6 +41,11 @@ public struct CYEndpoint: Codable, Equatable {
 
 extension CYEndpoint {
     
+    public init(token: String? = nil, coordinate: CYCoordinate = .defaultCoordinate) {
+        self.token = token
+        self.coordinate = coordinate
+    }
+    
     func getComponents() -> URLComponents {
         // Credit: https://www.swiftbysundell.com/articles/constructing-urls-in-swift/
         var components = URLComponents()
