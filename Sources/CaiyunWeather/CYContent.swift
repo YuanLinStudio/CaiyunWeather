@@ -204,24 +204,29 @@ extension CYContent {
 fileprivate func getDirectionDescription(_ direction: Double) -> String {
     var description: String
     
+    func centeredRange(_ center: Double, tolerance: Double = 11.25) -> Range<Double> {
+        return Range(center: center, tolerance: tolerance)
+    }
+    
     let convertedValue = Measurement(value: direction, unit: unit.system.windDirection).converted(to: .degrees).value
+    
     switch convertedValue {
     case 0 ..< 11.25, 348.75 ..< 360: description = "north"
-    case Range(center: 22.5, tolerance: 11.25): description = "north-northeast"
-    case Range(center: 45, tolerance: 11.25): description = "northeast"
-    case Range(center: 67.5, tolerance: 11.25): description = "east-northeast"
-    case Range(center: 90, tolerance: 11.25): description = "east"
-    case Range(center: 112.5, tolerance: 11.25): description = "east-southeast"
-    case Range(center: 135, tolerance: 11.25): description = "southeast"
-    case Range(center: 157.5, tolerance: 11.25): description = "south-southeast"
-    case Range(center: 180, tolerance: 11.25): description = "south"
-    case Range(center: 202.5, tolerance: 11.25): description = "south-southwest"
-    case Range(center: 225, tolerance: 11.25): description = "southwest"
-    case Range(center: 247.5, tolerance: 11.25): description = "west-southwest"
-    case Range(center: 270, tolerance: 11.25): description = "west"
-    case Range(center: 295.5, tolerance: 11.25): description = "west-northwest"
-    case Range(center: 315, tolerance: 11.25): description = "northwest"
-    case Range(center: 337.5, tolerance: 11.25): description = "north-northwest"
+    case centeredRange(22.5): description = "north-northeast"
+    case centeredRange(45): description = "northeast"
+    case centeredRange(67.5): description = "east-northeast"
+    case centeredRange(90): description = "east"
+    case centeredRange(112.5): description = "east-southeast"
+    case centeredRange(135): description = "southeast"
+    case centeredRange(157.5): description = "south-southeast"
+    case centeredRange(180): description = "south"
+    case centeredRange(202.5): description = "south-southwest"
+    case centeredRange(225): description = "southwest"
+    case centeredRange(247.5): description = "west-southwest"
+    case centeredRange(270): description = "west"
+    case centeredRange(295.5): description = "west-northwest"
+    case centeredRange(315): description = "northwest"
+    case centeredRange(337.5): description = "north-northwest"
     default: description = "N/A"
     }
     return description.localized()
