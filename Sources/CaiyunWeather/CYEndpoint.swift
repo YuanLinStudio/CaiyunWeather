@@ -10,7 +10,7 @@ import Foundation
 /// `CYEndpoint` defines all information about API requests, including token, version, target files, etc.·
 public struct CYEndpoint: Codable, Equatable {
     /// Token
-    var token: String! = nil
+    public var token: String! = nil
     /// 坐标
     public var coordinate: CYCoordinate = .defaultCoordinate
     
