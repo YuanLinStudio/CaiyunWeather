@@ -272,6 +272,38 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 | `daily` | `CYDaily` | `daily` |
 | `keypoint` | `String` | `forecast_keypoint` |
 
+#### `CYAlert`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `responseStatus` | `String` | `status` |
+| `content` | `[CYAlert.AlertContent]` | `content` |
+
+`CYAlert.AlertContent`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `publishTime` | `CYContent.Datetime1970Based` | `pubtimestamp` |
+| `id` | `String` | `alertId` |
+| `status` | `String` | `status` |
+| `adcode` | `String` | `adcode` |
+| `location` | `String` | `location` |
+| `province` | `String` | `province` |
+| `city` | `String` | `city` |
+| `county` | `String` | `county` |
+| `code` | `CYAlert.AlertContent.AlertCode` | `code` |
+| `source` | `String` | `source` |
+| `title` | `String` | `title` |
+| `description` | `String` | `description` |
+
+Redefined types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYAlert.AlertContent.AlertCode` |  | `type`, `level` |
+| `CYAlert.AlertContent.AlertCode.AlertType` |  | All cases defined in [API documentation - Alert type codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) |
+| `CYAlert.AlertContent.AlertCode.AlertLevel` |  | All cases defined in [API documentation - Alert level codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.BA.A7.E5.88.AB.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) |
+
 #### `CYRealtime`
 
 | Property | Type | API Original Key |
