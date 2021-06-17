@@ -1,6 +1,6 @@
 # CaiyunWeather
 
-Request weather information from caiyunapp.com in 10 lines of code
+Request weather information from caiyunapp.com in 10 lines of code.
 
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange)](https://developer.apple.com/swift)
 [![SPM Availble](https://img.shields.io/badge/SPM-compatible-brightgreen)](https://swift.org/package-manager)
