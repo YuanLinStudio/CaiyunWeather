@@ -23,7 +23,7 @@ For English Version, click [here](README.md).
 
 `CaiyunWeather` 支持将从 API 获取的数据解码到 `CYResponse` 对象，或将 `CYResponse` 对象编码到本地 `Data` 数据。
 
-因此，项目内置了一个天气内容缓存工具，您可以借助它来减少远程 API 调用次数并 **节省您的成本**！
+因此，项目内置了一个天气内容缓存工具，您可以借助它来减少远程 API 调用次数并**节省您的成本**！
 
 ## 在开始之前
 
@@ -59,22 +59,22 @@ let package = Package(
 ``` swift
 import CaiyunWeather
 
-let token = "your-token-here"
+let token = "您的 token"
 
-// the place's coordinate of which you want to request weather
+// 请求天气位置的坐标
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
-// declare an request
+// 声明一个请求（`request`）
 let request = CYRequest(token: token, coordinate: coordinate)
 
-// request the data
+// 请求数据
 request.perform { response, source, error in
     guard let response = response, error == nil else {
         print(error.debugDescription)
         return
     }
     print(response)
-    // your subsequent actions for `CYResponse?` result
+    // 您为 `CYResponse?` 定义的后续方法
 }
 ```
 
@@ -98,9 +98,9 @@ request.perform { response, source, error in
 | `CYRequest.endpoint.file` | API 请求的目标文件。 *不建议修改此参数* | `String` | `"weather.json"` |
 | `CYRequest.endpoint.version` | API 版本。 *不建议修改此参数* | `String` | `"v2.5"` |
 
-若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<path> = <value>` 来修改。您还可以定义一个 `CYEndpoint` 对象并作出修改，然后用 `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>` 把它传给 `CYRequest` 对象。
+若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<参数路径> = <值>` 来修改。您还可以定义一个 `CYEndpoint` 对象并作出修改，然后用 `<您的 CYRequest 对象>.endpoint = <您的 CYEndpoint 对象>` 来把它传给您的 `CYRequest` 对象。
 
-Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. Note it can be `nil` if your haven't passed in a token.
+使用 `CYRequest.endpoint.url` 来获取您修改请求参数后的请求 URL。注意，若您没有传入 token，它可能返回 `nil`。
 
 > #### 使用 `CYCoordinate`
 > 
@@ -123,9 +123,9 @@ Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. N
 | `CYRequest.queue` | 处理 `CYRequest` 的队列 | `DispatchQueue` | `.global(qos: .background)` |
 | `CYRequest.localContentUrl` | 从 API 获取的天气信息的缓存位置 | `URL` | `.cachesDirectory` |
 
-若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<path> = <value>` 来修改。
+若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<参数路径> = <值>` 来修改。
 
-本地缓存文件将存储在 `CYRequest.localContentUrl` 中，以 `<longitude in %.4f>,<latitude in %.4f>` 命名。该规则暂时不能被修改。
+本地缓存文件将存储在 `CYRequest.localContentUrl` 中，以 `<经度的 %.4f>,<纬度的 %.4f>` 命名。该规则暂时不能被修改。
 
 ### 便捷构造器
 
@@ -134,14 +134,14 @@ Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. N
 下方 3 段初始化语句将产生相同的效果：
 
 ``` swift
-let token = "your-token-here"
+let token = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let request = CYRequest(token: token, coordinate: coordinate)
 ```
 
 ``` swift
-let token = "your-token-here"
+let token = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let endpoint = CYEndpoint(token: token, coordinate: coordinate)
@@ -151,7 +151,7 @@ request.endpoint = endpoint
 ```
 
 ``` swift
-let token = "your-token-here"
+let token = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 var endpoint = CYEndpoint()
@@ -178,87 +178,87 @@ request.endpoint = endpoint
 
 否则，将会从远程 API 重新请求数据并缓存。
 
-`completionHandler` 的 `CYRequest.DataSource` 参数表明本次解析的数据来自哪里。`.local` 表明来源于本地缓存，`.remote` 表明来源于远程 API。
+`completionHandler` 的 `CYRequest.DataSource` 参数表明本次解析的数据来自哪里。`.local` 表明来源于本地缓存，`.remote` 则表明来源于远程 API。
 
-### Explicitly choosing local or remote fetching
+### 显式选择使用本地缓存或远程 API 信息源
 
-You may use `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` if you want to perform your request towards an explicit target. Set `dataSource` to `.local` if you want to fatch data from local cache, or `.remote` from remote API.
+若您想要显式选择信息源，您可以使用 `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` 方法。将 `dataSource` 设置为 `.local` 以从本地缓存中请求，或 `.remote` 以从远程 API 中请求。
 
-### Fetching Data without decoding to `CYResponse` object
+### 只请求数据，而不解析为 `CYResponse` 对象
 
-You may use `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` if you want to fatch data without decoding it to `CYResponse` object. This shall only be used for debugging and internal using.
+若您想要只请求数据而不解析为 `CYResponse` 对象，您可以使用 `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` 方法。该方法应当仅在您调试过程或内部使用过程中调用。
 
-### Fetching Example Data
+### 请求示例数据
 
-An example JSON file is included in this package for debugging use. Call `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
+本项目 package 中包含了一个示例 JSON 文件。调用 `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` 方法来获取它。
 
-The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (112.8641, 35.4904), which is located in Jincheng, Shanxi, China.
+示例 JSON 文件是彩云天气 API 的一个返回内容，时间是 2021-04-14，位置坐标是 (112.8641, 35.4904)，该位置在山西省晋城市境内。
 
-### Using native `URLSession.dataTask` to fetch data from remote
+### 使用原始 `URLSession.dataTask` 方法从远程 API 请求数据
 
-**Not recommended.** Note that `dataTask`s are internally wrapped into `perform` and `fatchData`, so you should mostly use them instead. 
+**不建议使用。**注意，在`perform` 和 `fatchData` 方法内部已经使用 `dataTask` 来完成，因此多数情况下您应当直接调用这两个方法。
 
-However, if you would prefer to hard-code your URL or you need to do so, the code below may help you. 
+尽管如此，如果您倾向于硬编码您的 URL 或您需要使用原始方法，下方代码可能会为您提供帮助。
 
 ``` swift
-let url = "your.valid.url/for/api/requests"
+let url = "您请求数据的 URL"
 
 URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-    // deal with the data
+    // 处理数据（`data`）
 }
 .resume()
 ```
 
-### Decoding your data to `CYResponse` object
+### 将数据（`Data` 对象）解码到 `CYResponse` 对象
 
-**Content received by `perform` are ready-to-use and DO NOT need to decode. Skip this section and go ahead.** 
+**若您使用 `perform` 方法接收到了内容，您的内容可被直接使用，而无需再次进行解码。请跳过这一节。** 
 
-If you have your data ready (either fetched with `fatchData`, fetched with `dataTask`, or loaded from local cache), you may use `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` to decode your data to `CYResponse` object.
+如果您准备好了您的数据（使用 `fatchData`、`dataTask`、或由本地文件载入），您可以调用 `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` 方法来将您的数据（`Data` 对象）解码到 `CYResponse` 对象。
 
 
-## Working with API response
+## 处理 API 响应内容
 
-> Before continuing, you are highly recommended to read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) to have a brief outline of the response content.
+> 继续之前，我们非常建议您阅读 [彩云 API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) 来了解 API 响应的内容。
 
-The default contents are very long, that means few people will use all of them. Therefore, **you are very welcomed to define your own data model, with an adaptor from `CYResponse`**.
+默认的返回内容非常长，这意味着您可能不会全部用到它们。因此，**我们非常欢迎您定义您自己的天气数据模型，并使用对 `CYResponse` 的适配器来构造它**。
 
-Some instructions about content types and return types are as follows. You are encouraged to read them all together, but here's an alternation for you: just skip this section and continue, come back when you meet problems.
+有关内容类型和返回类型的说明如下。我们鼓励您读完它们，但这里有一个供你选择的方法：跳过这一节，等到编写程序遇到问题时再回来。
 
-### `CYContent` types
+### `CYContent` 类型
 
-`CYContent` defines some common types for weather content, which are handful to reuse.
+`CYContent` 定义了一些处理天气信息的通用数据类型，它们非常好用。
 
-#### Physical types
+#### 实际类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYContent.Datetime1970Based` |  | `time` |
 | `CYContent.DatetimeServerType` |  | `time` |
-| `CYContent.LifeIndex<T>` | Life indices with optional properties of type `T`. | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
+| `CYContent.LifeIndex<T>` | `T` 类型的生活指数 | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
 | `CYContent.Wind` |  | `speed`, `direction` |
 | `CYContent.Wind.WindContent` |  | `value`, `description` |
-| `CYContent.AirQuality` | Optional properties. | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
-| `CYContent.Phenomenon` | Enumeration. | All cases defined in [API documentation - Phenomenon Codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) |
+| `CYContent.AirQuality` | 属性值为 Optional 类型 | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
+| `CYContent.Phenomenon` | 枚举类型 | [彩云 API 文档 - 天气现象代码表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) 中定义的所有内容 |
 
-#### Abstruct types
+#### 抽象类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYContent.CountryRelated<T>` |  | `chn`, `usa` |
 | `CYContent.IndexWithDescription<T>` |  | `index`, `description` |
 | `CYContent.AverageAndExtremum<T>` |  | `average`, `maximum`, `minimum` |
 
-> `extension` them to better serve you!
+> 您可以扩展（`extension`）它们来更好地为您提供服务。
 
-### Response objects
+### 响应对象
 
-If you have used `perform` or `decode` function above, your content will now be `CYResponse?` object. **Don't forget to unwrap your content.** If there's no error, your content will contain all objects returned and decoded from remote API. `CYResponse` and most nested objects are defined as `struct` with `let` statements to make your workspace clean and save memories of users' device.
+如果您使用了上述提到的 `perform` 或 `decode` 方法，您的内容此时可能是 `CYResponse?` 对象。**别忘了对您的内容进行解包。** 若无异常，您的内容将包含从远程 API 返回并解码过的全部内容。为了优化您的工程并节省用户内存、提高响应速度，`CYResponse` 对象和其包含的多数对象都以带 `let` 语句的 `struct` 形式定义。
 
-The following tables explains `CYResponse` and most nested objects. No description will be provided, as the name of them are defined easy and simple.
+下方表格解释了 `CYResponse` 对象和其包含的对象。部分对象在代码注释中提供了中文解释。
 
 #### `CYResponse`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `responseStatus` | `String` | `status` |
 | `version` | `String` | `api_version` |
@@ -272,7 +272,7 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 
 #### `CYResult`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `alert` | `CYAlert` | `alert` |
 | `realtime` | `CYRealtime` | `realtime` |
@@ -283,14 +283,14 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 
 #### `CYAlert`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `responseStatus` | `String` | `status` |
 | `content` | `[CYAlert.AlertContent]` | `content` |
 
 `CYAlert.AlertContent`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `publishTime` | `CYContent.Datetime1970Based` | `pubtimestamp` |
 | `id` | `String` | `alertId` |
@@ -305,9 +305,9 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 | `title` | `String` | `title` |
 | `description` | `String` | `description` |
 
-Redefined types
+重定义类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYAlert.AlertContent.AlertCode` |  | `type`, `level` |
 | `CYAlert.AlertContent.AlertCode.AlertType` |  | All cases defined in [API documentation - Alert type codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) |
@@ -315,7 +315,7 @@ Redefined types
 
 #### `CYRealtime`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `responseStatus` | `String` | `status` |
 | `temperature` | `Double` | `temperature` |
@@ -331,17 +331,17 @@ Redefined types
 | `airQuality` | `CYContent.AirQuality?` | `air_quality` |
 | `lifeIndex` | `CYContent.LifeIndex<CYContent.IndexWithDescription<Int>>` | `life_index` |
 
-Redefined types
+重定义类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
-| `CYRealtime.Precipitation.PrecipitationContent` | `datasource` and `distance` are optional. | `responseStatus`, `datasource`, `intensity`, `distance` |
+| `CYRealtime.Precipitation.PrecipitationContent` | `datasource` 和 `distance` 属性为 `Optional` 类型 | `responseStatus`, `datasource`, `intensity`, `distance` |
 
 
 #### `CYMinutely`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `datasource` | `String` | `datasource` |
 | `description` | `String` | `description` |
@@ -350,7 +350,7 @@ Redefined types
 
 #### `CYHourly`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `responseStatus` | `String` | `status` |
 | `description` | `String` | `description` |
@@ -365,22 +365,22 @@ Redefined types
 | `dswrf` | `[CYHourly.ValueWithDatetime<Double>]` | `dswrf` |
 | `airQuality` | `CYHourly.AirQuality` | `air_quality` |
 
-Redefined types
+重定义类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYHourly.AirQuality` |  | `aqi`, `pm25` |
 
-Abstruct types
+抽象类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYHourly.ValueWithDatetime<T>` |  | `datetime`, `value` |
 | `CYHourly.ValueWithDatetimeFlat<T>` |  | `datetime`, `value` |
 
 #### `CYDaily`
 
-| Property | Type | API Original Key |
+| 属性 | 类型 | API 原始键值 |
 | ---- | ---- | ---- |
 | `responseStatus` | `String` | `status` |
 | `astronomy` | `[CYDaily.Astronomy]` | `astro` |
@@ -398,63 +398,65 @@ Abstruct types
 | `airQuality` | `[CYDaily.AirQuality]` | `air_quality` |
 | `lifeIndex` | `CYContent.LifeIndex<[CYDaily.IndexWithDescriptionWithDate<String>]>` | `life_index` |
 
-Redefined types
+重定义类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYDaily.Astronomy` |  | `date`, `value` |
 | `CYDaily.Astronomy.AstronomyContent` |  | `sunrise`, `sunset` |
 | `CYDaily.Astronomy.AstronomyContent.AstronomyTime` |  | `timeInterval` |
 | `CYDaily.AirQuality` |  | `aqi`, `pm25` |
 
-Abstruct types
+抽象类型
 
-| Type | Description | Prpoerties |
+| 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYHourly.ValueWithDate<T>` |  | `date`, `value` |
 | `CYHourly.AverageAndExtremumWithDate<T>` |  | `date`, `value` |
 | `CYHourly.IndexWithDescriptionWithDate<T>` |  | `date`, `value` |
 
-> `extension` them to better serve you!
+> 您可以扩展（`extension`）它们来更好地为您提供服务。
 
-## Measurement and unit converting
+## 计量单位换算
 
-API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for your requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between them and more. 
+彩云天气 API 为您的请求提供了 [5 种单位制](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6)。本项目实现了此 5 种单位制，并可为您提供它们之间的单位换算，甚至向其他单位换算。
 
-The following codes shows an example converting the wind speed: 
+下方代码提供了换算风速的示例：
 
 ``` swift
 let windSpeed = response.result.realtime.wind.speed.value
 
-// get current unit system by either of these
+// 使用下方两种方法中的任意一种来获取当前的单位制
 let unitSystem = unit.system
 // let unitSystem = request.endpoint.measurementSystem.system
 
-// define a measurement
-let windSpeedMeasurement = Measurement(value: windSpeed, unit: unitSystem.windSpeed)
+// 定义一个 `Measurement` 对象
+let measurement = Measurement(value: windSpeed, unit: unitSystem.windSpeed)
 
-// convert the measurement to specified unit and get the value
-let convertedSpeed = windSpeedMeasurement.converted(to: .kilometersPerHour).value
+// 将 `Measurement` 对象换算至特定单位并获取换算后的值
+let convertedSpeed = measurement.converted(to: .kilometersPerHour).value
 ```
 
-Refer to `CYUnit` for all defined measurement units.
+单位换算使用 Apple `Foundation` 框架中的 `Measurement` 实现，具体方法请参阅 [Apple Developer Documentation - Measurement](https://developer.apple.com/documentation/foundation/measurement) (`EN`)。
 
-> `extension` them to better serve you!
+有关所有定义的测量单位，请参阅 `CYUnit`。
 
-## Localization
+> 您可以扩展（`extension`）它们来更好地为您提供服务。
 
-API provides [5 languages](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) for your requests. In this project, some of weather contents are localized in 2 languages (`en` and `zh-Hans`), such as phenomenon, alert and wind.
+## 本地化和翻译
 
-Refer to `Localizable` for more information.
+彩云天气 API 为您的请求提供了 [5 种本地化语言](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0)。本项目为其中 2 种语言（英语 `en` 和简体中文 `zh-Hans`）编写了本地化文件，内容包括天气现象、预警和风力风向等。
 
-> `extension` them to better serve you!
+获取更多信息，请参阅 `Localizable`。
 
-## License
+> 您可以扩展（`extension`）它们来更好地为您提供服务。
+
+## 许可
 
 MIT
 
-## Disclaimer
+## 免责声明
 
-- This project has no direct connection with caiyunapp.com. 
-- caiyunapp.com is neither a sponsor nor responsible for this project. 
-- All rights that belong to caiyunapp.com are fully respected.
+- 本项目与彩云天气 API 无直接联系。
+- 彩云天气 API 不是本项目的赞助者，也不对本项目负责。
+- 我们非常尊重彩云天气 API 拥有的全部权利。

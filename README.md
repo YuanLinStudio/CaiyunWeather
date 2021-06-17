@@ -431,11 +431,13 @@ let unitSystem = unit.system
 // let unitSystem = request.endpoint.measurementSystem.system
 
 // define a measurement
-let windSpeedMeasurement = Measurement(value: windSpeed, unit: unitSystem.windSpeed)
+let measurement = Measurement(value: windSpeed, unit: unitSystem.windSpeed)
 
 // convert the measurement to specified unit and get the value
-let convertedSpeed = windSpeedMeasurement.converted(to: .kilometersPerHour).value
+let convertedSpeed = measurement.converted(to: .kilometersPerHour).value
 ```
+
+Measurement and unit converting are implemented with `Measurement` in Apple's `Foundation` Framework. Please refer to [Apple Developer Documentation - Measurement](https://developer.apple.com/documentation/foundation/measurement) for more information.
 
 Refer to `CYUnit` for all defined measurement units.
 
