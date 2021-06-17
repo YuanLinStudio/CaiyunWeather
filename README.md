@@ -410,7 +410,12 @@ Abstruct types
 
 ## Measurement and unit converting
 
-API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between these systems and more. 
+API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between them and more. 
+
+The following codes shows an example converting the wind speed: 
+
+``` swift
+```
 
 
 ## License
