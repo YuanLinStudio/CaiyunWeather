@@ -19,25 +19,25 @@ public enum CYUnit: String, Codable, Equatable {
     /// 公制 v2
     case metricV2 = "metric:v2"
     
-    var system: UnitSystem { return unitSystems[self]! }
+    public var system: UnitSystem { return unitSystems[self]! }
 }
 
 // MARK: - Unit system for requested unit sets
 
 extension CYUnit {
-    struct UnitSystem: Equatable {
-        let realtimePrecipitation: UnitSpeed
-        let minutelyPrecipitation: UnitSpeed
-        let hourlyPrecipitation: UnitSpeed
-        let dailyPrecipitation: UnitSpeed
-        let distance: UnitLength
-        let temperature: UnitTemperature
-        let pressure: UnitPressure
-        let humidity: UnitRatio
-        let windDirection: UnitAngle
-        let windSpeed: UnitSpeed
-        let cloudrate: UnitRatio
-        let visibility: UnitLength
+    public struct UnitSystem: Equatable {
+        public let realtimePrecipitation: UnitSpeed
+        public let minutelyPrecipitation: UnitSpeed
+        public let hourlyPrecipitation: UnitSpeed
+        public let dailyPrecipitation: UnitSpeed
+        public let distance: UnitLength
+        public let temperature: UnitTemperature
+        public let pressure: UnitPressure
+        public let humidity: UnitRatio
+        public let windDirection: UnitAngle
+        public let windSpeed: UnitSpeed
+        public let cloudrate: UnitRatio
+        public let visibility: UnitLength
     }
 }
 
@@ -59,7 +59,7 @@ fileprivate let unitSystems: [CYUnit: CYUnit.UnitSystem] = [
 
 // MARK: - Foundation.Dimension extensions
 
-class UnitRatio: Dimension {
+public class UnitRatio: Dimension {
     static let ratio = UnitRatio(symbol: "", converter: UnitConverterLinear(coefficient: 1.0))
     static let baseUnit = UnitRatio.ratio
 }

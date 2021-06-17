@@ -239,7 +239,7 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 | `CYContent.IndexWithDescription<T>` |  | `index`, `description` |
 | `CYContent.AverageAndExtremum<T>` |  | `average`, `maximum`, `minimum` |
 
-> `extension` them to better meet your requests!
+> `extension` them to better serve you!
 
 ### Response objects
 
@@ -406,11 +406,11 @@ Abstruct types
 | `CYHourly.AverageAndExtremumWithDate<T>` |  | `date`, `value` |
 | `CYHourly.IndexWithDescriptionWithDate<T>` |  | `date`, `value` |
 
+> `extension` them to better serve you!
 
+## Measurement and unit converting
 
-
-| `` | `` | `` |
-| `` | `` | `` |
+API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between these systems and more. 
 
 
 ## License
