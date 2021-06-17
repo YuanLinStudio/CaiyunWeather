@@ -26,8 +26,8 @@ public class CYRequest {
     /// Perform an action to request weather content.
     ///
     /// If the data from local cache will be used if:
-    /// - it is for same Coordinate; and
-    /// - it is not expired (use `CYRequest.expiration` to define the period of validation)
+    /// 1. it is for same Coordinate; and
+    /// 2. it is not expired (use `CYRequest.expiration` to define the period of validation)
     ///
     /// Elsewise, a new data will be requested from remote API.
     open func perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
@@ -241,4 +241,5 @@ fileprivate func getDefaultLocalContentUrl() -> URL {
     let destination: URL = Bundle.module.bundleURL
     let cacheUrl: URL = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: destination, create: true)
     return cacheUrl
+    // Credit: https://nshipster.com/temporary-files/
 }
