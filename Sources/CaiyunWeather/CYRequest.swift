@@ -21,7 +21,9 @@ public class CYRequest {
     /// The queue on which the request is performed
     public var queue: DispatchQueue = DispatchQueue.global(qos: .background)
     
-    public init() { }
+    public init(token: String? = nil, coordinate: CYCoordinate = .defaultCoordinate) {
+        self.endpoint = CYEndpoint(token: token, coordinate: coordinate)
+    }
     
     /// Perform an action to request weather content.
     ///

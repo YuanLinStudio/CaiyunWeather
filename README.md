@@ -5,7 +5,7 @@ Request weather information from caiyunapp.com in 10 lines of code.
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange)](https://developer.apple.com/swift)
 [![SPM Availble](https://img.shields.io/badge/SPM-compatible-brightgreen)](https://swift.org/package-manager)
 [![GitHub license](https://img.shields.io/github/license/YuanLinStudio/CaiyunWeather)](https://github.com/YuanLinStudio/CaiyunWeather)
-[![API v2.5](https://img.shields.io/badge/API-v2.5-orange)](https://developer.apple.com/swift)
+[![API v2.5](https://img.shields.io/badge/API-v2.5-orange)](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)
 
 
 ## Introduction
@@ -33,7 +33,7 @@ Therefore, a built-in method of caching weather content is provided, which means
 
 ## Installation
 
-### Swift package manager (*Recommended*).
+### Swift package manager
 
 To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your Package.swift file:
 
@@ -57,15 +57,12 @@ Use the code below to perform a request to caiyunapp.com and get the returned da
 import CaiyunWeather
 
 let token = "your-token-here"
+
 // the place's coordinate of which you want to request weather
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
-// declare an endpoint
-let endpoint = CYEndpoint(token: token, coordinate: coordinate)
-
-// declare an request and pass in the endpoint
-let request = CYRequest()
-request.endpoint = endpoint
+// declare an request
+let request = CYRequest(token: token, coordinate: coordinate)
 
 // request the data
 request.perform { response, source, error in
