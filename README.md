@@ -35,7 +35,7 @@ Therefore, a built-in method of caching weather content is provided, which means
 
 ### Swift Package Manager
 
-To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your Package.swift file:
+To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your `Package.swift` file:
 
 ``` swift
 let package = Package(
@@ -284,7 +284,7 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 | `visibility` | `Double` | `visibility` |
 | `dswrf` | `Double` | `dswrf` |
 | `wind` | `CYContent.Wind` | `wind` |
-| `precipitation` | `Precipitation` | `precipitation` |
+| `precipitation` | `CYRealtime.Precipitation` | `precipitation` |
 | `airQuality` | `CYContent.AirQuality?` | `air_quality` |
 | `lifeIndex` | `CYContent.LifeIndex<CYContent.IndexWithDescription<Int>>` | `life_index` |
 
@@ -293,7 +293,7 @@ Redefined types
 | Type | Description | Prpoerties |
 | ---- | ---- | ---- |
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
-| `CYRealtime.Precipitation.PrecipitationContent` |  | `responseStatus`, `datasource`, `intensity`, `distance` |
+| `CYRealtime.Precipitation.PrecipitationContent` | `datasource` and `distance` are optional. | `responseStatus`, `datasource`, `intensity`, `distance` |
 
 
 | `` | `` | `` |
