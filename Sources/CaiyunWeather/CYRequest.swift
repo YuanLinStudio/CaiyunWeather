@@ -25,11 +25,22 @@ public class CYRequest {
         self.endpoint = CYEndpoint(token: token, coordinate: coordinate)
     }
     
+    public enum DataSource: Equatable {
+        case local
+        case remote
+    }
+}
+
+// MARK: - Work with request for CYResponse
+
+extension CYRequest {
+    
     /// Perform an action to request weather content.
     ///
     /// If the data from local cache will be used if:
-    /// 1. it is for same Coordinate; and
-    /// 2. it is not expired (use `CYRequest.expiration` to define the period of validation)
+    /// 1. the local cached file exists with no decoding errors; and
+    /// 2. it is for the coordinate you are requiring (rounded to `%.4f`, about 100 meters in distance); and
+    /// 3. it is not expired.
     ///
     /// Elsewise, a new data will be requested from remote API.
     open func perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
@@ -54,16 +65,6 @@ public class CYRequest {
             }
         }
     }
-    
-    public enum DataSource: Equatable {
-        case local
-        case remote
-    }
-}
-
-// MARK: - Work with request for CYResponse
-
-extension CYRequest {
     
     /// Perform an action to request weather content. Explicitly defines from which dataSource that you want to request weather content.
     public func perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {

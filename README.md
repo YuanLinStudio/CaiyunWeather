@@ -157,6 +157,56 @@ let request = CYRequest()
 request.endpoint = endpoint
 ```
 
+## Performing your request
+
+You should perform your request to get weather contents, either from remote or local. Before continuing, make sure you have finished your request initialization.
+
+### Automatically choosing target
+
+Use `CYRequest.perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` to perform your request by auto choosing target. That means, The local cached data will be fetched if the following 3 conditions are met:
+
+1. the local cached file exists with no decoding errors; and
+2. it is for the coordinate you are requiring (rounded to `%.4f`, about 100 meters in distance); and
+3. it is not expired.
+
+Elsewise, a new data will be fetched from remote API and then cached.
+
+`CYRequest.DataSource` as parameter for the `completionHandler` receives the target from which the data is fetched. `.local` means local cache, while `.remote` means remote API.
+
+### Explicitly choosing local or remote fetching
+
+You may use `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` if you want to perform your request towards an explicit target. Set `dataSource` to `.local` if you want to fatch data from local cache, or `.remote` from remote API.
+
+### Fetching Data without decoding to `CYResponse` object
+
+You may use `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` if you want to fatch data without decoding it to `CYResponse` object. This shall only be used for debugging and internal using.
+
+### Fetching Example Data
+
+An example JSON file is included in this package for debugging use. Call `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
+
+The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (35.4904, 112.8641), which located in Jincheng, Shanxi, China.
+
+### Using native `URLSession.dataTask` to fetch data from remote
+
+**Not recommended.** Note that `dataTask`s are internally wrapped into `perform` and `fatchData`, so you should mostly use them instead. However, if you would prefer to hard-code your URL or you need to do so, the code below may help you. 
+
+``` swift
+let url = "your.valid.url/for/api/requests"
+
+URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+    // deal with the data
+}
+.resume()
+```
+
+### Decoding your data to `CYResponse` object
+
+**Content received by `perform` are ready-to-use and DO NOT need to decode. Skip this section and go ahead.** 
+
+If you have your data ready (either fetched with `fatchData`, fetched with `dataTask`, or loaded from local cache), you may use `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` to decode your data to `CYResponse` object.
+
+
 ## License
 
 MIT
