@@ -19,28 +19,28 @@ For English Version, click [here](README.md).
 
 不同于传统的 JSON Serializer 方法，`CaiyunWeather` 将所有内容存储为对象，其中的大多数都可解码和编码。
 
-你可以自定义请求过程和结果处理过程中的几乎全部参数。
+您可以自定义请求过程和结果处理过程中的几乎全部参数。
 
 `CaiyunWeather` 支持将从 API 获取的数据解码到 `CYResponse` 对象，或将 `CYResponse` 对象编码到本地 `Data` 数据。
 
-因此，项目内置了一个天气内容缓存工具，你可以借助它来减少远程 API 调用次数并 **节省你的成本**！
+因此，项目内置了一个天气内容缓存工具，您可以借助它来减少远程 API 调用次数并 **节省您的成本**！
 
 ## 在开始之前
 
-1. 你需要在 [http://caiyunapp.com/](http://caiyunapp.com/) 为自己申请一个天气 token。**记得保密好你的 token 哦！**
-2. 非常建议你首先阅读彩云天气的 [API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)。
+1. 您需要在 [http://caiyunapp.com/](http://caiyunapp.com/) 为自己申请一个天气 token。**记得保密好您的 token 哦！**
+2. 非常建议您首先阅读彩云天气的 [API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)。
 
-## Requirements
+## 要求
 
-- Swift 5.0 or later
-- Xcode 11 or later
-- iOS 10 or later / macOS 10.12 or later
+- Swift 语言版本 5.0 或以上
+- Xcode 版本 11 或以上
+- iOS 版本 10 或以上 / macOS 版本 10.12 或以上
 
-## Installation
+## 安装
 
-### Swift Package Manager
+### 使用 Swift Package Manager
 
-To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your `Package.swift` file:
+若要使用 [Swift Package Manager](https://swift.org/package-manager/) 安装 `CaiyunWeather`，把下方代码添加到您的 `Package.swift` 文件中即可：
 
 ``` swift
 let package = Package(
@@ -52,9 +52,9 @@ let package = Package(
 )
 ```
 
-## Quick starts
+## 快速开始
 
-Use the code below to perform a request to caiyunapp.com and get the returned data decoded as `CYResponse` object:
+使用下方代码来向彩云天气 API 发送请求，并将返回的数据解码为 `CYResponse` 对象：
 
 ``` swift
 import CaiyunWeather
@@ -78,60 +78,60 @@ request.perform { response, source, error in
 }
 ```
 
-## Making your API request
+## 设置您的 API 请求（`request`）
 
-### Altering API-related options of your request
+### 自定义 API 相关的请求参数
 
-All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation - API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) (`Chinese`) before choosing your request options.
+所有的 API 相关的参数都定义在 `CYRequest.endpoint`中。选择请求参数之前，请阅读 [API 文档 - 请求参数](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0)。
 
-All options are shown below:
+下方说明了全部参数选项。
 
-| Route of parameter | Description | Type | Default value |
+| 参数路径 | 描述 | 类型 | 默认值 |
 | ---- | ---- | ---- | ---- |
-| `CYRequest.endpoint.token` | Your valid API token. | `String!` | `nil` |
-| `CYRequest.endpoint.coordinate` | The place's coordinate you want to request weather of. | `CYCoordinate` | `.defaultCoordinate` as (0, 0) |
-| `CYRequest.endpoint.language` | The displaying language of the response. | `CYEndpoint.RequestLanguage` | `.chineseSimplified` |
-| `CYRequest.endpoint.measurementSystem` | The unit system of the response. | `CYEndpoint.MeasurementSystem` (equal to `CYUnit`) | `.metric` |
-| `CYRequest.endpoint.shouldIncludeAlerts` | Would you like to receive weather alerts in your response. | `Bool` | `true` |
-| `CYRequest.endpoint.hourlyLength` | How many hours would you like to receive hourly weather content. | `Int` | `48` |
-| `CYRequest.endpoint.dailyLength` | How many days would you like to receive daily weather content. | `Int` | `5` |
-| `CYRequest.endpoint.file` | The target file of the response. *You are not recommended to change this parameter.* | `String` | `"weather.json"` |
-| `CYRequest.endpoint.version` | API version. *You are not recommended to change this parameter.* | `String` | `"v2.5"` |
+| `CYRequest.endpoint.token` | 您的 API token | `String!` | `nil` |
+| `CYRequest.endpoint.coordinate` | 请求天气的位置坐标 | `CYCoordinate` | `.defaultCoordinate` as (0, 0) |
+| `CYRequest.endpoint.language` | 返回内容的显示语言 | `CYEndpoint.RequestLanguage` | `.chineseSimplified` |
+| `CYRequest.endpoint.measurementSystem` | 相应内容的单位制 | `CYEndpoint.MeasurementSystem` (equal to `CYUnit`) | `.metric` |
+| `CYRequest.endpoint.shouldIncludeAlerts` | 是否接受天气预警信息 | `Bool` | `true` |
+| `CYRequest.endpoint.hourlyLength` | 小时级天气信息的时间长度 | `Int` | `48` |
+| `CYRequest.endpoint.dailyLength` | 天级天气信息的时间长度 | `Int` | `5` |
+| `CYRequest.endpoint.file` | API 请求的目标文件。 *不建议修改此参数* | `String` | `"weather.json"` |
+| `CYRequest.endpoint.version` | API 版本。 *不建议修改此参数* | `String` | `"v2.5"` |
 
-To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes. Or, you may define a `CYEndpoint` object and make your alternations, then pass it to `CYRequest` object by `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>`.
+若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<path> = <value>` 来修改。您还可以定义一个 `CYEndpoint` 对象并作出修改，然后用 `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>` 把它传给 `CYRequest` 对象。
 
 Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. Note it can be `nil` if your haven't passed in a token.
 
-> ### Working with `CYCoordinate`
+> #### 使用 `CYCoordinate`
 > 
-> `CYCoordinate` provides several ways to initialize: 
-> 1. with longitude and latitude
-> 2. with `CLLocationCoordinate2D` objects from Apple's `CoreLocation` Framework
-> 3. API related initializer and handler
+> `CYCoordinate` 提供了多种方法来初始化： 
+> 1. 用经度和纬度
+> 2. 用 Apple `CoreLocation` 框架中的 `CLLocationCoordinate2D` 对象
+> 3. API 相关的构造器和处理器
 > 
-> To get user's location or a pin from map, please use `CoreLocation` or `MapKit` to get the coordinate.
+> 若要获取用户的位置或地图中的标记点，请使用 `CoreLocation` 或 `MapKit` 来获取其坐标。
 
-### Altering other options of your request
+### 自定义其他请求参数
 
-You may also redefine the data expiration, queue on which to perform actions or caching options if needed.
+如有需要，您还可以自定义天气信息的有效期、处理队列、缓存参数等。
 
-All options are shown below:
+下方说明了全部参数选项。
 
-| Route of parameter | Description | Type | Default value |
+| 参数路径 | 描述 | 类型 | 默认值 |
 | ---- | ---- | ---- | ---- |
-| `CYRequest.expiration` | How long the local data is valid. | `TimeInterval` | `5 * 60` |
-| `CYRequest.queue` | On which queue to perform `CYRequest` actions. | `DispatchQueue` | `.global(qos: .background)` |
-| `CYRequest.localContentUrl` | Where to save API-returned cached data. | `URL` | `.cachesDirectory` |
+| `CYRequest.expiration` | 数据的有效期 | `TimeInterval` | `5 * 60` |
+| `CYRequest.queue` | 处理 `CYRequest` 的队列 | `DispatchQueue` | `.global(qos: .background)` |
+| `CYRequest.localContentUrl` | 从 API 获取的天气信息的缓存位置 | `URL` | `.cachesDirectory` |
 
-To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
+若要自定义参数，首先初始化您的 `CYRequest` 对象（建议采用 `let` 语句），并使用 `<path> = <value>` 来修改。
 
-Locally cached files will be saved in `CYRequest.localContentUrl` with files named `<longitude in %.4f>,<latitude in %.4f>`. This cannot be changed currently.
+本地缓存文件将存储在 `CYRequest.localContentUrl` 中，以 `<longitude in %.4f>,<latitude in %.4f>` 命名。该规则暂时不能被修改。
 
-### Convenient initializers
+### 便捷构造器
 
-If you don't have the above two requirements (just keep them as default), or you would prefer overwriting parameters after they are initialized, you may use convenient initializers to quickly start up with your request.
+如果您没有上述两个需求（只是将它们保留为默认值），或者希望在初始化后覆盖它们，那么可以使用便捷构造器来快速初始化您的请求。
 
-The three initializing statements below are equal:
+下方 3 段初始化语句将产生相同的效果：
 
 ``` swift
 let token = "your-token-here"
@@ -162,23 +162,23 @@ let request = CYRequest()
 request.endpoint = endpoint
 ```
 
-## Performing your request
+## 执行您的请求
 
-You should perform your request to get weather contents, either from remote or local. 
+若要获取天气信息内容，您应该执行（`perform`）您的请求，无论从远程或本地。
 
-> Before continuing, make sure you have finished your request initialization.
+> 继续之前，请保证您的请求已经设置完毕。
 
-### Automatically choosing target
+### 自动选择信息源
 
-Use `CYRequest.perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` to perform your request by auto choosing target. That means, The local cached data will be fetched if the following 3 conditions are met:
+使用 `CYRequest.perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` 方法以使用自动选择的信息源的方式来执行您的请求。也就是说，如果下方 3 个条件满足，将使用本地缓存中的天气信息：
 
-1. the local cached file exists with no decoding errors; and
-2. it is for the coordinate you are requiring (rounded to `%.4f`, about 100 meters in distance); and
-3. it is not expired.
+1. 本地缓存文件存在，且没有解码错误；且
+2. 与您的请求（`request`）中的坐标位置相同（四舍五入至 `%.4f`，约 100 米的范围内）；且
+3. 天气信息在有效期内。
 
-Elsewise, a new data will be fetched from remote API and then cached.
+否则，将会从远程 API 重新请求数据并缓存。
 
-`CYRequest.DataSource` as parameter for the `completionHandler` receives the target from which the data is fetched. `.local` means local cache, while `.remote` means remote API.
+`completionHandler` 的 `CYRequest.DataSource` 参数表明本次解析的数据来自哪里。`.local` 表明来源于本地缓存，`.remote` 表明来源于远程 API。
 
 ### Explicitly choosing local or remote fetching
 

@@ -86,7 +86,7 @@ All API-related options are defined in `CYRequest.endpoint`. Please read [API do
 
 All options are shown below:
 
-| Route of parameter | Description | Type | Default value |
+| Path of parameter | Description | Type | Default value |
 | ---- | ---- | ---- | ---- |
 | `CYRequest.endpoint.token` | Your valid API token. | `String!` | `nil` |
 | `CYRequest.endpoint.coordinate` | The place's coordinate you want to request weather of. | `CYCoordinate` | `.defaultCoordinate` as (0, 0) |
@@ -98,11 +98,11 @@ All options are shown below:
 | `CYRequest.endpoint.file` | The target file of the response. *You are not recommended to change this parameter.* | `String` | `"weather.json"` |
 | `CYRequest.endpoint.version` | API version. *You are not recommended to change this parameter.* | `String` | `"v2.5"` |
 
-To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes. Or, you may define a `CYEndpoint` object and make your alternations, then pass it to `CYRequest` object by `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>`.
+To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<path> = <value>` to make changes. Or, you may define a `CYEndpoint` object and make your alternations, then pass it to `CYRequest` object by `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>`.
 
 Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. Note it can be `nil` if your haven't passed in a token.
 
-> ### Working with `CYCoordinate`
+> #### Working with `CYCoordinate`
 > 
 > `CYCoordinate` provides several ways to initialize: 
 > 1. with longitude and latitude
@@ -117,13 +117,13 @@ You may also redefine the data expiration, queue on which to perform actions or 
 
 All options are shown below:
 
-| Route of parameter | Description | Type | Default value |
+| Path of parameter | Description | Type | Default value |
 | ---- | ---- | ---- | ---- |
 | `CYRequest.expiration` | How long the local data is valid. | `TimeInterval` | `5 * 60` |
 | `CYRequest.queue` | On which queue to perform `CYRequest` actions. | `DispatchQueue` | `.global(qos: .background)` |
 | `CYRequest.localContentUrl` | Where to save API-returned cached data. | `URL` | `.cachesDirectory` |
 
-To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
+To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<path> = <value>` to make changes.
 
 Locally cached files will be saved in `CYRequest.localContentUrl` with files named `<longitude in %.4f>,<latitude in %.4f>`. This cannot be changed currently.
 
