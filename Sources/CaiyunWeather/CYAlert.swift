@@ -1,5 +1,5 @@
 //
-//  CYWarning.swift
+//  CYAlert.swift
 //  
 //
 //  Created by 袁林 on 2021/6/14.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct CYWarning: Codable, Equatable {
+public struct CYAlert: Codable, Equatable {
     /// 响应状态
     public let responseStatus: String
     /// 内容
-    public let content: [WarningContent]
+    public let content: [AlertContent]
     
     private enum CodingKeys: String, CodingKey {
         case responseStatus = "status"
@@ -19,9 +19,9 @@ public struct CYWarning: Codable, Equatable {
     }
 }
 
-extension CYWarning {
+extension CYAlert {
     
-    public struct WarningContent: Codable, Equatable {
+    public struct AlertContent: Codable, Equatable {
         /// 发布时间
         public let publishTime: CYContent.Datetime1970Based
         /// 预警 ID
@@ -39,7 +39,7 @@ extension CYWarning {
         /// 县
         public let county: String
         /// 预警代码
-        public let code: WarningCode
+        public let code: AlertCode
         /// 发布单位
         public let source: String
         /// 标题
@@ -66,13 +66,13 @@ extension CYWarning {
 
 // MARK: - Redefined Types
 
-extension CYWarning.WarningContent {
+extension CYAlert.AlertContent {
     
-    public struct WarningCode: Equatable, Codable {
+    public struct AlertCode: Equatable, Codable {
         /// 预警类型
-        public let type: WarningType
+        public let type: AlertType
         /// 预警级别
-        public let level: WarningLevel
+        public let level: AlertLevel
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
@@ -80,10 +80,10 @@ extension CYWarning.WarningContent {
             let code = try container.decode(String.self)
             
             let typeCode = String(code.prefix(2))
-            self.type = WarningType(rawValue: typeCode)!
+            self.type = AlertType(rawValue: typeCode)!
             
             let levelCode = String(code.suffix(2))
-            self.level = WarningLevel(rawValue: levelCode)!
+            self.level = AlertLevel(rawValue: levelCode)!
         }
         
         public func encode(to encoder: Encoder) throws {
@@ -97,9 +97,9 @@ extension CYWarning.WarningContent {
 
 // MARK: - Lookups
 
-extension CYWarning.WarningContent.WarningCode {
+extension CYAlert.AlertContent.AlertCode {
     
-    public enum WarningType: String, Equatable {
+    public enum AlertType: String, Equatable {
         /// 台风
         case typhoon = "01"
         /// 暴雨
@@ -133,10 +133,10 @@ extension CYWarning.WarningContent.WarningCode {
         /// 雷雨大风
         case thunderGust = "16"
         
-        public var description: String { return warningTypeDescriptions[self]! }
+        public var description: String { return alertTypeDescriptions[self]! }
     }
     
-    public enum WarningLevel: String, Equatable {
+    public enum AlertLevel: String, Equatable {
         /// 蓝色
         case blue = "01"
         /// 黄色
@@ -146,11 +146,11 @@ extension CYWarning.WarningContent.WarningCode {
         /// 红色
         case red = "04"
         
-        public var description: String { return warningLevelDescriptions[self]! }
+        public var description: String { return alertLevelDescriptions[self]! }
     }
 }
 
-fileprivate let warningTypeDescriptions: [CYWarning.WarningContent.WarningCode.WarningType: String] = [
+fileprivate let alertTypeDescriptions: [CYAlert.AlertContent.AlertCode.AlertType: String] = [
     .typhoon: "typhoon",
     .rainstorm: "rainstorm",
     .snowstorm: "snowstorm",
@@ -169,7 +169,7 @@ fileprivate let warningTypeDescriptions: [CYWarning.WarningContent.WarningCode.W
     .thunderGust: "thunder-gust",
 ]
 
-fileprivate let warningLevelDescriptions: [CYWarning.WarningContent.WarningCode.WarningLevel: String] = [
+fileprivate let alertLevelDescriptions: [CYAlert.AlertContent.AlertCode.AlertLevel: String] = [
     .blue: "blue",
     .yellow: "yellow",
     .orange: "orange",

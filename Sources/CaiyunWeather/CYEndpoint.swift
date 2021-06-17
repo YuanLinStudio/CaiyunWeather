@@ -26,7 +26,7 @@ public struct CYEndpoint: Codable, Equatable {
     /// API 版本
     public var version: String = "v2.5"
     /// 是否包含预警信息
-    public var shouldIncludeWarnings: Bool = true
+    public var shouldIncludeAlerts: Bool = true
     /// 逐小时天气预报长度，范围 1～360
     public var hourlyLength: Int = 48
     /// 逐日天气预报长度，范围 1～15
@@ -53,7 +53,7 @@ extension CYEndpoint {
         components.host = "api.caiyunapp.com"
         components.path = ["", version, token, coordinate.urlString, file].joined(separator: "/")
         components.queryItems = [
-            URLQueryItem(name: "alert", value: "\(shouldIncludeWarnings)"),
+            URLQueryItem(name: "alert", value: "\(shouldIncludeAlerts)"),
             URLQueryItem(name: "lang", value: language.rawValue),
             URLQueryItem(name: "unit", value: measurementSystem.rawValue),
             URLQueryItem(name: "dailysteps", value: "\(dailyLength)"),

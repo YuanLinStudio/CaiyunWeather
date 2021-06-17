@@ -71,7 +71,7 @@ request.perform { response, source, error in
         return
     }
     print(response)
-    // your subsequent actions for `CYResponse?` result.
+    // your subsequent actions for `CYResponse?` result
 }
 ```
 
@@ -102,5 +102,5 @@ MIT
 ## Disclaimer
 
 - This project has no direct connection with caiyunapp.com. 
-- caiyunapp.com is neither a content provider nor a sponsor for this project. 
-- All rights that belong to caiyunapp.com are respected.
+- caiyunapp.com is neither a sponsor nor responsible for this project. 
+- All rights that belong to caiyunapp.com are fully respected.

@@ -24,7 +24,7 @@
 "SAND" = "沙尘";
 "WIND" = "大风";
 
-// MARK: - Warning Type
+// MARK: - Alert Type
 
 "typhoon" = "台风";
 "rainstorm" = "暴雨";
@@ -43,7 +43,7 @@
 "wild-fire" = "森林火险";
 "thunder-gust" = "雷雨大风";
 
-// MARK: - Warning Level
+// MARK: - Alert Level
 
 "blue" = "蓝色";
 "yellow" = "黄色";

@@ -28,7 +28,7 @@
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
-                    "shouldIncludeWarnings": true,
+                    "shouldIncludeAlerts": true,
                     "dailyLength": 5,
                     "hourlyLength": 48,
                 }
@@ -111,7 +111,7 @@
             let expectation = self.expectation(description: "response")
             var testResponse: CYResponse?
             var testError: Error?
-            var testWarningType: CYWarning.WarningContent.WarningCode.WarningType?
+            var testAlertType: CYAlert.AlertContent.AlertCode.AlertType?
             var testWindDirection: String?
             
             let request = CYRequest()
@@ -120,17 +120,17 @@
                 request.decode(data!) { response, error in
                     testResponse = response
                     testError = error
-                    testWarningType = response!.result.warning.content[0].code.type
+                    testAlertType = response!.result.alert.content[0].code.type
                     testWindDirection = response!.result.realtime.wind.direction.description
                     expectation.fulfill()
                 }
             }
-            let assertWarningType: CYWarning.WarningContent.WarningCode.WarningType = .gale
+            let assertAlertType: CYAlert.AlertContent.AlertCode.AlertType = .gale
             
             waitForExpectations(timeout: 5, handler: nil)
             XCTAssertNil(testError)
             XCTAssertNotNil(testResponse)
-            XCTAssertEqual(testWarningType, assertWarningType)
+            XCTAssertEqual(testAlertType, assertAlertType)
             XCTAssertEqual(testWindDirection!, "SSE")
         }
         
@@ -184,7 +184,7 @@
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",
-                    "shouldIncludeWarnings": true,
+                    "shouldIncludeAlerts": true,
                     "dailyLength": 5,
                     "hourlyLength": 48,
                 }
