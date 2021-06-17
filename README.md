@@ -95,6 +95,17 @@ All options are shown below:
 
 To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
 
+Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. Note it can be `nil` if your haven't passed in a token.
+
+> ### Work with `CYCoordinate`
+> 
+> `CYCoordinate` provides several ways to initialize: 
+> 1. with longitude and latitude
+> 2. with `CLLocationCoordinate2D` objects from Apple's `CoreLocation` Framework
+> 3. API related initializer and handler
+> 
+> To get user's location or a pin from map, please use `CoreLocation` or `MapKit`.
+
 ## License
 
 MIT
