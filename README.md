@@ -35,7 +35,7 @@ Therefore, a built-in method of caching weather content is provided, which means
 
 ### Swift package manager (*Recommended*).
 
-To install OrderedDictionary using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your Package.swift file:
+To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your Package.swift file:
 
 ``` swift
 let package = Package(
@@ -54,6 +54,8 @@ let package = Package(
 Use the code below to perform a request to caiyunapp.com and get the returned data decoded as `CYResponse` object:
 
 ``` swift
+import CaiyunWeather
+
 let token = "your-token-here"
 // the place's coordinate of which you want to request weather
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
