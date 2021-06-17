@@ -47,9 +47,7 @@ let package = Package(
 )
 ```
 
-## Usage
-
-### Quick start
+## Quick starts
 
 Use the code below to perform a request to caiyunapp.com and get the returned data decoded as `CYResponse` object:
 
@@ -75,7 +73,9 @@ request.perform { response, source, error in
 }
 ```
 
-### Alter API-related options of your request
+## Making your API request
+
+### Altering API-related options of your request
 
 All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation about API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) before choosing your request options.
 
@@ -90,14 +90,14 @@ All options are shown below:
 | `CYRequest.endpoint.shouldIncludeAlerts` | Would you like to receive weather alerts in your response. | `Bool` | `true` |
 | `CYRequest.endpoint.hourlyLength` | How many hours would you like to receive hourly weather content. | `Int` | `48` |
 | `CYRequest.endpoint.dailyLength` | How many days would you like to receive daily weather content. | `Int` | `5` |
-| `CYRequest.endpoint.file` | The target file of the response.    *You are not recommended to change this parameter.* | `String` | `"weather.json"` |
-| `CYRequest.endpoint.version` | API version.    *You are not recommended to change this parameter.* | `String` | `"v2.5"` |
+| `CYRequest.endpoint.file` | The target file of the response. *You are not recommended to change this parameter.* | `String` | `"weather.json"` |
+| `CYRequest.endpoint.version` | API version. *You are not recommended to change this parameter.* | `String` | `"v2.5"` |
 
-To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
+To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes. Or, you may define a `CYEndpoint` object and make your alternations, then pass it to `CYRequest` object by `<yourCYRequestObject>.endpoint = <yourCYEndpointObject>`.
 
 Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. Note it can be `nil` if your haven't passed in a token.
 
-> ### Work with `CYCoordinate`
+> ### Working with `CYCoordinate`
 > 
 > `CYCoordinate` provides several ways to initialize: 
 > 1. with longitude and latitude
@@ -105,6 +105,57 @@ Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. N
 > 3. API related initializer and handler
 > 
 > To get user's location or a pin from map, please use `CoreLocation` or `MapKit` to get the coordinate.
+
+### Altering other options of your request
+
+You may also redefine the data expiration, queue on which to perform actions or caching options if needed.
+
+All options are shown below:
+
+| Route of parameter | Description | Type | Default value |
+| ---- | ---- | ---- | ---- |
+| `CYRequest.expiration` | How long the local data is valid. | `TimeInterval` | `5 * 60` |
+| `CYRequest.queue` | On which queue to perform `CYRequest` actions. | `DispatchQueue` | `.global(qos: .background)` |
+| `CYRequest.localContentUrl` | Where to save API-returned cached data. | `URL` | `.cachesDirectory` |
+
+To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
+
+Locally cached files will be saved in `CYRequest.localContentUrl` with files named `<longitude in %.4f>,<latitude in %.4f>`. This cannot be changed currently.
+
+### Convenient initializers
+
+If you don't have the above two requirements (just keep them as default), or you would prefer overwriting parameters after they are initialized, you may use convenient initializers to quickly start up with your request.
+
+The three initializing statements below are equal:
+
+``` swift
+let token = "your-token-here"
+let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
+
+let request = CYRequest(token: token, coordinate: coordinate)
+```
+
+``` swift
+let token = "your-token-here"
+let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
+
+let endpoint = CYEndpoint(token: token, coordinate: coordinate)
+
+let request = CYRequest()
+request.endpoint = endpoint
+```
+
+``` swift
+let token = "your-token-here"
+let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
+
+var endpoint = CYEndpoint()
+endpoint.token = token
+endpoint.coordinate = coordinate
+
+let request = CYRequest()
+request.endpoint = endpoint
+```
 
 ## License
 

@@ -19,7 +19,7 @@ public class CYRequest {
     public let expiration: TimeInterval = 5 * 60
     
     /// The queue on which the request is performed
-    public var queue: DispatchQueue = DispatchQueue.global(qos: .background)
+    public var queue: DispatchQueue = .global(qos: .background)
     
     public init(token: String? = nil, coordinate: CYCoordinate = .defaultCoordinate) {
         self.endpoint = CYEndpoint(token: token, coordinate: coordinate)
