@@ -33,7 +33,7 @@ Therefore, a built-in method of caching weather content is provided, which means
 
 ## Installation
 
-### Swift package manager
+### Swift Package Manager
 
 To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/package-manager/), add it as a dependency into your Package.swift file:
 
@@ -49,7 +49,7 @@ let package = Package(
 
 ## Usage
 
-### Quick Start
+### Quick start
 
 Use the code below to perform a request to caiyunapp.com and get the returned data decoded as `CYResponse` object:
 
@@ -74,6 +74,26 @@ request.perform { response, source, error in
     // your subsequent actions for `CYResponse?` result.
 }
 ```
+
+### Alter API-related options of your request
+
+All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation about API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) before choosing your request options.
+
+All options are shown below:
+
+| Route of parameter | Description | Type | Default value |
+| ---- | ---- | ---- | ---- |
+| `CYRequest.endpoint.token` | Your valid API token. | `String!` | `nil` |
+| `CYRequest.endpoint.coordinate` | The place's coordinate you want to request weather of. | `CYCoordinate` | `.defaultCoordinate` as (0, 0) |
+| `CYRequest.endpoint.language` | The displaying language of the response. | `CYEndpoint.RequestLanguage` | `.chineseSimplified` |
+| `CYRequest.endpoint.measurementSystem` | The unit system of the response. | `CYEndpoint.MeasurementSystem` (equal to `CYUnit`) | `.metric` |
+| `CYRequest.endpoint.shouldIncludeAlerts` | Would you like to receive weather alerts in your response. | `Bool` | `true` |
+| `CYRequest.endpoint.hourlyLength` | How many hours would you like to receive hourly weather content. | `Int` | `48` |
+| `CYRequest.endpoint.dailyLength` | How many days would you like to receive daily weather content. | `Int` | `5` |
+| `CYRequest.endpoint.file` | The target file of the response. You are not recommended to change this parameter. | `String` | `"weather.json"` |
+| `CYRequest.endpoint.version` | API version. You are not recommended to change this parameter. | `String` | `"v2.5"` |
+
+To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
 
 ## License
 
