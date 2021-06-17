@@ -63,7 +63,7 @@ public class CYRequest {
 
 extension CYRequest {
     
-    /// Perform an action to request weather content. Explicitly defines from which dataSource that you wants to request weather content.
+    /// Perform an action to request weather content. Explicitly defines from which dataSource that you want to request weather content.
     public func perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void) {
         let actuator: (@escaping (Data?, Error?) -> Void) -> Void = {
             switch dataSource {
@@ -221,7 +221,13 @@ extension CYRequest {
         }
     }
     
+    /// Validate a `CYResponse` file.
     public func validate(_ response: CYResponse) -> Bool {
+        // Coordinate
+        guard response.coordinate == endpoint.coordinate else {
+            return false
+        }
+        // Data expiration
         let responseTime = response.serverTime.time
         let intervalTillNow = -responseTime.timeIntervalSinceNow
         return intervalTillNow <= expiration
