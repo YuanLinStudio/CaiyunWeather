@@ -6,6 +6,9 @@ Request weather information from caiyunapp.com in 10 lines of code.
 [![SPM Availble](https://img.shields.io/badge/SPM-compatible-brightgreen)](https://swift.org/package-manager)
 [![GitHub license](https://img.shields.io/github/license/YuanLinStudio/CaiyunWeather)](https://github.com/YuanLinStudio/CaiyunWeather)
 [![API v2.5](https://img.shields.io/badge/API-v2.5-orange)](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)
+[![Chinese Docs available](https://img.shields.io/badge/zh_CN-available-brightgreen)](README-zh.md)
+
+中文版本，访问[这里](README-zh.md)。
 
 
 ## Introduction
