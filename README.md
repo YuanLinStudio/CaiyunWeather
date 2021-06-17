@@ -410,13 +410,35 @@ Abstruct types
 
 ## Measurement and unit converting
 
-API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between them and more. 
+API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for your requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between them and more. 
 
 The following codes shows an example converting the wind speed: 
 
 ``` swift
+let windSpeed = response.result.realtime.wind.speed.value
+
+// get current unit system by either of these
+let unitSystem = unit.system
+// let unitSystem = request.endpoint.measurementSystem.system
+
+// define a measurement
+let windSpeedMeasurement = Measurement(value: windSpeed, unit: unitSystem.windSpeed)
+
+// convert the measurement to specified unit and get the value
+let convertedSpeed = windSpeedMeasurement.converted(to: .kilometersPerHour).value
 ```
 
+Refer to `CYUnit` for all defined measurement units.
+
+> `extension` them to better serve you!
+
+## Localization
+
+API provides [5 languages](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) for your requests. In this project, some of weather contents are localized in 2 languages (`en` and `zh-Hans`), such as phenomenon, alert and wind.
+
+Refer to `Localizable` for more information.
+
+> `extension` them to better serve you!
 
 ## License
 
