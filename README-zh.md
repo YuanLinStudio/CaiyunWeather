@@ -13,22 +13,22 @@ Request weather information from caiyunapp.com in 10 lines of code.
 For English Version, click [here](README.md).
 
 
-## Introduction
+## 简介
 
-`CaiyunWeather` is a wrapper for weather service from [caiyunapp.com](http://caiyunapp.com/), written in and availble for Swift.
+`CaiyunWeather` 是 [彩云天气 API](http://caiyunapp.com/) 天气服务的一个包装器，采用 Swift 代码编写，并适用于以 Swift 语言构建的程序。
 
-Different from default JSON Serializer method, `CaiyunWeather` keeps all content as objects and mostly codable. 
+不同于传统的 JSON Serializer 方法，`CaiyunWeather` 将所有内容存储为对象，其中的大多数都可解码和编码。
 
-You can also define almost everything during your request and result handling. 
+你可以自定义请求过程和结果处理过程中的几乎全部参数。
 
-`CaiyunWeather` supports decoding API-fetched data to weather content as `CYResponse` object, and encoding your `CYResponse` object to locally saved data. 
+`CaiyunWeather` 支持将从 API 获取的数据解码到 `CYResponse` 对象，或将 `CYResponse` 对象编码到本地 `Data` 数据。
 
-Therefore, a built-in method of caching weather content is provided, which means you can cut down your remote API calls and **save your costs**!
+因此，项目内置了一个天气内容缓存工具，你可以借助它来减少远程 API 调用次数并 **节省你的成本**！
 
-## Before you start
+## 在开始之前
 
-1. You have to request a valid token from [http://caiyunapp.com/](http://caiyunapp.com/) (`Chinese`) for yourself. **Always keep your token secret and safe!**
-2. You are highly recommended to firstly read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) from caiyunapp.com.
+1. 你需要在 [http://caiyunapp.com/](http://caiyunapp.com/) 为自己申请一个天气 token。**记得保密好你的 token 哦！**
+2. 非常建议你首先阅读彩云天气的 [API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)。
 
 ## Requirements
 
