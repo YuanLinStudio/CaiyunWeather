@@ -225,7 +225,7 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 | ---- | ---- | ---- |
 | `CYContent.Datetime1970Based` |  | `time` |
 | `CYContent.DatetimeServerType` |  | `time` |
-| `CYContent.LifeIndex<T: Codable & Equatable>` | Life indices with optional properties of type `T`. | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
+| `CYContent.LifeIndex<T>` | Life indices with optional properties of type `T`. | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
 | `CYContent.Wind` |  | `speed`, `direction` |
 | `CYContent.Wind.WindContent` |  | `value`, `description` |
 | `CYContent.AirQuality` | Optional properties. | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
@@ -245,7 +245,7 @@ If you have used `perform` or `decode` function above, your content will now be 
 
 The following tables explains `CYResponse` and most nested objects. No description will be provided, as the name of them are defined easy and simple.
 
-`CYResponse`
+#### `CYResponse`
 
 | Property | Type | API Original Key |
 | ---- | ---- | ---- |
@@ -259,7 +259,41 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 | `serverTimeZone` | `CYTimeZone` | `tzshift` |
 | `result` | `CYResult` | `result` |
 
+#### `CYResult`
 
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `alert` | `CYAlert` | `alert` |
+| `realtime` | `CYRealtime` | `realtime` |
+| `minutely` | `CYMinutely` | `minutely` |
+| `hourly` | `CYHourly` | `hourly` |
+| `daily` | `CYDaily` | `daily` |
+| `keypoint` | `String` | `forecast_keypoint` |
+
+#### `CYRealtime`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `responseStatus` | `String` | `status` |
+| `temperature` | `Double` | `temperature` |
+| `apparentTemperature` | `Double` | `apparent_temperature` |
+| `pressure` | `Double` | `pressure` |
+| `humidity` | `Double` | `humidity` |
+| `cloudrate` | `Double` | `cloudrate` |
+| `phenomenon` | `CYContent.Phenomenon` | `skycon` |
+| `visibility` | `Double` | `visibility` |
+| `dswrf` | `Double` | `dswrf` |
+| `wind` | `CYContent.Wind` | `wind` |
+| `precipitation` | `Precipitation` | `precipitation` |
+| `airQuality` | `CYContent.AirQuality?` | `air_quality` |
+| `lifeIndex` | `CYContent.LifeIndex<CYContent.IndexWithDescription<Int>>` | `life_index` |
+
+Redefined types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYRealtime.Precipitation` |  | `local`, `nearest` |
+| `CYRealtime.PrecipitationContent` |  | `responseStatus`, `datasource`, `intensity`, `distance` |
 
 
 | `` | `` | `` |

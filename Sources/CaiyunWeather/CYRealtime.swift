@@ -59,11 +59,11 @@ extension CYRealtime {
     /// 降水量
     public struct Precipitation: Codable, Equatable {
         /// 本地
-        public let local: Precipitation
+        public let local: PrecipitationContent
         /// 附近
-        public let nearest: Precipitation?
+        public let nearest: PrecipitationContent?
         
-        public struct Precipitation: Codable, Equatable {
+        public struct PrecipitationContent: Codable, Equatable {
             /// 响应状态
             public let responseStatus: String
             /// 数据源
