@@ -52,12 +52,12 @@ extension CYCoordinate {
         let container = try decoder.singleValueContainer()
         
         let coordinateRaw = try container.decode([Double].self)
-        self.init(longitude: coordinateRaw[0], latitude: coordinateRaw[1])
+        self.init(latitude: coordinateRaw[0], longitude: coordinateRaw[1])
     }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         
-        try container.encode([longitude, latitude])
+        try container.encode([latitude, longitude])
     }
 }

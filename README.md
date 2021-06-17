@@ -77,7 +77,7 @@ request.perform { response, source, error in
 
 ### Altering API-related options of your request
 
-All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation about API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) before choosing your request options.
+All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation about API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) (`Chinese`) before choosing your request options.
 
 All options are shown below:
 
@@ -159,7 +159,9 @@ request.endpoint = endpoint
 
 ## Performing your request
 
-You should perform your request to get weather contents, either from remote or local. Before continuing, make sure you have finished your request initialization.
+You should perform your request to get weather contents, either from remote or local. 
+
+> Before continuing, make sure you have finished your request initialization.
 
 ### Automatically choosing target
 
@@ -185,11 +187,13 @@ You may use `fetchData(from dataSource: DataSource, completionHandler: @escaping
 
 An example JSON file is included in this package for debugging use. Call `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
 
-The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (35.4904, 112.8641), which located in Jincheng, Shanxi, China.
+The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (35.4904, 112.8641), which is located in Jincheng, Shanxi, China.
 
 ### Using native `URLSession.dataTask` to fetch data from remote
 
-**Not recommended.** Note that `dataTask`s are internally wrapped into `perform` and `fatchData`, so you should mostly use them instead. However, if you would prefer to hard-code your URL or you need to do so, the code below may help you. 
+**Not recommended.** Note that `dataTask`s are internally wrapped into `perform` and `fatchData`, so you should mostly use them instead. 
+
+However, if you would prefer to hard-code your URL or you need to do so, the code below may help you. 
 
 ``` swift
 let url = "your.valid.url/for/api/requests"
@@ -205,6 +209,25 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 **Content received by `perform` are ready-to-use and DO NOT need to decode. Skip this section and go ahead.** 
 
 If you have your data ready (either fetched with `fatchData`, fetched with `dataTask`, or loaded from local cache), you may use `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` to decode your data to `CYResponse` object.
+
+
+## Working with API response
+
+> Before continuing, you are highly recommended to read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) to have a brief outline of the response content.
+
+If you have used `perform` or `decode` function above, your content will now be `CYResponse?` object. **Don't forget to unwrap your content.** If there's no error, your content will contain all objects returned and decoded from remote API. `CYResponse` and most nested objects are defined as `struct` with `let` statements to make your workspace clean and save memories of users' device.
+
+The following tables explains `CYResponse` and most nested objects. No description will be provided, as the name of them are defined easy and simple.
+
+`CYResponse`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `responseStatus` | `String` | `status` |
+| `version` | `String` | `api_version` |
+| `apiStatus` | `String` | `api_status` |
+| `language` | `String` | `lang` |
+| `unit` | `` | `` |
 
 
 ## License

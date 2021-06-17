@@ -24,7 +24,7 @@
                 {
                     "language": "zh_CN",
                     "measurementSystem": "metric",
-                    "coordinate": [10, 20],
+                    "coordinate": [20, 10],
                     "file": "weather.json",
                     "token": "test-token",
                     "version": "v2.5",

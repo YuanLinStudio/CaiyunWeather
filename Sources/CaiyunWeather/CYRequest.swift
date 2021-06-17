@@ -51,7 +51,7 @@ extension CYRequest {
                     NSLog("Local content verified.", 0)
                 }
                 else {
-                    NSLog("Local content expired. Trying to request new content...", -1)
+                    NSLog("Local content varification fails. Trying to request new content...", -1)
                     perform(from: .remote) { request, source, error in
                         completionHandler(request, source, error)
                     }
@@ -183,7 +183,7 @@ extension CYRequest {
     func readDataFromLocal() throws -> Data {
         do {
             let data = try Data(contentsOf: localFileUrl)
-            NSLog("Successfully read data from local.", 0)
+            NSLog("Successfully read data from local. URL: %@", localFileUrl.absoluteString)
             return data
         }
         catch let error {
@@ -227,7 +227,8 @@ extension CYRequest {
     /// Validate a `CYResponse` file.
     public func validate(_ response: CYResponse) -> Bool {
         // Coordinate
-        guard response.coordinate == endpoint.coordinate else {
+        guard response.coordinate.urlString == endpoint.coordinate.urlString else {
+            NSLog("The coordinate is not same. Response is not valid. response coordinate: %@, request coordinate: %@", response.coordinate.urlString, endpoint.coordinate.urlString)
             return false
         }
         // Data expiration

@@ -17,7 +17,7 @@ public struct CYResponse: Codable, Equatable {
     /// 请求语言
     public let language: String
     /// 单位制
-    public let unit: String
+    public let unit: CYUnit
     /// 返回点坐标
     public let coordinate: CYCoordinate
     /// 服务器时间
