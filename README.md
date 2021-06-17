@@ -77,7 +77,7 @@ request.perform { response, source, error in
 
 ### Altering API-related options of your request
 
-All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation about API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) (`Chinese`) before choosing your request options.
+All API-related options are defined in `CYRequest.endpoint`. Please read [API documentation - API Request](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) (`Chinese`) before choosing your request options.
 
 All options are shown below:
 
@@ -229,7 +229,7 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 | `CYContent.Wind` |  | `speed`, `direction` |
 | `CYContent.Wind.WindContent` |  | `value`, `description` |
 | `CYContent.AirQuality` | Optional properties. | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
-| `CYContent.Phenomenon` | Enumeration. | All cases defined in [API documentation Phenomenon Codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) |
+| `CYContent.Phenomenon` | Enumeration. | All cases defined in [API documentation - Phenomenon Codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) |
 
 #### Abstruct types
 
@@ -293,7 +293,7 @@ Redefined types
 | Type | Description | Prpoerties |
 | ---- | ---- | ---- |
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
-| `CYRealtime.PrecipitationContent` |  | `responseStatus`, `datasource`, `intensity`, `distance` |
+| `CYRealtime.Precipitation.PrecipitationContent` |  | `responseStatus`, `datasource`, `intensity`, `distance` |
 
 
 | `` | `` | `` |
