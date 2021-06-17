@@ -30,7 +30,6 @@ let package = Package(
             resources: [
                 .process("Memos.md"),
                 .process("Resources/Weather.json"),
-                .process("README-zh.md")
             ]
         ),
         .testTarget(
