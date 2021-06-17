@@ -215,6 +215,32 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 
 > Before continuing, you are highly recommended to read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) to have a brief outline of the response content.
 
+### `CYContent` types
+
+`CYContent` defines some common types for weather content, which are handful to reuse.
+
+#### Physical types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYContent.Datetime1970Based` |  | `time` |
+| `CYContent.DatetimeServerType` |  | `time` |
+| `CYContent.LifeIndex<T: Codable & Equatable>` | Life indices with optional properties of type `T`. | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
+| `CYContent.Wind` |  | `speed`, `direction` |
+| `CYContent.Wind.WindContent` |  | `value`, `description` |
+| `CYContent.AirQuality` | Optional properties. | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
+| `CYContent.Phenomenon` | Enumeration. | All cases defined in [API documentation Phenomenon Codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) |
+
+#### Abstruct types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYContent.CountryRelated<T>` |  | `chn`, `usa` |
+| `CYContent.IndexWithDescription<T>` |  | `index`, `description` |
+| `CYContent.AverageAndExtremum<T>` |  | `average`, `maximum`, `minimum` |
+
+### Response objects
+
 If you have used `perform` or `decode` function above, your content will now be `CYResponse?` object. **Don't forget to unwrap your content.** If there's no error, your content will contain all objects returned and decoded from remote API. `CYResponse` and most nested objects are defined as `struct` with `let` statements to make your workspace clean and save memories of users' device.
 
 The following tables explains `CYResponse` and most nested objects. No description will be provided, as the name of them are defined easy and simple.
@@ -227,7 +253,17 @@ The following tables explains `CYResponse` and most nested objects. No descripti
 | `version` | `String` | `api_version` |
 | `apiStatus` | `String` | `api_status` |
 | `language` | `String` | `lang` |
-| `unit` | `` | `` |
+| `unit` | `CYUnit` | `unit` |
+| `coordinate` | `CYCoordinate` | `location` |
+| `serverTime` | `CYContent.Datetime1970Based` | `server_time` |
+| `serverTimeZone` | `CYTimeZone` | `tzshift` |
+| `result` | `CYResult` | `result` |
+
+
+
+
+| `` | `` | `` |
+| `` | `` | `` |
 
 
 ## License
