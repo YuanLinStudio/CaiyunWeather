@@ -187,7 +187,7 @@ You may use `fetchData(from dataSource: DataSource, completionHandler: @escaping
 
 An example JSON file is included in this package for debugging use. Call `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
 
-The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (35.4904, 112.8641), which is located in Jincheng, Shanxi, China.
+The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (112.8641, 35.4904), which is located in Jincheng, Shanxi, China.
 
 ### Using native `URLSession.dataTask` to fetch data from remote
 
@@ -238,6 +238,8 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 | `CYContent.CountryRelated<T>` |  | `chn`, `usa` |
 | `CYContent.IndexWithDescription<T>` |  | `index`, `description` |
 | `CYContent.AverageAndExtremum<T>` |  | `average`, `maximum`, `minimum` |
+
+> `extension` them to better meet your requests!
 
 ### Response objects
 
@@ -294,6 +296,85 @@ Redefined types
 | ---- | ---- | ---- |
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
 | `CYRealtime.Precipitation.PrecipitationContent` | `datasource` and `distance` are optional. | `responseStatus`, `datasource`, `intensity`, `distance` |
+
+
+#### `CYMinutely`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `datasource` | `String` | `datasource` |
+| `description` | `String` | `description` |
+| `probability` | `[Double]` | `probability` |
+| `intensity` | `[Double]` | `precipitation_2h` |
+
+#### `CYHourly`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `responseStatus` | `String` | `status` |
+| `description` | `String` | `description` |
+| `phenomenon` | `[CYHourly.ValueWithDatetime<CYContent.Phenomenon>]` | `skycon` |
+| `temperature` | `[CYHourly.ValueWithDatetime<Double>]` | `temperature` |
+| `precipitation` | `[CYHourly.ValueWithDatetime<Double>]` | `precipitation` |
+| `cloudrate` | `[CYHourly.ValueWithDatetime<Double>]` | `cloudrate` |
+| `humidity` | `[CYHourly.ValueWithDatetime<Double>]` | `humidity` |
+| `pressure` | `[CYHourly.ValueWithDatetime<Double>]` | `pressure` |
+| `wind` | `[CYHourly.ValueWithDatetimeFlat<CYContent.Wind>]` | `wind` |
+| `visibility` | `[CYHourly.ValueWithDatetime<Double>]` | `visibility` |
+| `dswrf` | `[CYHourly.ValueWithDatetime<Double>]` | `dswrf` |
+| `airQuality` | `CYHourly.AirQuality` | `air_quality` |
+
+Redefined types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYHourly.AirQuality` |  | `aqi`, `pm25` |
+
+Abstruct types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYHourly.ValueWithDatetime<T>` |  | `datetime`, `value` |
+| `CYHourly.ValueWithDatetimeFlat<T>` |  | `datetime`, `value` |
+
+#### `CYDaily`
+
+| Property | Type | API Original Key |
+| ---- | ---- | ---- |
+| `responseStatus` | `String` | `status` |
+| `astronomy` | `[CYDaily.Astronomy]` | `astro` |
+| `phenomenon` | `[CYDaily.ValueWithDate<CYContent.Phenomenon>]` | `skycon` |
+| `phenomenonDaytime` | `[CYDaily.ValueWithDate<CYContent.Phenomenon>]` | `skycon_08h_20h` |
+| `phenomenonNighttime` | `[CYDaily.ValueWithDate<CYContent.Phenomenon>]` | `skycon_20h_32h` |
+| `temperature` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `temperature` |
+| `precipitation` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `precipitation` |
+| `pressure` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `pressure` |
+| `wind` | `[CYDaily.AverageAndExtremumWithDate<CYContent.Wind>]` | `wind` |
+| `cloudrate` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `cloudrate` |
+| `humidity` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `humidity` |
+| `dswrf` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `dswrf` |
+| `visibility` | `[CYDaily.AverageAndExtremumWithDate<Double>]` | `visibility` |
+| `airQuality` | `[CYDaily.AirQuality]` | `air_quality` |
+| `lifeIndex` | `CYContent.LifeIndex<[CYDaily.IndexWithDescriptionWithDate<String>]>` | `life_index` |
+
+Redefined types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYDaily.Astronomy` |  | `date`, `value` |
+| `CYDaily.Astronomy.AstronomyContent` |  | `sunrise`, `sunset` |
+| `CYDaily.Astronomy.AstronomyContent.AstronomyTime` |  | `timeInterval` |
+| `CYDaily.AirQuality` |  | `aqi`, `pm25` |
+
+Abstruct types
+
+| Type | Description | Prpoerties |
+| ---- | ---- | ---- |
+| `CYHourly.ValueWithDate<T>` |  | `date`, `value` |
+| `CYHourly.AverageAndExtremumWithDate<T>` |  | `date`, `value` |
+| `CYHourly.IndexWithDescriptionWithDate<T>` |  | `date`, `value` |
+
+
 
 
 | `` | `` | `` |

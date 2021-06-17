@@ -45,31 +45,6 @@ extension CYHourly {
         let aqi: [AQI]
         let pm25: [PM25]
     }
-    
-    public struct Wind: Codable, Equatable {
-        /// 时间
-        public let datetime: CYContent.DatetimeServerType
-        /// 值
-        public let value: CYContent.Wind
-        
-        private enum CodingKeys: String, CodingKey {
-            case datetime
-        }
-        
-        public init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            datetime = try container.decode(CYContent.DatetimeServerType.self, forKey: .datetime)
-            value = try CYContent.Wind(from: decoder)
-        }
-        
-        public func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            
-            try container.encode(datetime, forKey: .datetime)
-            try value.encode(to: encoder)
-        }
-    }
 }
 
 // MARK: - Type Alias
@@ -83,6 +58,7 @@ extension CYHourly {
     public typealias Cloudrate = HourlyContentDouble
     public typealias Humidity = HourlyContentDouble
     public typealias Pressure = HourlyContentDouble
+    public typealias Wind = ValueWithDatetimeFlat<CYContent.Wind>
     public typealias Visibility = HourlyContentDouble
     public typealias DSWRF = HourlyContentDouble
     public typealias AQI = ValueWithDatetime<CYContent.AirQuality.AQI>
@@ -98,10 +74,30 @@ extension CYHourly {
         public let datetime: CYContent.DatetimeServerType
         /// 值
         public let value: T
+    }
+    
+    public struct ValueWithDatetimeFlat<T: Codable & Equatable>: Codable, Equatable {
+        /// 时间
+        public let datetime: CYContent.DatetimeServerType
+        /// 值
+        public let value: T
         
         private enum CodingKeys: String, CodingKey {
             case datetime
-            case value
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            datetime = try container.decode(CYContent.DatetimeServerType.self, forKey: .datetime)
+            value = try T(from: decoder)
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            
+            try container.encode(datetime, forKey: .datetime)
+            try value.encode(to: encoder)
         }
     }
 }

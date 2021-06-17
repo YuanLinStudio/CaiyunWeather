@@ -66,7 +66,7 @@ extension CYDaily {
         /// 日期
         public let date: CYContent.DatetimeServerType
         /// 值
-        public let value: Content
+        public let value: AstronomyContent
         
         private enum CodingKeys: String, CodingKey {
             case date
@@ -76,7 +76,7 @@ extension CYDaily {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             date = try container.decode(CYContent.DatetimeServerType.self, forKey: .date)
-            value = try Content(from: decoder)
+            value = try AstronomyContent(from: decoder)
         }
         
         public func encode(to encoder: Encoder) throws {
@@ -86,7 +86,7 @@ extension CYDaily {
             try value.encode(to: encoder)
         }
         
-        public struct Content: Codable, Equatable {
+        public struct AstronomyContent: Codable, Equatable {
             /// 日出
             public let sunrise: AstronomyTime
             /// 日落
