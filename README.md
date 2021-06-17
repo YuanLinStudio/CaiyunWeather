@@ -90,8 +90,8 @@ All options are shown below:
 | `CYRequest.endpoint.shouldIncludeAlerts` | Would you like to receive weather alerts in your response. | `Bool` | `true` |
 | `CYRequest.endpoint.hourlyLength` | How many hours would you like to receive hourly weather content. | `Int` | `48` |
 | `CYRequest.endpoint.dailyLength` | How many days would you like to receive daily weather content. | `Int` | `5` |
-| `CYRequest.endpoint.file` | The target file of the response. You are not recommended to change this parameter. | `String` | `"weather.json"` |
-| `CYRequest.endpoint.version` | API version. You are not recommended to change this parameter. | `String` | `"v2.5"` |
+| `CYRequest.endpoint.file` | The target file of the response.  *You are not recommended to change this parameter.* | `String` | `"weather.json"` |
+| `CYRequest.endpoint.version` | API version.  *You are not recommended to change this parameter.* | `String` | `"v2.5"` |
 
 To alter a parameter, initialize your `CYRequest` object (recommended with `let` statement), and use `<route> = <value>` to make changes.
 
@@ -104,7 +104,7 @@ Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. N
 > 2. with `CLLocationCoordinate2D` objects from Apple's `CoreLocation` Framework
 > 3. API related initializer and handler
 > 
-> To get user's location or a pin from map, please use `CoreLocation` or `MapKit`.
+> To get user's location or a pin from map, please use `CoreLocation` or `MapKit` to get the coordinate.
 
 ## License
 
