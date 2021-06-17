@@ -215,6 +215,10 @@ If you have your data ready (either fetched with `fatchData`, fetched with `data
 
 > Before continuing, you are highly recommended to read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) to have a brief outline of the response content.
 
+The default contents are very long, that means few people will use all of them. Therefore, **you are very welcomed to define your own data model, with an adaptor from `CYResponse`**.
+
+Some instructions about content types and return types are as follows. You are encouraged to read them all together, but here's an alternation for you: just skip this section and continue, come back when you meet problems.
+
 ### `CYContent` types
 
 `CYContent` defines some common types for weather content, which are handful to reuse.
