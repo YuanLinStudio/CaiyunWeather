@@ -145,10 +145,7 @@ Use `CYRequest.endpoint.url` to get the URL after your alternation if in need. N
 
 > #### Working with `CYCoordinate`
 > 
-> `CYCoordinate` provides several ways to initialize: 
-> 1. with longitude and latitude
-> 2. with `CLLocationCoordinate2D` objects from Apple's `CoreLocation` Framework
-> 3. API related initializer and handler
+> `CYCoordinate` is a type alias for `CLLocationCoordinate2D` in Apple's `CoreLocation` Framework, with extensions conformed to `Codable` and `Equatable` for coding options. You may also initialize one with longitude and latitude. Use `.defaultCoordinate` to get a default `CYCoordinate` object as (0, 0).
 > 
 > To get user's location or a pin from map, please use `CoreLocation` or `MapKit` to get the coordinate.
 
@@ -278,7 +275,8 @@ Some instructions about content types and return types are as follows. You are e
 | `CYContent.DatetimeServerType` |  | `time` |
 | `CYContent.LifeIndex<T>` | Life indices with optional properties of type `T`. | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
 | `CYContent.Wind` |  | `speed`, `direction` |
-| `CYContent.Wind.WindContent` |  | `value`, `description` |
+| `CYContent.Wind.WindSpeed` |  | `value`, `description` |
+| `CYContent.Wind.WindDirection` |  | `value`, `description` |
 | `CYContent.AirQuality` | Optional properties. | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
 | `CYContent.Phenomenon` | Enumeration. | All cases defined in [API documentation - Phenomenon Codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) |
 

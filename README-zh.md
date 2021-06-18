@@ -145,10 +145,7 @@ request.perform { response, source, error in
 
 > #### 使用 `CYCoordinate`
 > 
-> `CYCoordinate` 提供了多种方法来初始化： 
-> 1. 用经度和纬度
-> 2. 用 Apple `CoreLocation` 框架中的 `CLLocationCoordinate2D` 对象
-> 3. API 相关的构造器和处理器
+> `CYCoordinate` 是 Apple `CoreLocation` 框架中的 `CLLocationCoordinate2D` 类型的别名，并增加了一些扩展（`extension`）来满足`Codable` 和 `Equatable` 协议。您可以用经度和纬度初始化一个 `CYCoordinate` 对象，也可以用 `.defaultCoordinate` 来获取一个位置坐标为 (0, 0) 的默认对象。
 > 
 > 若要获取用户的位置或地图中的标记点，请使用 `CoreLocation` 或 `MapKit` 来获取其坐标。
 
@@ -278,7 +275,8 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 | `CYContent.DatetimeServerType` |  | `time` |
 | `CYContent.LifeIndex<T>` | `T` 类型的生活指数 | `ultraviolet`, `comfort`, `carWashing`, `coldRisk`, `dressing` |
 | `CYContent.Wind` |  | `speed`, `direction` |
-| `CYContent.Wind.WindContent` |  | `value`, `description` |
+| `CYContent.Wind.WindSpeed` |  | `value`, `description` |
+| `CYContent.Wind.WindDirection` |  | `value`, `description` |
 | `CYContent.AirQuality` | 属性值为 Optional 类型 | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
 | `CYContent.Phenomenon` | 枚举类型 | [彩云天气 API 文档 - 天气现象代码表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) 中定义的所有内容 |
 
