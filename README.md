@@ -9,7 +9,44 @@ Request weather information from caiyunapp.com in 10 lines of code.
 [![GitHub license](https://img.shields.io/github/license/YuanLinStudio/CaiyunWeather)](https://github.com/YuanLinStudio/CaiyunWeather)
 [![Chinese Docs available](https://img.shields.io/badge/CN_Docs-available-brightgreen)](README-zh.md)
 
-中文版本，访问[这里](README-zh.md)。
+中文版本，请访问[这里](README-zh.md)。
+
+
+## Contents
+
+  - [Introduction](#introduction)
+  - [Before you start](#before-you-start)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Swift Package Manager](#swift-package-manager)
+  - [Quick starts](#quick-starts)
+  - [Making your API request](#making-your-api-request)
+    - [Altering API-related options of your request](#altering-api-related-options-of-your-request)
+    - [Altering other options of your request](#altering-other-options-of-your-request)
+    - [Convenient initializers](#convenient-initializers)
+  - [Performing your request](#performing-your-request)
+    - [Automatically choosing target](#automatically-choosing-target)
+    - [Explicitly choosing local or remote fetching](#explicitly-choosing-local-or-remote-fetching)
+    - [Fetching Data without decoding to `CYResponse` object](#fetching-data-without-decoding-to-cyresponse-object)
+    - [Fetching Example Data](#fetching-example-data)
+    - [Using native `URLSession.dataTask` to fetch data from remote](#using-native-urlsessiondatatask-to-fetch-data-from-remote)
+    - [Decoding your data to `CYResponse` object](#decoding-your-data-to-cyresponse-object)
+  - [Working with API response](#working-with-api-response)
+    - [`CYContent` types](#cycontent-types)
+      - [Physical types](#physical-types)
+      - [Abstruct types](#abstruct-types)
+    - [Response objects](#response-objects)
+      - [`CYResponse`](#cyresponse)
+      - [`CYResult`](#cyresult)
+      - [`CYAlert`](#cyalert)
+      - [`CYRealtime`](#cyrealtime)
+      - [`CYMinutely`](#cyminutely)
+      - [`CYHourly`](#cyhourly)
+      - [`CYDaily`](#cydaily)
+  - [Measurement and unit converting](#measurement-and-unit-converting)
+  - [Localization](#localization)
+  - [License](#license)
+  - [Disclaimer](#disclaimer)
 
 
 ## Introduction
