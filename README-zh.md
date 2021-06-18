@@ -4,10 +4,9 @@ Request weather information from caiyunapp.com in 10 lines of code.
 
 10 行代码搞定彩云天气 API。
 
-[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange)](https://developer.apple.com/swift)
+[![API v2.5](https://img.shields.io/badge/API-v2.5-orange)](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)
 [![SPM Availble](https://img.shields.io/badge/SPM-compatible-brightgreen)](https://swift.org/package-manager)
 [![GitHub license](https://img.shields.io/github/license/YuanLinStudio/CaiyunWeather)](https://github.com/YuanLinStudio/CaiyunWeather)
-[![API v2.5](https://img.shields.io/badge/API-v2.5-orange)](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)
 [![Chinese Docs available](https://img.shields.io/badge/CN_Docs-available-brightgreen)](README-zh.md)
 
 For English Version, click [here](README.md).
