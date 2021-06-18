@@ -175,7 +175,7 @@ request.endpoint = endpoint
 
 ### 自动选择信息源
 
-使用 `CYRequest.perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` 方法以使用自动选择的信息源的方式来执行您的请求。也就是说，如果下方 3 个条件满足，将使用本地缓存中的天气信息：
+使用 `CYRequest.perform(completionHandler: @escaping (CYResponse?, CYRequest.DataSource, Error?) -> Void)` 方法以使用自动选择的信息源的方式来执行您的请求。也就是说，如果下方 3 个条件满足，将使用本地缓存中的天气信息：
 
 1. 本地缓存文件存在，且没有解码错误；且
 2. 与您的请求（`request`）中的坐标位置相同（四舍五入至 `%.4f`，约 100 米的范围内）；且
@@ -187,15 +187,15 @@ request.endpoint = endpoint
 
 ### 显式选择使用本地缓存或远程 API 信息源
 
-若您想要显式选择信息源，您可以使用 `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` 方法。将 `dataSource` 设置为 `.local` 以从本地缓存中请求，或 `.remote` 以从远程 API 中请求。
+若您想要显式选择信息源，您可以使用 `CYRequest.perform(from dataSource: CYRequest.DataSource, completionHandler: @escaping (CYResponse?, CYRequest.DataSource, Error?) -> Void)` 方法。将 `dataSource` 设置为 `.local` 以从本地缓存中请求，或 `.remote` 以从远程 API 中请求。
 
 ### 只请求数据（`Data` 对象），而不解析为 `CYResponse` 对象
 
-若您想要只请求数据而不解析为 `CYResponse` 对象，您可以使用 `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` 方法。该方法应当仅在您调试过程或内部使用过程中调用。
+若您想要只请求数据而不解析为 `CYResponse` 对象，您可以使用 `CYRequest.fetchData(from dataSource: CYRequest.DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` 方法。该方法应当仅在您调试过程或内部使用过程中调用。
 
 ### 请求示例数据（`Data` 对象）
 
-本项目 package 中包含了一个示例 JSON 文件。调用 `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` 方法来获取它。
+本项目 package 中包含了一个示例 JSON 文件。调用 `CYRequest.fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` 方法来获取它。
 
 示例 JSON 文件是彩云天气 API 的一个返回内容，时间是 2021-04-14，位置坐标是 (112.8641, 35.4904)，该位置在山西省晋城市境内。
 
@@ -218,7 +218,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 
 **若您使用 `perform` 方法接收到了内容，您的内容可被直接使用，而无需再次进行解码。请跳过这一节。** 
 
-如果您准备好了您的数据（使用 `fatchData`、`dataTask`、或由本地文件载入），您可以调用 `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` 方法来将您的数据（`Data` 对象）解码到 `CYResponse` 对象。
+如果您准备好了您的数据（使用 `fatchData`、`dataTask`、或由本地文件载入），您可以调用 `CYRequest.decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` 方法来将您的数据（`Data` 对象）解码到 `CYResponse` 对象。
 
 
 ## 处理 API 响应内容

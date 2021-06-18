@@ -175,7 +175,7 @@ You should perform your request to get weather contents, either from remote or l
 
 ### Automatically choosing target
 
-Use `CYRequest.perform(completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` to perform your request by auto choosing target. That means, The local cached data will be fetched if the following 3 conditions are met:
+Use `CYRequest.perform(completionHandler: @escaping (CYResponse?, CYRequest.DataSource, Error?) -> Void)` to perform your request by auto choosing target. That means, The local cached data will be fetched if the following 3 conditions are met:
 
 1. the local cached file exists with no decoding errors; and
 2. it is for the coordinate you are requiring (rounded to `%.4f`, about 100 meters in distance); and
@@ -187,15 +187,15 @@ Elsewise, a new data will be fetched from remote API and then cached.
 
 ### Explicitly choosing local or remote fetching
 
-You may use `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` if you want to perform your request towards an explicit target. Set `dataSource` to `.local` if you want to fatch data from local cache, or `.remote` from remote API.
+You may use `CYRequest.perform(from dataSource: CYRequest.DataSource, completionHandler: @escaping (CYResponse?, CYRequest.DataSource, Error?) -> Void)` if you want to perform your request towards an explicit target. Set `dataSource` to `.local` if you want to fatch data from local cache, or `.remote` from remote API.
 
 ### Fetching Data without decoding to `CYResponse` object
 
-You may use `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` if you want to fatch data without decoding it to `CYResponse` object. This shall only be used for debugging and internal using.
+You may use `CYRequest.fetchData(from dataSource: CYRequest.DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` if you want to fatch data without decoding it to `CYResponse` object. This shall only be used for debugging and internal using.
 
 ### Fetching Example Data
 
-An example JSON file is included in this package for debugging use. Call `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
+An example JSON file is included in this package for debugging use. Call `CYRequest.fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` to get it.
 
 The example JSON file is a response from caiyunapp.com API, at date of 2021-04-14 and coordinate of (112.8641, 35.4904), which is located in Jincheng, Shanxi, China.
 
@@ -218,7 +218,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 
 **Content received by `perform` are ready-to-use and DO NOT need to decode. Skip this section and go ahead.** 
 
-If you have your data ready (either fetched with `fatchData`, fetched with `dataTask`, or loaded from local cache), you may use `decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` to decode your data to `CYResponse` object.
+If you have your data ready (either fetched with `fatchData`, fetched with `dataTask`, or loaded from local cache), you may use `CYRequest.decode(_ data: Data, completionHandler: @escaping (CYResponse?, CYError?) -> Void)` to decode your data to `CYResponse` object.
 
 
 ## Working with API response
