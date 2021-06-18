@@ -316,8 +316,8 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 | 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYAlert.AlertContent.AlertCode` |  | `type`, `level` |
-| `CYAlert.AlertContent.AlertCode.AlertType` |  | All cases defined in [API documentation - Alert type codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) |
-| `CYAlert.AlertContent.AlertCode.AlertLevel` |  | All cases defined in [API documentation - Alert level codes](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.BA.A7.E5.88.AB.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) |
+| `CYAlert.AlertContent.AlertCode.AlertType` |  | [彩云 API 文档 - 预警类型编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
+| `CYAlert.AlertContent.AlertCode.AlertLevel` |  | [彩云 API 文档 - 预警级别编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.BA.A7.E5.88.AB.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
 
 #### `CYRealtime`
 
