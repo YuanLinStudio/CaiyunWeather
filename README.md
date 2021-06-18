@@ -1,6 +1,6 @@
 # CaiyunWeather
 
-Request weather information from caiyunapp.com in 10 lines of code.
+Request weather from caiyunapp.com in 10 lines of code.
 
 10 行代码搞定彩云天气 API。
 

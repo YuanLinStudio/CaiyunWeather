@@ -1,6 +1,6 @@
 # CaiyunWeather
 
-Request weather information from caiyunapp.com in 10 lines of code.
+Request weather from caiyunapp.com in 10 lines of code.
 
 10 行代码搞定彩云天气 API。
 
@@ -132,7 +132,7 @@ request.perform { response, source, error in
 | `CYRequest.endpoint.token` | 您的 API token | `String!` | `nil` |
 | `CYRequest.endpoint.coordinate` | 请求天气的位置坐标 | `CYCoordinate` | `.defaultCoordinate` 即 (0, 0) |
 | `CYRequest.endpoint.language` | 返回内容的显示语言 | `CYEndpoint.RequestLanguage` | `.chineseSimplified` |
-| `CYRequest.endpoint.measurementSystem` | 相应内容的单位制 | `CYEndpoint.MeasurementSystem` (equal to `CYUnit`) | `.metric` |
+| `CYRequest.endpoint.measurementSystem` | 相应内容的单位制 | `CYEndpoint.MeasurementSystem` （即 `CYUnit`） | `.metric` |
 | `CYRequest.endpoint.shouldIncludeAlerts` | 是否接受天气预警信息 | `Bool` | `true` |
 | `CYRequest.endpoint.hourlyLength` | 小时级天气信息的时间长度 | `Int` | `48` |
 | `CYRequest.endpoint.dailyLength` | 天级天气信息的时间长度 | `Int` | `5` |
