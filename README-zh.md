@@ -9,7 +9,7 @@ Request weather information from caiyunapp.com in 10 lines of code.
 [![GitHub license](https://img.shields.io/github/license/YuanLinStudio/CaiyunWeather)](https://github.com/YuanLinStudio/CaiyunWeather)
 [![Chinese Docs available](https://img.shields.io/badge/CN_Docs-available-brightgreen)](README-zh.md)
 
-For English Version, click [here](README.md).
+For English version, please click [here](README.md).
 
 
 ## 目录
