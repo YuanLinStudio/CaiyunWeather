@@ -21,7 +21,7 @@ public struct CYResult: Codable, Equatable {
     ///
     // let primary: Int
     /// 天气要点
-    let keypoint: String
+    public let keypoint: String
     
     private enum CodingKeys: String, CodingKey {
         case alert
