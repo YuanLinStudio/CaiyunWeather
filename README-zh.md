@@ -12,6 +12,43 @@ Request weather information from caiyunapp.com in 10 lines of code.
 For English Version, click [here](README.md).
 
 
+## 目录
+
+  - [简介](#简介)
+  - [在开始之前](#在开始之前)
+  - [要求](#要求)
+  - [安装](#安装)
+    - [使用 Swift Package Manager](#使用-swift-package-manager)
+  - [快速开始](#快速开始)
+  - [设置您的 API 请求（`request`）](#设置您的-api-请求request)
+    - [自定义 API 相关的请求参数](#自定义-api-相关的请求参数)
+    - [自定义其他请求参数](#自定义其他请求参数)
+    - [便捷构造器](#便捷构造器)
+  - [执行您的请求](#执行您的请求)
+    - [自动选择信息源](#自动选择信息源)
+    - [显式选择使用本地缓存或远程 API 信息源](#显式选择使用本地缓存或远程-api-信息源)
+    - [只请求数据（`Data` 对象），而不解析为 `CYResponse` 对象](#只请求数据data-对象而不解析为-cyresponse-对象)
+    - [请求示例数据（`Data` 对象）](#请求示例数据data-对象)
+    - [使用原始 `URLSession.dataTask` 方法从远程 API 请求数据](#使用原始-urlsessiondatatask-方法从远程-api-请求数据)
+    - [将数据（`Data` 对象）解码到 `CYResponse` 对象](#将数据data-对象解码到-cyresponse-对象)
+  - [处理 API 响应内容](#处理-api-响应内容)
+    - [`CYContent` 类型](#cycontent-类型)
+      - [实际类型](#实际类型)
+      - [抽象类型](#抽象类型)
+    - [响应对象](#响应对象)
+      - [`CYResponse`](#cyresponse)
+      - [`CYResult`](#cyresult)
+      - [`CYAlert`](#cyalert)
+      - [`CYRealtime`](#cyrealtime)
+      - [`CYMinutely`](#cyminutely)
+      - [`CYHourly`](#cyhourly)
+      - [`CYDaily`](#cydaily)
+  - [计量单位换算](#计量单位换算)
+  - [本地化和翻译](#本地化和翻译)
+  - [许可](#许可)
+  - [免责声明](#免责声明)
+
+
 ## 简介
 
 `CaiyunWeather` 是 [彩云天气 API](http://caiyunapp.com/) 天气服务的一个包装器，采用 Swift 代码编写，并适用于以 Swift 语言构建的程序。
