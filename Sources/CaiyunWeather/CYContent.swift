@@ -62,11 +62,11 @@ public struct CYContent: Codable, Equatable {
     /// 风
     public struct Wind: Codable, Equatable {
         /// 风速
-        public let speed: WindContent
+        public let speed: WindSpeed
         /// 风向
-        public let direction: WindContent
+        public let direction: WindDirection
         
-        public struct WindContent: Codable, Equatable {
+        public struct WindDirection: Codable, Equatable {
             /// 值
             public let value: Double
             /// 描述
@@ -76,6 +76,24 @@ public struct CYContent: Codable, Equatable {
                 let container = try decoder.singleValueContainer()
                 value = try container.decode(Double.self)
                 description = getDirectionDescription(value)
+            }
+            
+            public func encode(to encoder: Encoder) throws {
+                var container = encoder.singleValueContainer()
+                try container.encode(value)
+            }
+        }
+        
+        public struct WindSpeed: Codable, Equatable {
+            /// 值
+            public let value: Double
+            /// 描述
+            public let description: String
+            
+            public init(from decoder: Decoder) throws {
+                let container = try decoder.singleValueContainer()
+                value = try container.decode(Double.self)
+                description = getSpeedDescription(value)
             }
             
             public func encode(to encoder: Encoder) throws {
