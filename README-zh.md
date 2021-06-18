@@ -224,7 +224,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 
 ## 处理 API 响应内容
 
-> 继续之前，我们非常建议您阅读 [彩云 API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) 来了解 API 响应的内容。
+> 继续之前，我们非常建议您阅读 [彩云天气 API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) 来了解 API 响应的内容。
 
 默认的返回内容非常长，这意味着您可能不会全部用到它们。因此，**我们非常欢迎您定义您自己的天气数据模型，并使用对 `CYResponse` 的适配器来构造它**。
 
@@ -244,7 +244,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 | `CYContent.Wind` |  | `speed`, `direction` |
 | `CYContent.Wind.WindContent` |  | `value`, `description` |
 | `CYContent.AirQuality` | 属性值为 Optional 类型 | `pm25`, `pm10`, `o3`, `so2`, `no2`, `co`, `aqi`, `description` |
-| `CYContent.Phenomenon` | 枚举类型 | [彩云 API 文档 - 天气现象代码表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) 中定义的所有内容 |
+| `CYContent.Phenomenon` | 枚举类型 | [彩云天气 API 文档 - 天气现象代码表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8) 中定义的所有内容 |
 
 #### 抽象类型
 
@@ -316,8 +316,8 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 | 类型 | 描述 | 属性 |
 | ---- | ---- | ---- |
 | `CYAlert.AlertContent.AlertCode` |  | `type`, `level` |
-| `CYAlert.AlertContent.AlertCode.AlertType` |  | [彩云 API 文档 - 预警类型编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
-| `CYAlert.AlertContent.AlertCode.AlertLevel` |  | [彩云 API 文档 - 预警级别编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.BA.A7.E5.88.AB.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
+| `CYAlert.AlertContent.AlertCode.AlertType` |  | [彩云天气 API 文档 - 预警类型编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.B1.BB.E5.9E.8B.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
+| `CYAlert.AlertContent.AlertCode.AlertLevel` |  | [彩云天气 API 文档 - 预警级别编码对照表](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A2.84.E8.AD.A6.E7.BA.A7.E5.88.AB.E7.BC.96.E7.A0.81.E5.AF.B9.E7.85.A7.E8.A1.A8) 中定义的所有内容 |
 
 #### `CYRealtime`
 
