@@ -46,11 +46,11 @@ To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/p
 
 ``` swift
 let package = Package(
-...
-dependencies: [
-.package(url: "https://github.com/YuanLinStudio/CaiyunWeather.git", from: "1.0.0")
-],
-...
+    ...
+    dependencies: [
+        .package(url: "https://github.com/YuanLinStudio/CaiyunWeather.git", from: "1.0.0")
+    ],
+    ...
 )
 ```
 
@@ -72,12 +72,12 @@ let request = CYRequest(token: token, coordinate: coordinate)
 
 // request the data
 request.perform { response, source, error in
-guard let response = response, error == nil else {
-print(error.debugDescription)
-return
-}
-print(response)
-// your subsequent actions for `CYResponse?` result ...
+    guard let response = response, error == nil else {
+        print(error.debugDescription)
+        return
+    }
+    print(response)
+    // your subsequent actions for `CYResponse?` result ...
 }
 ```
 
@@ -209,7 +209,7 @@ However, if you would prefer to hard-code your URL or you need to do so, the cod
 let url = "your.valid.url/for/api/requests"
 
 URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-// deal with data ...
+    // deal with data ...
 }
 .resume()
 ```
