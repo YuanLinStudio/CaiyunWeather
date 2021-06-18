@@ -16,7 +16,7 @@ public class CYRequest {
     public lazy var localContentUrl: URL = getDefaultLocalContentUrl()
     
     /// The expiration, that is, the minimum time interval for URL request for the same condinate. In second.
-    public let expiration: TimeInterval = 5 * 60
+    public var expiration: TimeInterval = 5 * 60
     
     /// The queue on which the request is performed
     public var queue: DispatchQueue = .global(qos: .background)

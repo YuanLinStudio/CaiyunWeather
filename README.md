@@ -268,7 +268,7 @@ Some instructions about content types and return types are as follows. You are e
 
 ### `CYContent` types
 
-`CYContent` defines some common types for weather content, which are handful to reuse.
+`CYContent` defines some common types for weather content, which are handy to reuse.
 
 #### Physical types
 
