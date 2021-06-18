@@ -25,16 +25,19 @@ You can also define almost everything during your request and result handling.
 
 Therefore, a built-in method of caching weather content is provided, which means you can cut down your remote API calls and **save your costs**!
 
+
 ## Before you start
 
 1. You have to request a valid token from [http://caiyunapp.com/](http://caiyunapp.com/) (`Chinese`) for yourself. **Always keep your token secret and safe!**
 2. You are highly recommended to firstly read the [API documentation](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8) (`Chinese`) from caiyunapp.com.
+
 
 ## Requirements
 
 - Swift 5.0 or later
 - Xcode 11 or later
 - iOS 10 or later / macOS 10.12 or later
+
 
 ## Installation
 
@@ -44,13 +47,14 @@ To install `CaiyunWeather` using the [Swift Package Manager](https://swift.org/p
 
 ``` swift
 let package = Package(
-    ...
-    dependencies: [
-        .package(url: "https://github.com/YuanLinStudio/CaiyunWeather.git", from: "1.0.0")
-    ],
-    ...
+...
+dependencies: [
+.package(url: "https://github.com/YuanLinStudio/CaiyunWeather.git", from: "1.0.0")
+],
+...
 )
 ```
+
 
 ## Quick starts
 
@@ -59,7 +63,7 @@ Use the code below to perform a request to caiyunapp.com and get the returned da
 ``` swift
 import CaiyunWeather
 
-let token = "your-token-here"
+let token: String = "your-token-here"
 
 // the place's coordinate of which you want to request weather
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
@@ -69,14 +73,15 @@ let request = CYRequest(token: token, coordinate: coordinate)
 
 // request the data
 request.perform { response, source, error in
-    guard let response = response, error == nil else {
-        print(error.debugDescription)
-        return
-    }
-    print(response)
-    // your subsequent actions for `CYResponse?` result
+guard let response = response, error == nil else {
+print(error.debugDescription)
+return
+}
+print(response)
+// your subsequent actions for `CYResponse?` result ...
 }
 ```
+
 
 ## Making your API request
 
@@ -134,14 +139,14 @@ If you don't have the above two requirements (just keep them as default), or you
 The three initializing statements below are equal:
 
 ``` swift
-let token = "your-token-here"
+let token: String = "your-token-here"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let request = CYRequest(token: token, coordinate: coordinate)
 ```
 
 ``` swift
-let token = "your-token-here"
+let token: String = "your-token-here"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let endpoint = CYEndpoint(token: token, coordinate: coordinate)
@@ -151,7 +156,7 @@ request.endpoint = endpoint
 ```
 
 ``` swift
-let token = "your-token-here"
+let token: String = "your-token-here"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 var endpoint = CYEndpoint()
@@ -161,6 +166,7 @@ endpoint.coordinate = coordinate
 let request = CYRequest()
 request.endpoint = endpoint
 ```
+
 
 ## Performing your request
 
@@ -204,7 +210,7 @@ However, if you would prefer to hard-code your URL or you need to do so, the cod
 let url = "your.valid.url/for/api/requests"
 
 URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-    // deal with the data
+// deal with data ...
 }
 .resume()
 ```
@@ -338,7 +344,6 @@ Redefined types
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
 | `CYRealtime.Precipitation.PrecipitationContent` | `datasource` and `distance` are optional. | `responseStatus`, `datasource`, `intensity`, `distance` |
 
-
 #### `CYMinutely`
 
 | Property | Type | API Original Key |
@@ -417,6 +422,7 @@ Abstruct types
 
 > `extension` them to better serve you!
 
+
 ## Measurement and unit converting
 
 API provides [5 unit systems](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6) for your requests. In this project, these 5 unit systems are also implemented and available for you to converting the weather values between them and more. 
@@ -443,6 +449,7 @@ Refer to `CYUnit` for all defined measurement units.
 
 > `extension` them to better serve you!
 
+
 ## Localization
 
 API provides [5 languages](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0) for your requests. In this project, some of weather contents are localized in 2 languages (`en` and `zh-Hans`), such as phenomenon, alert and wind.
@@ -451,9 +458,11 @@ Refer to `Localizable` for more information.
 
 > `extension` them to better serve you!
 
+
 ## License
 
 MIT
+
 
 ## Disclaimer
 

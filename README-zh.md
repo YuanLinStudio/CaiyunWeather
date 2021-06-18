@@ -25,16 +25,19 @@ For English Version, click [here](README.md).
 
 因此，项目内置了一个天气内容缓存工具，您可以借助它来减少远程 API 调用次数并**节省您的成本**！
 
+
 ## 在开始之前
 
 1. 您需要在 [http://caiyunapp.com/](http://caiyunapp.com/) 为自己申请一个天气 token。**记得保密好您的 token 哦！**
 2. 非常建议您首先阅读彩云天气的 [API 文档](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8)。
+
 
 ## 要求
 
 - Swift 语言版本 5.0 或以上
 - Xcode 版本 11 或以上
 - iOS 版本 10 或以上 / macOS 版本 10.12 或以上
+
 
 ## 安装
 
@@ -52,6 +55,7 @@ let package = Package(
 )
 ```
 
+
 ## 快速开始
 
 使用下方代码来向彩云天气 API 发送请求，并将返回的数据解码为 `CYResponse` 对象：
@@ -59,7 +63,7 @@ let package = Package(
 ``` swift
 import CaiyunWeather
 
-let token = "您的 token"
+let token: String = "您的 token"
 
 // 请求天气位置的坐标
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
@@ -74,9 +78,10 @@ request.perform { response, source, error in
         return
     }
     print(response)
-    // 您为 `CYResponse?` 定义的后续方法
+    // 您为 `CYResponse?` 定义的后续方法...
 }
 ```
+
 
 ## 设置您的 API 请求（`request`）
 
@@ -89,7 +94,7 @@ request.perform { response, source, error in
 | 参数路径 | 描述 | 类型 | 默认值 |
 | ---- | ---- | ---- | ---- |
 | `CYRequest.endpoint.token` | 您的 API token | `String!` | `nil` |
-| `CYRequest.endpoint.coordinate` | 请求天气的位置坐标 | `CYCoordinate` | `.defaultCoordinate` as (0, 0) |
+| `CYRequest.endpoint.coordinate` | 请求天气的位置坐标 | `CYCoordinate` | `.defaultCoordinate` 即 (0, 0) |
 | `CYRequest.endpoint.language` | 返回内容的显示语言 | `CYEndpoint.RequestLanguage` | `.chineseSimplified` |
 | `CYRequest.endpoint.measurementSystem` | 相应内容的单位制 | `CYEndpoint.MeasurementSystem` (equal to `CYUnit`) | `.metric` |
 | `CYRequest.endpoint.shouldIncludeAlerts` | 是否接受天气预警信息 | `Bool` | `true` |
@@ -134,14 +139,14 @@ request.perform { response, source, error in
 下方 3 段初始化语句将产生相同的效果：
 
 ``` swift
-let token = "您的 token"
+let token: String = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let request = CYRequest(token: token, coordinate: coordinate)
 ```
 
 ``` swift
-let token = "您的 token"
+let token: String = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 let endpoint = CYEndpoint(token: token, coordinate: coordinate)
@@ -151,7 +156,7 @@ request.endpoint = endpoint
 ```
 
 ``` swift
-let token = "您的 token"
+let token: String = "您的 token"
 let coordinate = CYCoordinate(latitude: 31.025785475418274, longitude: 121.4474754473953)
 
 var endpoint = CYEndpoint()
@@ -161,6 +166,7 @@ endpoint.coordinate = coordinate
 let request = CYRequest()
 request.endpoint = endpoint
 ```
+
 
 ## 执行您的请求
 
@@ -184,11 +190,11 @@ request.endpoint = endpoint
 
 若您想要显式选择信息源，您可以使用 `perform(from dataSource: DataSource, completionHandler: @escaping (CYResponse?, DataSource, Error?) -> Void)` 方法。将 `dataSource` 设置为 `.local` 以从本地缓存中请求，或 `.remote` 以从远程 API 中请求。
 
-### 只请求数据，而不解析为 `CYResponse` 对象
+### 只请求数据（`Data` 对象），而不解析为 `CYResponse` 对象
 
 若您想要只请求数据而不解析为 `CYResponse` 对象，您可以使用 `fetchData(from dataSource: DataSource, completionHandler: @escaping (Data?, Error?) -> Void)` 方法。该方法应当仅在您调试过程或内部使用过程中调用。
 
-### 请求示例数据
+### 请求示例数据（`Data` 对象）
 
 本项目 package 中包含了一个示例 JSON 文件。调用 `fetchExampleData(completionHandler: @escaping (Data?, Error?) -> Void)` 方法来获取它。
 
@@ -196,15 +202,15 @@ request.endpoint = endpoint
 
 ### 使用原始 `URLSession.dataTask` 方法从远程 API 请求数据
 
-**不建议使用。**注意，在`perform` 和 `fatchData` 方法内部已经使用 `dataTask` 来完成，因此多数情况下您应当直接调用这两个方法。
+**不建议使用**。注意，在`perform` 和 `fatchData` 方法内部已经使用 `dataTask` 来完成，因此多数情况下您应当直接调用这两个方法。
 
 尽管如此，如果您倾向于硬编码您的 URL 或您需要使用原始方法，下方代码可能会为您提供帮助。
 
 ``` swift
-let url = "您请求数据的 URL"
+let url: URL = "您请求数据的 URL"
 
 URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-    // 处理数据（`data`）
+    // 处理数据（`data`）...
 }
 .resume()
 ```
@@ -222,7 +228,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 
 默认的返回内容非常长，这意味着您可能不会全部用到它们。因此，**我们非常欢迎您定义您自己的天气数据模型，并使用对 `CYResponse` 的适配器来构造它**。
 
-有关内容类型和返回类型的说明如下。我们鼓励您读完它们，但这里有一个供你选择的方法：跳过这一节，等到编写程序遇到问题时再回来。
+有关内容类型和返回类型的说明如下。我们鼓励您读完它们，但这里有一个供您选择的方法：跳过这一节，等到编写程序遇到问题时再回来。
 
 ### `CYContent` 类型
 
@@ -338,7 +344,6 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 | `CYRealtime.Precipitation` |  | `local`, `nearest` |
 | `CYRealtime.Precipitation.PrecipitationContent` | `datasource` 和 `distance` 属性为 `Optional` 类型 | `responseStatus`, `datasource`, `intensity`, `distance` |
 
-
 #### `CYMinutely`
 
 | 属性 | 类型 | API 原始键值 |
@@ -417,6 +422,7 @@ URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
 
 > 您可以扩展（`extension`）它们来更好地为您提供服务。
 
+
 ## 计量单位换算
 
 彩云天气 API 为您的请求提供了 [5 种单位制](https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E6.94.AF.E6.8C.81.E7.9A.84.E5.8D.95.E4.BD.8D.E5.88.B6)。本项目实现了此 5 种单位制，并可为您提供它们之间的单位换算，甚至向其他单位换算。
@@ -443,6 +449,7 @@ let convertedSpeed = measurement.converted(to: .kilometersPerHour).value
 
 > 您可以扩展（`extension`）它们来更好地为您提供服务。
 
+
 ## 本地化和翻译
 
 彩云天气 API 为您的请求提供了 [5 种本地化语言](https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0)。本项目为其中 2 种语言（英语 `en` 和简体中文 `zh-Hans`）编写了本地化文件，内容包括天气现象、预警和风力风向等。
@@ -451,12 +458,14 @@ let convertedSpeed = measurement.converted(to: .kilometersPerHour).value
 
 > 您可以扩展（`extension`）它们来更好地为您提供服务。
 
+
 ## 许可
 
 MIT
+
 
 ## 免责声明
 
 - 本项目与彩云天气 API 无直接联系。
 - 彩云天气 API 不是本项目的赞助者，也不对本项目负责。
-- 我们非常尊重彩云天气 API 拥有的全部权利。
+- 我们非常尊重彩云天气 API 所有的全部权利。
